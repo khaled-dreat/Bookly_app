@@ -1,0 +1,20 @@
+part of 'srh_books_cubit.dart';
+
+@immutable
+sealed class SrhBooksState {}
+
+final class SrhBooksInitial extends SrhBooksState {}
+
+final class SrhBooksLoading extends SrhBooksState {}
+
+final class SrhBooksFailure extends SrhBooksState {
+  final String errorMessage;
+
+  SrhBooksFailure({required this.errorMessage});
+}
+
+final class SrhBooksSuccess extends SrhBooksState {
+  final List<SrhBookEntity> books;
+
+  SrhBooksSuccess({required this.books});
+}
