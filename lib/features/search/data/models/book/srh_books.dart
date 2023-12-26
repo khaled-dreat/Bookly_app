@@ -29,7 +29,7 @@ class SrhBooksModel extends SrhBookEntity {
           title: volumeInfo!.title,
           autherName: volumeInfo.authors?.first ?? "No Name",
           price: saleInfo!.listPrice?.amount,
-          rating: volumeInfo.maturityRating!,
+          rating: volumeInfo.averageRating,
         );
 
   factory SrhBooksModel.fromJson(Map<String, dynamic> json) => SrhBooksModel(

@@ -3,8 +3,8 @@ class SrhBookEntity {
   final String image;
   final String? title;
   final String autherName;
-  final double? price;
-  final String rating;
+  final num? price;
+  final num? rating;
 
   SrhBookEntity({
     required this.bookId,

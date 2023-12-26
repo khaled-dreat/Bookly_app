@@ -11,12 +11,20 @@ part 'srh_books_state.dart';
 class SrhBooksCubit extends Cubit<SrhBooksState> {
   SrhBooksCubit(this.featuredSrhBooksUseCase) : super(SrhBooksInitial());
   final FeaturedSrhBooksUseCase featuredSrhBooksUseCase;
-  Future<void> fetchFeaturedSrhBooks() async {
-    emit(SrhBooksLoading());
+  Future<void> fetchFeaturedSrhBooks({int pageNumber = 0}) async {
+    if (pageNumber == 0) {
+      emit(SrhBooksLoading());
+    } else {
+      emit(SrhBooksPaginationLoading());
+    }
     Either<Failure, List<SrhBookEntity>> result =
-        await featuredSrhBooksUseCase.call();
+        await featuredSrhBooksUseCase.call(pageNumber);
     result.fold((failure) {
-      emit(SrhBooksFailure(errorMessage: failure.message));
+      if (pageNumber == 0) {
+        emit(SrhBooksFailure(errorMessage: failure.message));
+      } else {
+        emit(SrhBooksPaginationFailure(errorMessage: failure.message));
+      }
     }, (books) {
       emit(SrhBooksSuccess(books: books));
     });

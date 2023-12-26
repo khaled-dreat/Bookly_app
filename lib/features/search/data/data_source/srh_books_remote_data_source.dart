@@ -1,8 +1,9 @@
 import 'dart:developer';
-
 import 'package:clean_arch_bookly_app/core/api/api_service.dart';
 import 'package:clean_arch_bookly_app/features/search/data/models/book/srh_books.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
+
+import '../../../home/data/models/book/list_price.dart';
 
 abstract class SrhBooksRemoteDataSource {
   Future<List<SrhBookEntity>> featuredSrhBooks({int pageNumber = 0});
@@ -14,6 +15,7 @@ class SrhBooksDataSourceImp extends SrhBooksRemoteDataSource {
   SrhBooksDataSourceImp({required this.apiService});
   @override
   Future<List<SrhBookEntity>> featuredSrhBooks({int pageNumber = 0}) async {
+    log(name: "ListPrice", ListPrice().toJson().toString());
     var data = await apiService.get(
         endPoint: "volumes?q=harry potter&startIndex=${pageNumber * 10}");
     var books = getBooksList(data);
