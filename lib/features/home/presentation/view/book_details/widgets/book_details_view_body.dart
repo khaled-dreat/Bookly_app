@@ -1,17 +1,56 @@
+import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/book_details/widgets/custom_appbar_book_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../../core/utils/constant/app_images.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';
-import '../../home/widgets/costom_book_image.dart';
+import '../../../manger/featured_book_details_cubit/book_details_cubit.dart';
 import '../../home/widgets/book_rating.dart';
+import '../../home/widgets/costom_book_image.dart';
 import 'books_action.dart';
 import 'books_details_list_view.dart';
 
-class BookDetailsViewBody extends StatelessWidget {
+class BookDetailsViewBody extends StatefulWidget {
   const BookDetailsViewBody({super.key});
 
+  @override
+  State<BookDetailsViewBody> createState() => _BookDetailsViewBodyState();
+}
+
+class _BookDetailsViewBodyState extends State<BookDetailsViewBody> {
+  @override
+// void initState() {
+//   Future.delayed(Duration.zero, () async {
+//     await BlocProvider.of<BookDetailsCubit>(context)
+//         .fetchFeaturedBooksDeailsUseCase("BCvXDwAAQBAJ");
+//   });
+//
+//   super.initState();
+// }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BookDetailsCubit, BookDetailsState>(
+      builder: (context, state) {
+        if (state is BookDetailsSuccess) {
+          return BookDetails(
+            book: state.book,
+          );
+        } else if (state is BookDetailsFailure) {
+          Text(state.errMessage);
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+}
+
+class BookDetails extends StatelessWidget {
+  const BookDetails({
+    super.key,
+    required this.book,
+  });
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,28 +62,28 @@ class BookDetailsViewBody extends StatelessWidget {
           // * Space
           20.verticalSpace,
           // * Image
-          const CostomBookImage(
-              image: AppImages.book1, height: 230, width: 200),
+          CostomBookImage(image: book.image, height: 230, width: 200),
           // * Space
           30.verticalSpace,
           // * Title
           Text(
-            "The Jungle Book",
+            "${book.title}",
             style: AppTheme.h4(context),
           ),
           // * Name of Writer
           Opacity(
             opacity: 0.5,
             child: Text(
-              "Rudyard Kipting",
+              book.autherName,
               style: AppTheme.h6(context),
             ),
           ),
-          // * BookRating
-          //    const BookRating(
-          //      mainAxisAlignment: MainAxisAlignment.center,
-          //    ),
-          // * Space
+          // *   BookRating
+          BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+            reating: book.rating ?? "No Reating",
+          ),
+          // *    Space
           30.verticalSpace,
           // * Bottun
           const BooksAction(),

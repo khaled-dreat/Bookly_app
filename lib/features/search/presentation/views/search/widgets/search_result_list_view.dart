@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/newest_list_view_item.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';
+import '../../../../../home/presentation/manger/featured_book_details_cubit/book_details_cubit.dart';
 import '../../../../../home/presentation/view/book_details/book_details_view.dart';
 import '../../../../../home/presentation/view/home/widgets/book_rating.dart';
 import '../../../../../home/presentation/view/home/widgets/costom_book_image.dart';
@@ -38,6 +41,7 @@ class _SearchResultListViewState extends State<SearchResultListView> {
         isLoading = true;
         await BlocProvider.of<SrhBooksCubit>(context)
             .fetchFeaturedSrhBooks(pageNumber: nextPage++);
+
         isLoading = false;
       }
     }
@@ -59,7 +63,14 @@ class _SearchResultListViewState extends State<SearchResultListView> {
         return Padding(
             padding: EdgeInsets.symmetric(vertical: 8.r),
             child: InkWell(
-              onTap: () => AppRoutes.go(context, BookDetailsView.nameRoute),
+              onTap: () async {
+                await BlocProvider.of<BookDetailsCubit>(context)
+                    .fetchFeaturedBooksDetails(id: widget.books[index].bookId)
+                    .then((value) {
+                  AppRoutes.go(context, BookDetailsView.nameRoute);
+                });
+                log(widget.books[index].bookId);
+              },
               child: Row(
                 children: [
                   CostomBookImage(

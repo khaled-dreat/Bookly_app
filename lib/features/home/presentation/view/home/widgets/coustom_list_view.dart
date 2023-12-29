@@ -39,6 +39,7 @@ class _CoustomListViewState extends State<CoustomListView> {
         isLoading = true;
         await BlocProvider.of<FeaturedBooksCubit>(context)
             .fetchFeaturedBooks(pageNumber: nextPage++);
+
         isLoading = false;
       }
     }

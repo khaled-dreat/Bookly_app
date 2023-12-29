@@ -33,24 +33,6 @@ class HomeRepoEmpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchNewsBooks() async {
-    try {
-      List<BookEntity> books;
-      books = homeLocalDataSource.fetchNewsBooks();
-      if (books.isNotEmpty) {
-        return right(books);
-      }
-      books = await homeRemoteDataSource.fetchNewsBooks();
-      return right(books);
-    } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDiorError(e));
-      }
-      return left(ServerFailure(message: e.toString()));
-    }
-  }
-
-  @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
       List<BookEntity> books;
@@ -61,7 +43,23 @@ class HomeRepoEmpl extends HomeRepo {
       books = await homeRemoteDataSource.fetchNewsBooks();
       return right(books);
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, BookEntity>> fetchBooksDetails(
+      {required String? id}) async {
+    try {
+      BookEntity book;
+      book = await homeRemoteDataSource.fetchBooksDetails(id: id!);
+
+      return right(book);
+    } catch (e) {
+      if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
       }
       return left(ServerFailure(message: e.toString()));
