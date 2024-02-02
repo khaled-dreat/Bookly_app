@@ -39,7 +39,6 @@ class SrhBooksCubit extends Cubit<SrhBooksState> {
       } else {
         emit(SrhBooksPaginationLoading());
       }
-
       Either<Failure, List<SrhBookEntity>> result =
           await featuredSrhBooksUseCase.call(pageNumber, srhKey);
       result.fold((failure) {
