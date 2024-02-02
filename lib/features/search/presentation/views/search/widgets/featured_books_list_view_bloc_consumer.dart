@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:svg_flutter/svg_flutter.dart';
 import '../../../../../../core/widgets/snackbar/snackbar.dart';
 import '../../../../domain/entity/srh_book_entity.dart';
 import '../../../manger/srh_books/srh_books_cubit.dart';
@@ -27,6 +29,7 @@ class _FeaturedSrhBooksListViewBlocConsumerState
       if (state is SrhBooksSuccess) {
         BlocProvider.of<SrhBooksCubit>(context).booksList.addAll(state.books);
       }
+
       if (state is SrhBooksPaginationFailure) {
         ScaffoldMessenger.of(context).showSnackBar(
           buildErrorWidget(state.errorMessage),
@@ -41,6 +44,14 @@ class _FeaturedSrhBooksListViewBlocConsumerState
         );
       } else if (state is SrhBooksFailure) {
         return Text(state.errorMessage);
+      } else if (state is SrhBooksshowSrhView) {
+        return Center(
+          child: SizedBox(
+              height: 400.h,
+              width: 350.w,
+              child:
+                  SvgPicture.asset("assets/svg/undraw_searching_re_3ra9.svg")),
+        );
       } else {
         return const ListViewShimmerSrh();
       }

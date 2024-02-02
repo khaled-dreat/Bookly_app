@@ -7,6 +7,8 @@ final class SrhBooksInitial extends SrhBooksState {}
 
 final class SrhBooksLoading extends SrhBooksState {}
 
+final class SrhBooksshowSrhView extends SrhBooksState {}
+
 final class SrhBooksPaginationLoading extends SrhBooksState {}
 
 final class SrhBooksFailure extends SrhBooksState {

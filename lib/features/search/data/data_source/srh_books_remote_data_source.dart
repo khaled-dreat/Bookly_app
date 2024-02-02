@@ -15,8 +15,7 @@ class SrhBooksDataSourceImp extends SrhBooksRemoteDataSource {
   @override
   Future<List<SrhBookEntity>> fechSrhBooks(
       {int pageNumber = 0, String? srhKey}) async {
-    var data = await apiService.get(
-        endPoint: ApiKey.srhUrlBuilder(srhKey!, pageNumber));
+    var data = await apiService.get(endPoint: srhKey!);
     var books = getBooksList(data);
     return books;
   }

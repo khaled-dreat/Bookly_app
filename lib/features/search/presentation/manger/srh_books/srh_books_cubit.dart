@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:clean_arch_bookly_app/core/api/api_key.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/use_cases/featured_srh_books_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,21 @@ class SrhBooksCubit extends Cubit<SrhBooksState> {
 
   List<SrhBookEntity> booksList = [];
 
+  String urlBuilder(int pageNumber) {
+    if (categoryChoices.isNotEmpty && searchByChoices.isNotEmpty) {
+      return ApiKey.srhByCategory(
+          srhKey!, searchByChoices, pageNumber, categoryChoices.toString());
+    } else {
+      if (categoryChoices.isNotEmpty) {
+        return ApiKey.srhCategory(
+            srhKey!, categoryChoices.toString(), pageNumber);
+      } else if (searchByChoices.isNotEmpty) {
+        return ApiKey.srhBy(srhKey!, searchByChoices, pageNumber);
+      }
+      return ApiKey.srhUrlBuilder(srhKey!, pageNumber);
+    }
+  }
+
   Future<void> fetchFeaturedSrhBooks({int pageNumber = 0}) async {
     if (srhKey != "") {
       if (pageNumber == 0) {
@@ -40,7 +56,8 @@ class SrhBooksCubit extends Cubit<SrhBooksState> {
         emit(SrhBooksPaginationLoading());
       }
       Either<Failure, List<SrhBookEntity>> result =
-          await featuredSrhBooksUseCase.call(pageNumber, srhKey);
+          await featuredSrhBooksUseCase.call(
+              pageNumber, urlBuilder(pageNumber));
       result.fold((failure) {
         if (pageNumber == 0) {
           emit(SrhBooksFailure(errorMessage: failure.message));
@@ -50,6 +67,8 @@ class SrhBooksCubit extends Cubit<SrhBooksState> {
       }, (books) {
         emit(SrhBooksSuccess(books: books));
       });
+    } else {
+      emit(SrhBooksshowSrhView());
     }
   }
 }

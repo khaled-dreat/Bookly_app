@@ -8,12 +8,21 @@ class ApiKey {
     return "&startIndex=${pageNumber * 10}";
   }
 
+  static String srhByCategory(
+    String srhKey,
+    String searchBy,
+    int pageNumber,
+    String category,
+  ) {
+    return 'volumes?q=$searchBy:$srhKey&subject:=$category&startIndex=${pageNumber * 10}';
+  }
+
   static String srhBy(String srhKey, String searchBy, int pageNumber) {
     return 'volumes?q=$searchBy:$srhKey&startIndex=${pageNumber * 10}';
   }
 
   static String srhCategory(String srhKey, String category, int pageNumber) {
-    return 'volumes?subject:=category&q=$srhKey&startIndex=${pageNumber * 10}';
+    return 'volumes?subject:=$category&q=$srhKey&startIndex=${pageNumber * 10}';
   }
 
   static String srhUrlBuilder(String srhKey, int pageNumber) {
