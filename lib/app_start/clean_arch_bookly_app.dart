@@ -1,23 +1,24 @@
 import 'package:clean_arch_bookly_app/features/home/data/repo/home_repo_empl.dart';
+import 'package:clean_arch_bookly_app/features/home/domain/use_cases/fetch_also_like_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/home/domain/use_cases/fetch_book_details_use_case.dart';
 import 'package:clean_arch_bookly_app/features/home/domain/use_cases/fetch_featured_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/home/domain/use_cases/fetch_newest_books_use_case.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_book_details_cubit/book_details_cubit.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
+import 'package:clean_arch_bookly_app/features/home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
 import 'package:clean_arch_bookly_app/features/search/data/repo/srh_repo_emp.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/repo/srh_repo.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/use_cases/featured_srh_books_use_case.dart';
 import 'package:clean_arch_bookly_app/features/search/presentation/manger/srh_books/srh_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../core/utils/routes/app_routes.dart';
 import '../core/utils/setup_service_locator/setup_service_locator.dart';
 import '../core/utils/theme/app_theme_choose.dart';
 import 'package:nested/nested.dart';
 
-import '../features/home/presentation/manger/featured_new_books_cubit/new_books_cubit.dart';
+import '../features/home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
+import '../features/home/presentation/manger/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
+import '../features/home/presentation/manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
+import '../features/search/presentation/manger/category_books/category_books_cubit.dart';
 
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
@@ -71,9 +72,26 @@ class Bookly extends StatelessWidget {
       ),
       BlocProvider(
         create: (context) {
-          return BookDetailsCubit(FetchFeaturedBooksDeailsUseCase(
+          return BookDetailsCubit(FetchBooksDeailsUseCase(
             homeRepo: getIt.get<HomeRepoEmpl>(),
           ));
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return AlsoLikeBooksCubit(FetchAlsoLikeBooksUseCase(
+            homeRepo: getIt.get<HomeRepoEmpl>(),
+          ));
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return SearchhByCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return CategoryCubit();
         },
       )
     ];

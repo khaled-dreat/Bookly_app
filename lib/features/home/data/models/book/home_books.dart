@@ -28,7 +28,7 @@ class HomeBooksModel extends BookEntity {
           image: volumeInfo?.imageLinks?.thumbnail ?? "",
           title: volumeInfo!.title,
           autherName: volumeInfo.authors?.first ?? "No Name",
-          price: saleInfo!.listPrice?.amount,
+          price: saleInfo?.listPrice?.amount ?? 0.0,
           rating: volumeInfo.maturityRating!,
         );
 

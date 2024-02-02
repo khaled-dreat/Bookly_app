@@ -1,10 +1,10 @@
 import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'costom_book_image.dart';
+import '../../../manger/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
+import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
 
 class CoustomListView extends StatefulWidget {
   const CoustomListView({super.key, required this.books});

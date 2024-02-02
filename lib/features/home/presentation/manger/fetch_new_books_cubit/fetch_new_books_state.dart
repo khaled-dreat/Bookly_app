@@ -1,4 +1,4 @@
-part of 'new_books_cubit.dart';
+part of 'fetch_new_books_cubit.dart';
 
 @immutable
 abstract class NewestBooksState {}

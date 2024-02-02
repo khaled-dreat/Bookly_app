@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:clean_arch_bookly_app/core/utils/constant/app_failure.dart';
 import 'package:clean_arch_bookly_app/features/search/data/data_source/srh_books_remote_data_source.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
@@ -15,11 +13,11 @@ class SrhRepoEmpl extends SrhBooksRepo {
   SrhRepoEmpl({required this.srhBooksRemoteDataSource});
   @override
   Future<Either<Failure, List<SrhBookEntity>>> featuredSrhBooks(
-      {int pageNumber = 0}) async {
+      {int pageNumber = 0, String? srhKey}) async {
     List<SrhBookEntity> booksList;
     try {
-      booksList = await srhBooksRemoteDataSource.featuredSrhBooks(
-          pageNumber: pageNumber);
+      booksList = await srhBooksRemoteDataSource.fechSrhBooks(
+          pageNumber: pageNumber, srhKey: srhKey);
 
       return right(booksList);
     } catch (e) {

@@ -6,10 +6,10 @@ import '../../../../core/usecase/use_case.dart';
 import '../entity/book_entity.dart';
 import '../repo/home_repo.dart';
 
-class FetchFeaturedBooksDeailsUseCase extends UseCase<BookEntity, String> {
+class FetchBooksDeailsUseCase extends UseCase<BookEntity, String> {
   final HomeRepo homeRepo;
 
-  FetchFeaturedBooksDeailsUseCase({required this.homeRepo});
+  FetchBooksDeailsUseCase({required this.homeRepo});
 
   @override
   Future<Either<Failure, BookEntity>> call([String? param]) async {

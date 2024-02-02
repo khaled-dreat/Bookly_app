@@ -1,5 +1,4 @@
 import 'package:clean_arch_bookly_app/core/api/api_key.dart';
-import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
 import 'package:clean_arch_bookly_app/core/utils/simple_bloc_observer/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +12,7 @@ void main() async {
   Hive.registerAdapter(BookEntityAdapter());
   //await Hive.openBox<BookEntity>(AppHiveKey.featFreeProgramBooks);
   await Hive.openBox<BookEntity>(ApiKey.freeNewsProgrammingBook);
-  setupServiceLocator();
+  setupServiceLocatorHome();
   setupServiceLocatorSrh();
   Bloc.observer = SimpleBlocObserver();
   runApp(const Bookly());

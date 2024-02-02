@@ -1,4 +1,4 @@
-part of 'book_details_cubit.dart';
+part of 'fetch_book_details_cubit.dart';
 
 @immutable
 sealed class BookDetailsState {}

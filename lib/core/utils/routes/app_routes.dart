@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../../../features/categories/presentation/book_categorie/view/book_categories_view.dart';
+import '../../../features/categories/presentation/categories/view/categories_view.dart';
 import '../../../features/home/presentation/view/book_details/book_details_view.dart';
 import '../../../features/home/presentation/view/home/home_view.dart';
 import '../../../features/search/presentation/views/search/search_view.dart';
@@ -12,14 +13,17 @@ class AppRoutes {
     HomeView.nameRoute: (context) => const HomeView(),
     BookDetailsView.nameRoute: (context) => const BookDetailsView(),
     SearchView.nameRoute: (context) => const SearchView(),
+    CategoriesView.nameRoute: (context) => const CategoriesView(),
+    BookCategoriesView.nameRoute: (context) => const BookCategoriesView(),
   };
 
   // * inti Route
-  static String? get initRoute => SplachView.nameRoute;
+  static String? get initRoute => HomeView.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>
       Navigator.pushNamed(context, nameRoute);
+
   // * push Name Replace
   static void goReplace(BuildContext context, String nameRoute) =>
       Navigator.pushReplacementNamed(context, nameRoute);

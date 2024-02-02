@@ -1,9 +1,9 @@
 import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/widgets/snackbar/snackbar.dart';
+import '../../../manger/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
 import 'coustom_list_view.dart';
 
 class FeaturedBooksListViewBlocConsumer extends StatefulWidget {

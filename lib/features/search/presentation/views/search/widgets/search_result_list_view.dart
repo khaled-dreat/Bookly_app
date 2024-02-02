@@ -1,7 +1,6 @@
 import 'dart:developer';
 
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/newest_list_view_item.dart';
+import 'package:clean_arch_bookly_app/features/home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/search/presentation/manger/srh_books/srh_books_cubit.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';
-import '../../../../../home/presentation/manger/featured_book_details_cubit/book_details_cubit.dart';
+import '../../../../../home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
 import '../../../../../home/presentation/view/book_details/book_details_view.dart';
 import '../../../../../home/presentation/view/home/widgets/book_rating.dart';
-import '../../../../../home/presentation/view/home/widgets/costom_book_image.dart';
+import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
 
 class SearchResultListView extends StatefulWidget {
   const SearchResultListView({super.key, required this.books});
@@ -24,12 +23,16 @@ class SearchResultListView extends StatefulWidget {
 
 class _SearchResultListViewState extends State<SearchResultListView> {
   late ScrollController scrollController;
+  late TextEditingController searchController;
   int nextPage = 1;
+  String searchKey = 'game';
+  // اخذ القيمة من هاي
   bool isLoading = false;
   @override
   void initState() {
     super.initState();
     scrollController = ScrollController();
+    searchController = TextEditingController();
     scrollController.addListener(scrollListener);
   }
 
@@ -41,7 +44,6 @@ class _SearchResultListViewState extends State<SearchResultListView> {
         isLoading = true;
         await BlocProvider.of<SrhBooksCubit>(context)
             .fetchFeaturedSrhBooks(pageNumber: nextPage++);
-
         isLoading = false;
       }
     }
@@ -51,6 +53,7 @@ class _SearchResultListViewState extends State<SearchResultListView> {
   void dispose() {
     super.dispose();
     scrollController.dispose();
+    searchController.dispose();
   }
 
   @override
@@ -65,11 +68,11 @@ class _SearchResultListViewState extends State<SearchResultListView> {
             child: InkWell(
               onTap: () async {
                 await BlocProvider.of<BookDetailsCubit>(context)
-                    .fetchFeaturedBooksDetails(id: widget.books[index].bookId)
-                    .then((value) {
-                  AppRoutes.go(context, BookDetailsView.nameRoute);
-                });
-                log(widget.books[index].bookId);
+                    .fetchFeaturedBooksDetails(id: widget.books[index].bookId);
+                await BlocProvider.of<AlsoLikeBooksCubit>(context)
+                    .fetchAlsoLike(author: widget.books[index].autherName);
+                AppRoutes.go(context, BookDetailsView.nameRoute);
+                log(name: "Auther Name", widget.books[index].autherName);
               },
               child: Row(
                 children: [

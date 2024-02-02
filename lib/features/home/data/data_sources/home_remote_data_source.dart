@@ -1,8 +1,4 @@
-import 'dart:developer';
-
 import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
-import 'package:clean_arch_bookly_app/features/home/data/models/book_details/book_details_model.dart';
-
 import '../../../../core/api/api_key.dart';
 import '../../../../core/api/api_service.dart';
 import '../../../../core/utils/local_data/save_books_local_data.dart';
@@ -14,6 +10,7 @@ abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
   Future<BookEntity> fetchBooksDetails({required String id});
   Future<List<BookEntity>> fetchNewsBooks();
+  Future<List<BookEntity>> fetchAlsoLikeBook({required String? author});
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -35,7 +32,15 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<BookEntity> fetchBooksDetails({String? id}) async {
     var data = await apiService.get(endPoint: "volumes/$id");
     BookEntity book = HomeBooksModel.fromJson(data);
+
     return book;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchAlsoLikeBook({required String? author}) async {
+    var data = await apiService.get(endPoint: "volumes?q=inauthor:$author");
+    List<BookEntity> books = getBooksList(data);
+    return books;
   }
 
   @override

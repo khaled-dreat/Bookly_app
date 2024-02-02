@@ -5,5 +5,5 @@ import '../entity/srh_book_entity.dart';
 
 abstract class SrhBooksRepo {
   Future<Either<Failure, List<SrhBookEntity>>> featuredSrhBooks(
-      {int pageNumber = 0});
+      {int pageNumber = 0, String? srhKey});
 }

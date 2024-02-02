@@ -9,7 +9,7 @@ import '../../api/api_service.dart';
 
 final getIt = GetIt.instance;
 
-void setupServiceLocator() {
+void setupServiceLocatorHome() {
   getIt.registerSingleton<ApiService>(
     ApiService(
       Dio(),

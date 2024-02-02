@@ -11,7 +11,8 @@ class FeaturedSrhBooksUseCase extends UseCase<List<SrhBookEntity>, int> {
 
   @override
   Future<Either<Failure, List<SrhBookEntity>>> call(
-      [int pageNumber = 0]) async {
-    return await srhBooksRepo.featuredSrhBooks(pageNumber: pageNumber);
+      [int param = 0, String? srhKey]) async {
+    return await srhBooksRepo.featuredSrhBooks(
+        pageNumber: param, srhKey: srhKey);
   }
 }

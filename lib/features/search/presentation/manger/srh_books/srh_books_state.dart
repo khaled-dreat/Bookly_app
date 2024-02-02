@@ -26,3 +26,13 @@ final class SrhBooksSuccess extends SrhBooksState {
 
   SrhBooksSuccess({required this.books});
 }
+
+final class SrhBooksResult extends SrhBooksState {
+  final String result;
+
+  SrhBooksResult(this.result);
+
+  String changeResult() {
+    return result;
+  }
+}

@@ -7,4 +7,6 @@ abstract class HomeRepo {
       {int pageNumber = 0});
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks();
   Future<Either<Failure, BookEntity>> fetchBooksDetails({required String? id});
+  Future<Either<Failure, List<BookEntity>>> fetchAlsoLikeBook(
+      {required String? author});
 }

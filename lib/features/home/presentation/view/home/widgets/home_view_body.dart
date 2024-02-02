@@ -1,10 +1,9 @@
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/theme/app_theme.dart';
-import '../../../manger/featured_new_books_cubit/new_books_cubit.dart';
+import '../../../manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import 'newes_seller_list_view.dart';
 import 'coustom_appbar.dart';
 import 'featured_books_list_view_bloc_consumer.dart';

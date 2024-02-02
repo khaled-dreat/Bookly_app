@@ -18,8 +18,10 @@ class CostomBookImage extends StatelessWidget {
       child: Container(
           height: height.h,
           width: width.w,
+          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(30.r)),
+            color: Colors.amberAccent,
+            borderRadius: BorderRadius.all(Radius.circular(15.r)),
           ),
           child: CachedNetworkImage(imageUrl: image, fit: BoxFit.fill)),
     );
