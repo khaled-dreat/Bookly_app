@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'widgets/custom_search_text_field.dart';
+import 'widgets/custom_appbar_srh.dart';
 import 'widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -10,7 +9,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomSearchTextField(),
+      appBar: CustomSrhAppBar(),
       body: SafeArea(child: SearchViewBody()),
     );
   }

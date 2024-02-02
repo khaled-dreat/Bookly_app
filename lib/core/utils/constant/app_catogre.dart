@@ -25,3 +25,29 @@ enum AppCategories {
 
   const AppCategories({required this.title, required this.image});
 }
+
+List<String> choices = [
+  "Mystery and Thrillers",
+  "Biography and Memoirs",
+  "Self Development",
+  "Romance",
+  "Fantasy",
+  "History",
+  "Philosophy",
+  "Religion and Spirituality",
+  "Art and Design",
+  "Business and Finance",
+  "Health and Wellness",
+  "Science and Technology",
+  "Politics and Government",
+  "Sports and Recreation",
+  "Children's Books",
+];
+List<String> choicesSearchBy = [
+  "Title",
+  "Auther",
+  "In Publisher",
+  "SBN Number",
+  "ICCN Number",
+  "OCLC Number",
+];

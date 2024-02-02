@@ -1,6 +1,4 @@
 import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:clean_arch_bookly_app/features/home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
 import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/search/presentation/manger/srh_books/srh_books_cubit.dart';
@@ -59,69 +57,89 @@ class _SearchResultListViewState extends State<SearchResultListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: widget.books.length,
-      controller: scrollController,
-      itemBuilder: (BuildContext context, int index) {
-        return widget.books[index].image.isNotEmpty
-            ? Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.r),
-                child: InkWell(
-                  onTap: () async {
-                    await BlocProvider.of<BookDetailsCubit>(context)
-                        .fetchFeaturedBooksDetails(
-                            id: widget.books[index].bookId);
-                    await BlocProvider.of<AlsoLikeBooksCubit>(context)
-                        .fetchAlsoLike(author: widget.books[index].autherName);
-                    AppRoutes.go(context, BookDetailsView.nameRoute);
-                    log(name: "Auther Name", widget.books[index].autherName);
-                  },
-                  child: Row(
-                    children: [
-                      CostomBookImage(
-                          image: widget.books[index].image,
-                          height: 150,
-                          width: 120),
-                      10.horizontalSpace,
-                      SizedBox(
-                        width: 170.w,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      children: [
+        // * Search Result Text
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            "نتأج البحث",
+            style: AppTheme.h5(context),
+          ),
+        ),
+        // * Space
+        16.verticalSpace,
+        Expanded(
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+            itemCount: widget.books.length,
+            controller: scrollController,
+            itemBuilder: (BuildContext context, int index) {
+              return widget.books[index].image.isNotEmpty
+                  ? Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8.r),
+                      child: InkWell(
+                        onTap: () async {
+                          await BlocProvider.of<BookDetailsCubit>(context)
+                              .fetchFeaturedBooksDetails(
+                                  id: widget.books[index].bookId);
+                          await BlocProvider.of<AlsoLikeBooksCubit>(context)
+                              .fetchAlsoLike(
+                                  author: widget.books[index].autherName);
+                          AppRoutes.go(context, BookDetailsView.nameRoute);
+                          log(
+                              name: "Auther Name",
+                              widget.books[index].autherName);
+                        },
+                        child: Row(
                           children: [
-                            Text(
-                              "${widget.books[index].title}",
-                              style: AppTheme.b1(context),
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                            ),
-                            10.verticalSpace,
-                            Text(
-                              widget.books[index].autherName,
-                              style: AppTheme.s2(context),
-                            ),
-                            5.verticalSpace,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${widget.books[index].price}\$",
-                                  style: AppTheme.s1(context),
-                                ),
-                                BookRating(
-                                  reating:
-                                      "${widget.books[index].rating ?? "No Reating"}",
-                                )
-                              ],
+                            CostomBookImage(
+                                image: widget.books[index].image,
+                                height: 150,
+                                width: 120),
+                            10.horizontalSpace,
+                            SizedBox(
+                              width: 170.w,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "${widget.books[index].title}",
+                                    style: AppTheme.b1(context),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                  10.verticalSpace,
+                                  Text(
+                                    widget.books[index].autherName,
+                                    style: AppTheme.s2(context),
+                                  ),
+                                  5.verticalSpace,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "${widget.books[index].price}\$",
+                                        style: AppTheme.s1(context),
+                                      ),
+                                      BookRating(
+                                        reating:
+                                            "${widget.books[index].rating ?? "No Reating"}",
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ))
-            : null;
-      },
+                      ))
+                  : null;
+            },
+          ),
+        ),
+      ],
     );
   }
 }
