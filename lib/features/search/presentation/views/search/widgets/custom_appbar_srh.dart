@@ -11,6 +11,7 @@ class CustomSrhAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      elevation: 10,
       actions: [
         IconButton(
           onPressed: () => CustomSrhDialog.showCustomDialog(context),

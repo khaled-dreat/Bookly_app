@@ -60,6 +60,8 @@ class _SearchResultListViewState extends State<SearchResultListView> {
     return Column(
       children: [
         // * Search Result Text
+        16.verticalSpace,
+
         Align(
           alignment: Alignment.centerLeft,
           child: Text(

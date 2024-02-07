@@ -75,7 +75,11 @@ class SearchBySectionSrh extends StatelessWidget {
           value: state,
           wrapped: true,
           onChanged: (val) {
-            context.read<SearchhByCubit>().updateSelectedSearchByChoices(val);
+            if (val != state) {
+              context.read<SearchhByCubit>().updateSelectedSearchByChoices(val);
+            } else {
+              context.read<SearchhByCubit>().updateSelectedSearchByChoices("");
+            }
           },
           choiceItems: C2Choice.listFrom<String, String>(
             source: choicesSearchBy,

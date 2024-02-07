@@ -19,6 +19,7 @@ import '../features/home/presentation/manger/fetch_featured_book_details_cubit/f
 import '../features/home/presentation/manger/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
 import '../features/home/presentation/manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import '../features/search/presentation/manger/category_books/category_books_cubit.dart';
+import '../features/splach/presentation/maneg/select_category/select_category_cubit.dart';
 
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
@@ -92,6 +93,11 @@ class Bookly extends StatelessWidget {
       BlocProvider(
         create: (context) {
           return CategoryCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return SelectCategoryCubit();
         },
       )
     ];

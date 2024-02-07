@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clean_arch_bookly_app/features/search/presentation/manger/srh_books/srh_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +35,13 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
         style: TextStyle(color: Colors.black45, fontSize: 20.sp),
         controller: searchController,
         maxLines: 1,
+        onSubmitted: (value) async {
+          BlocProvider.of<SrhBooksCubit>(context).changeResult(value);
+          BlocProvider.of<SrhBooksCubit>(context).booksList.clear();
+          await BlocProvider.of<SrhBooksCubit>(context).fetchFeaturedSrhBooks();
+        },
+        keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.search,
         decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,

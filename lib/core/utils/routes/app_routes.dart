@@ -4,6 +4,7 @@ import '../../../features/categories/presentation/categories/view/categories_vie
 import '../../../features/home/presentation/view/book_details/book_details_view.dart';
 import '../../../features/home/presentation/view/home/home_view.dart';
 import '../../../features/search/presentation/views/search/search_view.dart';
+import '../../../features/splach/presentation/views/select_category/select_category_view.dart';
 import '../../../features/splach/presentation/views/splach/splach_view.dart';
 
 class AppRoutes {
@@ -15,10 +16,11 @@ class AppRoutes {
     SearchView.nameRoute: (context) => const SearchView(),
     CategoriesView.nameRoute: (context) => const CategoriesView(),
     BookCategoriesView.nameRoute: (context) => const BookCategoriesView(),
+    SelectCategoryView.nameRoute: (context) => const SelectCategoryView(),
   };
 
   // * inti Route
-  static String? get initRoute => HomeView.nameRoute;
+  static String? get initRoute => SelectCategoryView.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>
