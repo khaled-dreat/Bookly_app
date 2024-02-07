@@ -63,6 +63,13 @@ class AppColors {
   static final Color splashBtnLight = bgBlue.withOpacity(0.5);
   static final Color splashBtnDark = bgPink.withAlpha(100);
   static Color primaryColor = const Color(0xff100b20);
+  static Color textColor = const Color(0xFF2B2B2B);
+
+  static LinearGradient buttonGradi = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color(0XFF7DE7EB), Color(0XFF33BBCF)],
+  );
 }
 
 //  static Color red = Colors.red;
