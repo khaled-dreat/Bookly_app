@@ -20,7 +20,7 @@ class AppRoutes {
   };
 
   // * inti Route
-  static String? get initRoute => SelectCategoryView.nameRoute;
+  static String? get initRoute => SplachView.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>

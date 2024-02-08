@@ -17,6 +17,7 @@ class BtnAddSelectedCategory extends StatelessWidget {
         return InkWell(
           onTap: () {
             if (state.length == 3) {
+              context.read<SelectCategoryCubit>().addSelectedCategory();
               AppRoutes.goReplace(context, HomeView.nameRoute);
             }
           },

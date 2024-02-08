@@ -1,3 +1,5 @@
+import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
+
 import 'core/api/api_key.dart';
 import 'core/utils/simple_bloc_observer/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +10,10 @@ import 'core/utils/setup_service_locator/setup_service_locator.dart';
 import 'features/home/domain/entity/book_entity.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  //await Hive.openBox<BookEntity>(AppHiveKey.featFreeProgramBooks);
+  await Hive.openBox<List<String>>(AppHiveKey.selectedCategory);
   await Hive.openBox<BookEntity>(ApiKey.freeNewsProgrammingBook);
   setupServiceLocatorHome();
   setupServiceLocatorSrh();

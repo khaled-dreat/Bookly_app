@@ -1,4 +1,8 @@
+import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../core/utils/routes/app_routes.dart';
+import '../../../maneg/select_category/select_category_cubit.dart';
 import 'sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,8 +66,13 @@ class _SplachViewBodyState extends State<SplachViewBody>
 
   // * Go To Home
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 50), () {
-      AppRoutes.goReplace(context, SelectCategoryView.nameRoute);
+    context.read<SelectCategoryCubit>().getSelectedCategory();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
+        AppRoutes.goReplace(context, HomeView.nameRoute);
+      } else {
+        AppRoutes.goReplace(context, SelectCategoryView.nameRoute);
+      }
     });
   }
 }
