@@ -1,5 +1,5 @@
-import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
-import 'package:clean_arch_bookly_app/features/home/presentation/view/book_details/widgets/custom_appbar_book_details.dart';
+import '../../../../domain/entity/book_entity.dart';
+import 'custom_appbar_book_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

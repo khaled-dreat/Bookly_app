@@ -1,5 +1,5 @@
-import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
-import 'package:clean_arch_bookly_app/features/splach/presentation/views/splach/widgets/sliding_text.dart';
+import '../../../../../../core/utils/routes/app_routes.dart';
+import 'sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

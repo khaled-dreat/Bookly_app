@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch_bookly_app/features/home/domain/use_cases/fetch_book_details_use_case.dart';
+import '../../../domain/use_cases/fetch_book_details_use_case.dart';
 import 'package:meta/meta.dart';
 
 import '../../../domain/entity/book_entity.dart';

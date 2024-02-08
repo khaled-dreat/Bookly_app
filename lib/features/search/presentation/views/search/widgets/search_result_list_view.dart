@@ -1,7 +1,7 @@
 import 'dart:developer';
-import 'package:clean_arch_bookly_app/features/home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
-import 'package:clean_arch_bookly_app/features/search/presentation/manger/srh_books/srh_books_cubit.dart';
+import '../../../../../home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
+import '../../../../domain/entity/srh_book_entity.dart';
+import '../../../manger/srh_books/srh_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

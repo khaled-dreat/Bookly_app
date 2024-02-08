@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
+import '../../../../core/utils/local_data/app_local_data_key.dart';
 import 'package:hive/hive.dart';
 
 import '../../domain/entity/book_entity.dart';

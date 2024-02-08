@@ -1,7 +1,7 @@
-import 'package:clean_arch_bookly_app/core/usecase/use_case.dart';
-import 'package:clean_arch_bookly_app/core/utils/constant/app_failure.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/repo/srh_repo.dart';
+import '../../../../core/usecase/use_case.dart';
+import '../../../../core/utils/constant/app_failure.dart';
+import '../entity/srh_book_entity.dart';
+import '../repo/srh_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class FeaturedSrhBooksUseCase extends UseCase<List<SrhBookEntity>, int> {

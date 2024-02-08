@@ -1,10 +1,8 @@
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/constant/app_catogre.dart';
-import '../../../../../search/presentation/manger/category_books/category_books_cubit.dart';
 import '../../../maneg/select_category/select_category_cubit.dart';
 
 class SelectCategoryViewBody extends StatelessWidget {

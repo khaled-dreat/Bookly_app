@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
+import '../../../../core/utils/local_data/app_local_data_key.dart';
 import '../../../../core/api/api_key.dart';
 import '../../../../core/api/api_service.dart';
 import '../../../../core/utils/local_data/save_books_local_data.dart';

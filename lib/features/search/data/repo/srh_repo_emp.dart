@@ -1,6 +1,6 @@
-import 'package:clean_arch_bookly_app/core/utils/constant/app_failure.dart';
-import 'package:clean_arch_bookly_app/features/search/data/data_source/srh_books_remote_data_source.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/entity/srh_book_entity.dart';
+import '../../../../core/utils/constant/app_failure.dart';
+import '../data_source/srh_books_remote_data_source.dart';
+import '../../domain/entity/srh_book_entity.dart';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';

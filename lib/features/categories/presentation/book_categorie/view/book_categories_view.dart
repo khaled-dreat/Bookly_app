@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../../core/widgets/custom_img_books/costom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 

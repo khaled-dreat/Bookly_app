@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/features/search/presentation/views/search/widgets/featured_books_list_view_bloc_consumer.dart';
+import 'featured_books_list_view_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

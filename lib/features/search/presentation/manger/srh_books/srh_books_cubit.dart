@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch_bookly_app/core/api/api_key.dart';
-import 'package:clean_arch_bookly_app/core/utils/constant/app_catogre.dart';
-import 'package:clean_arch_bookly_app/features/search/domain/use_cases/featured_srh_books_use_case.dart';
+import '../../../../../core/api/api_key.dart';
+import '../../../../../core/utils/constant/app_catogre.dart';
+import '../../../domain/use_cases/featured_srh_books_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';

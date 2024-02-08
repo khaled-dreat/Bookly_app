@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/newest_list_view_item.dart';
+import 'newest_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
