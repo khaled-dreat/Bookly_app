@@ -1,4 +1,4 @@
-import '../features/category/presentation/categories/manger/index_1/fetch_category_books_index1_cubit.dart';
+import '../features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 import '../features/home/data/repo/home_repo_empl.dart';
 import '../features/home/domain/use_cases/fetch_also_like_book_use_case.dart';
 import '../features/home/domain/use_cases/fetch_book_details_use_case.dart';
@@ -18,7 +18,6 @@ import '../core/utils/routes/app_routes.dart';
 import '../core/utils/setup_service_locator/setup_service_locator.dart';
 import '../core/utils/theme/app_theme_choose.dart';
 import 'package:nested/nested.dart';
-
 import '../features/home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
 import '../features/home/presentation/manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import '../features/search/presentation/manger/category_books/category_books_cubit.dart';

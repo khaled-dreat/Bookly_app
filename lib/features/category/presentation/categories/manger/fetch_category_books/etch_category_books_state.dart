@@ -1,4 +1,4 @@
-part of 'fetch_category_books_index1_cubit.dart';
+part of 'fetch_category_books_cubit.dart';
 
 @immutable
 sealed class FetchCategoryBooksState {}

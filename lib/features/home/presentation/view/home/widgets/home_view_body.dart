@@ -1,24 +1,20 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../../core/utils/theme/app_theme.dart';
-import '../../../../../category/presentation/categories/manger/index_1/fetch_category_books_index1_cubit.dart';
+import '../../../../../category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 import '../../../../../category/presentation/categories/view/categories_view.dart';
 import '../../../../../splach/presentation/maneg/select_category/select_category_cubit.dart';
-import '../../../manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import 'coustom_appbar.dart';
 import 'featured_books_list_view_bloc.dart';
-import 'newes_seller_list_view.dart';
+import 'section_headar.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> SelectedCategoryList =
+    List<String> selectedCategoryList =
         context.read<SelectCategoryCubit>().itemCount;
     return CustomScrollView(
       slivers: [
@@ -32,107 +28,82 @@ class HomeViewBody extends StatelessWidget {
                 const CoustomAppBar(),
                 // * Space
                 15.verticalSpace,
+                // ? ********************* Selected Category Index 0 *********************
+                // * SectionH eadar
                 SectionHeadar(
-                    title: SelectedCategoryList[0],
+                    title: selectedCategoryList[0],
                     onPressed: () {
                       context
                           .read<FetchCategoryBooksCubit>()
                           .changeCategoryIndexAndTitle(
-                              SelectedCategoryList.indexOf(
-                                  SelectedCategoryList[0]),
-                              SelectedCategoryList[0]);
+                              selectedCategoryList
+                                  .indexOf(selectedCategoryList[0]),
+                              selectedCategoryList[0]);
                       AppRoutes.goMaterial(
                           context,
                           CategoriesView(
-                            title: SelectedCategoryList[0],
+                            title: selectedCategoryList[0],
                           ));
                     }),
                 // * List View Books Bloc Builder
                 FeaturedBooksListViewBlocIndex1(
-                    categoryTitle: SelectedCategoryList[0],
+                    categoryTitle: selectedCategoryList[0],
                     listCategoryIndex:
-                        SelectedCategoryList.indexOf(SelectedCategoryList[0])),
+                        selectedCategoryList.indexOf(selectedCategoryList[0])),
                 // * Space
                 15.verticalSpace,
-
-                // * List View Books Bloc Builder
+                // ? ********************* Selected Category Index 1 *********************
+                // * SectionH eadar
                 SectionHeadar(
-                    title: SelectedCategoryList[1],
+                    title: selectedCategoryList[1],
                     onPressed: () {
                       context
                           .read<FetchCategoryBooksCubit>()
                           .changeCategoryIndexAndTitle(
-                              SelectedCategoryList.indexOf(
-                                  SelectedCategoryList[1]),
-                              SelectedCategoryList[1]);
+                              selectedCategoryList
+                                  .indexOf(selectedCategoryList[1]),
+                              selectedCategoryList[1]);
                       AppRoutes.goMaterial(
                           context,
                           CategoriesView(
-                            title: SelectedCategoryList[1],
+                            title: selectedCategoryList[1],
                           ));
                     }),
+                // * List View Books Bloc Builder
                 FeaturedBooksListViewBlocIndex2(
-                    categoryTitle: SelectedCategoryList[1],
+                    categoryTitle: selectedCategoryList[1],
                     listCategoryIndex:
-                        SelectedCategoryList.indexOf(SelectedCategoryList[1])),
+                        selectedCategoryList.indexOf(selectedCategoryList[1])),
                 // * Space
                 15.verticalSpace,
-
-                // * List View Books Bloc Builder
+                // ? ********************* Selected Category Index 2 *********************
+                // * SectionH eadar
                 SectionHeadar(
-                    title: SelectedCategoryList[2],
+                    title: selectedCategoryList[2],
                     onPressed: () {
                       context
                           .read<FetchCategoryBooksCubit>()
                           .changeCategoryIndexAndTitle(
-                              SelectedCategoryList.indexOf(
-                                  SelectedCategoryList[2]),
-                              SelectedCategoryList[2]);
+                              selectedCategoryList
+                                  .indexOf(selectedCategoryList[2]),
+                              selectedCategoryList[2]);
                       AppRoutes.goMaterial(
                           context,
                           CategoriesView(
-                            title: SelectedCategoryList[2],
+                            title: selectedCategoryList[2],
                           ));
                     }),
+                // * List View Books Bloc Builder
                 FeaturedBooksListViewBlocIndex3(
-                    categoryTitle: SelectedCategoryList[2],
+                    categoryTitle: selectedCategoryList[2],
                     listCategoryIndex:
-                        SelectedCategoryList.indexOf(SelectedCategoryList[2])),
+                        selectedCategoryList.indexOf(selectedCategoryList[2])),
                 // * Space
-                15.verticalSpace,
-                // * Best Slear Text
-                15.verticalSpace,
+                30.verticalSpace,
               ],
             ),
           ),
         ),
-      ],
-    );
-  }
-}
-
-class SectionHeadar extends StatelessWidget {
-  const SectionHeadar({
-    Key? key,
-    required this.title,
-    this.onPressed,
-  }) : super(key: key);
-
-  final String title;
-  final void Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: AppTheme.h5(context),
-        ),
-        IconButton(
-            onPressed: onPressed,
-            icon: Icon(Icons.keyboard_double_arrow_right_outlined))
       ],
     );
   }
