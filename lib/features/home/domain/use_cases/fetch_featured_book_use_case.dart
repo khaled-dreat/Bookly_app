@@ -4,13 +4,17 @@ import '../../../../core/utils/constant/app_failure.dart';
 import '../entity/book_entity.dart';
 import '../repo/home_repo.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, int> {
+class FetchCategoryHomeBooksUseCase extends UseCase<List<BookEntity>, int> {
   final HomeRepo homeRepo;
 
-  FetchFeaturedBooksUseCase({required this.homeRepo});
+  FetchCategoryHomeBooksUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call([int param = 0]) async {
-    return await homeRepo.fetchFeaturedBooks(pageNumber: param);
+  Future<Either<Failure, List<BookEntity>>> call(
+      [int param = 0, int? listCategoryIndex, String? categoryTitle]) async {
+    return await homeRepo.fetchCategoryHomeBooks(
+        pageNumber: param,
+        categoryTitle: categoryTitle!,
+        listCategoryIndex: listCategoryIndex!);
   }
 }

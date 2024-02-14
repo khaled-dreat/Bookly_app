@@ -4,6 +4,9 @@ import '../features/home/domain/use_cases/fetch_book_details_use_case.dart';
 import '../features/home/domain/use_cases/fetch_featured_book_use_case.dart';
 import '../features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 import '../features/home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
+import '../features/home/presentation/manger/fetch_category_home_books_cubit/index_1/fetch_category_books_index1_cubit.dart';
+import '../features/home/presentation/manger/fetch_category_home_books_cubit/index_2/fetch_category_books_index2_cubit.dart';
+import '../features/home/presentation/manger/fetch_category_home_books_cubit/index_3/fetch_category_books_index3_cubit.dart';
 import '../features/search/data/repo/srh_repo_emp.dart';
 import '../features/search/domain/use_cases/featured_srh_books_use_case.dart';
 import '../features/search/presentation/manger/srh_books/srh_books_cubit.dart';
@@ -16,7 +19,6 @@ import '../core/utils/theme/app_theme_choose.dart';
 import 'package:nested/nested.dart';
 
 import '../features/home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
-import '../features/home/presentation/manger/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
 import '../features/home/presentation/manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import '../features/search/presentation/manger/category_books/category_books_cubit.dart';
 import '../features/splach/presentation/maneg/select_category/select_category_cubit.dart';
@@ -55,11 +57,29 @@ class Bookly extends StatelessWidget {
       }),
       BlocProvider(
         create: (context) {
-          return FeaturedBooksCubit(
-            FetchFeaturedBooksUseCase(
+          return FetchCategoryBooksIndex1Cubit(
+            FetchCategoryHomeBooksUseCase(
               homeRepo: getIt.get<HomeRepoEmpl>(),
             ),
-          )..fetchFeaturedBooks();
+          );
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return FetchCategoryBooksIndex2Cubit(
+            FetchCategoryHomeBooksUseCase(
+              homeRepo: getIt.get<HomeRepoEmpl>(),
+            ),
+          );
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return FetchCategoryBooksIndex3Cubit(
+            FetchCategoryHomeBooksUseCase(
+              homeRepo: getIt.get<HomeRepoEmpl>(),
+            ),
+          );
         },
       ),
       BlocProvider(

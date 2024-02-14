@@ -14,7 +14,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<List<String>>(AppHiveKey.selectedCategory);
-  await Hive.openBox<BookEntity>(ApiKey.freeNewsProgrammingBook);
+  await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory1);
+  await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory2);
+  await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory3);
   setupServiceLocatorHome();
   setupServiceLocatorSrh();
   Bloc.observer = SimpleBlocObserver();

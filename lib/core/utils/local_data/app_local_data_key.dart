@@ -2,4 +2,7 @@ class AppHiveKey {
   static const String featFreeProgramBooks = "FeaturedFreeProgramingBooks";
   static const String featNewFreeProgramBooks = "FeatNewFreeProgramBooks";
   static const String selectedCategory = "SelectedCategory";
+  static const String selectedCategory1 = "0";
+  static const String selectedCategory2 = "1";
+  static const String selectedCategory3 = "2";
 }
