@@ -1,9 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/theme/app_theme.dart';
+import '../../../../../category/presentation/categories/manger/index_1/fetch_category_books_index1_cubit.dart';
+import '../../../../../category/presentation/categories/view/categories_view.dart';
 import '../../../../../splach/presentation/maneg/select_category/select_category_cubit.dart';
 import '../../../manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
 import 'coustom_appbar.dart';
@@ -29,7 +32,21 @@ class HomeViewBody extends StatelessWidget {
                 const CoustomAppBar(),
                 // * Space
                 15.verticalSpace,
-                SectionHeadar(title: SelectedCategoryList[0]),
+                SectionHeadar(
+                    title: SelectedCategoryList[0],
+                    onPressed: () {
+                      context
+                          .read<FetchCategoryBooksCubit>()
+                          .changeCategoryIndexAndTitle(
+                              SelectedCategoryList.indexOf(
+                                  SelectedCategoryList[0]),
+                              SelectedCategoryList[0]);
+                      AppRoutes.goMaterial(
+                          context,
+                          CategoriesView(
+                            title: SelectedCategoryList[0],
+                          ));
+                    }),
                 // * List View Books Bloc Builder
                 FeaturedBooksListViewBlocIndex1(
                     categoryTitle: SelectedCategoryList[0],
@@ -39,7 +56,21 @@ class HomeViewBody extends StatelessWidget {
                 15.verticalSpace,
 
                 // * List View Books Bloc Builder
-                SectionHeadar(title: SelectedCategoryList[1]),
+                SectionHeadar(
+                    title: SelectedCategoryList[1],
+                    onPressed: () {
+                      context
+                          .read<FetchCategoryBooksCubit>()
+                          .changeCategoryIndexAndTitle(
+                              SelectedCategoryList.indexOf(
+                                  SelectedCategoryList[1]),
+                              SelectedCategoryList[1]);
+                      AppRoutes.goMaterial(
+                          context,
+                          CategoriesView(
+                            title: SelectedCategoryList[1],
+                          ));
+                    }),
                 FeaturedBooksListViewBlocIndex2(
                     categoryTitle: SelectedCategoryList[1],
                     listCategoryIndex:
@@ -48,7 +79,21 @@ class HomeViewBody extends StatelessWidget {
                 15.verticalSpace,
 
                 // * List View Books Bloc Builder
-                SectionHeadar(title: SelectedCategoryList[2]),
+                SectionHeadar(
+                    title: SelectedCategoryList[2],
+                    onPressed: () {
+                      context
+                          .read<FetchCategoryBooksCubit>()
+                          .changeCategoryIndexAndTitle(
+                              SelectedCategoryList.indexOf(
+                                  SelectedCategoryList[2]),
+                              SelectedCategoryList[2]);
+                      AppRoutes.goMaterial(
+                          context,
+                          CategoriesView(
+                            title: SelectedCategoryList[2],
+                          ));
+                    }),
                 FeaturedBooksListViewBlocIndex3(
                     categoryTitle: SelectedCategoryList[2],
                     listCategoryIndex:
@@ -61,21 +106,6 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
         ),
-        // * Best Seller Books List View
-        //   SliverFillRemaining(
-        //     child: BlocBuilder<NewestBooksCubit, NewestBooksState>(
-        //         builder: (context, state) {
-        //       if (state is NewestBooksSuccess) {
-        //         return NewestSellerListView(
-        //           books: state.books,
-        //         );
-        //       } else if (state is NewestBooksFailure) {
-        //         return Text(state.errMessage);
-        //       } else {
-        //         return const CircularProgressIndicator();
-        //       }
-        //     }),
-        //   )
       ],
     );
   }
@@ -85,9 +115,11 @@ class SectionHeadar extends StatelessWidget {
   const SectionHeadar({
     Key? key,
     required this.title,
+    this.onPressed,
   }) : super(key: key);
 
   final String title;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +131,7 @@ class SectionHeadar extends StatelessWidget {
           style: AppTheme.h5(context),
         ),
         IconButton(
-            onPressed: () {},
+            onPressed: onPressed,
             icon: Icon(Icons.keyboard_double_arrow_right_outlined))
       ],
     );

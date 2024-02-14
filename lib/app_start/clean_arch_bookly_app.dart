@@ -1,3 +1,4 @@
+import '../features/category/presentation/categories/manger/index_1/fetch_category_books_index1_cubit.dart';
 import '../features/home/data/repo/home_repo_empl.dart';
 import '../features/home/domain/use_cases/fetch_also_like_book_use_case.dart';
 import '../features/home/domain/use_cases/fetch_book_details_use_case.dart';
@@ -58,6 +59,15 @@ class Bookly extends StatelessWidget {
       BlocProvider(
         create: (context) {
           return FetchCategoryBooksIndex1Cubit(
+            FetchCategoryHomeBooksUseCase(
+              homeRepo: getIt.get<HomeRepoEmpl>(),
+            ),
+          );
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return FetchCategoryBooksCubit(
             FetchCategoryHomeBooksUseCase(
               homeRepo: getIt.get<HomeRepoEmpl>(),
             ),

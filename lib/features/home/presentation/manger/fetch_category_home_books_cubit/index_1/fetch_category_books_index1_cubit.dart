@@ -17,7 +17,6 @@ class FetchCategoryBooksIndex1Cubit
       {int pageNumber = 0,
       int? listCategoryIndex,
       String? categoryTitle}) async {
-    log(listCategoryIndex.toString());
     emit(FetchCategoryBooksIndex1Loading());
 
     var result = await featuredBooksUseCase.call(
