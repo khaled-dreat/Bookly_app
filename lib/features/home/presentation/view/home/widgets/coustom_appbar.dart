@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../../../../../core/utils/constant/app_images.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
+import '../../../../../favorite/presentation/view/favorite_view.dart';
 import '../../../../../search/presentation/views/search/search_view.dart';
 
 class CoustomAppBar extends StatelessWidget {
@@ -20,6 +20,11 @@ class CoustomAppBar extends StatelessWidget {
             AppImages.appIcon,
             height: 18.h,
           ),
+          IconButton(
+              onPressed: () {
+                AppRoutes.go(context, FavoriteView.nameRoute);
+              },
+              icon: const Icon(Icons.favorite_border)),
           IconButton(
             onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
             icon: const Icon(FontAwesomeIcons.magnifyingGlass),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../features/category/presentation/book_categorie/view/book_categories_view.dart';
 import '../../../features/category/presentation/categories/view/categories_view.dart';
+import '../../../features/favorite/presentation/view/favorite_view.dart';
 import '../../../features/home/presentation/view/book_details/book_details_view.dart';
 import '../../../features/home/presentation/view/home/home_view.dart';
 import '../../../features/search/presentation/views/search/search_view.dart';
@@ -17,6 +18,7 @@ class AppRoutes {
     CategoriesView.nameRoute: (context) => const CategoriesView(),
     BookCategoriesView.nameRoute: (context) => const BookCategoriesView(),
     SelectCategoryView.nameRoute: (context) => const SelectCategoryView(),
+    FavoriteView.nameRoute: (context) => const FavoriteView(),
   };
 
   // * inti Route

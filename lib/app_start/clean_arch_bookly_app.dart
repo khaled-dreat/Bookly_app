@@ -1,3 +1,5 @@
+import 'package:clean_arch_bookly_app/features/favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
+
 import '../features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 import '../features/home/data/repo/home_repo_empl.dart';
 import '../features/home/domain/use_cases/fetch_also_like_book_use_case.dart';
@@ -117,6 +119,11 @@ class Bookly extends StatelessWidget {
       BlocProvider(
         create: (context) {
           return SearchhByCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return FavoriteBooksCubit();
         },
       ),
       BlocProvider(

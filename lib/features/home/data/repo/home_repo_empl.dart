@@ -31,7 +31,7 @@ class HomeRepoEmpl extends HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDiorError(e));
+        return left(ServerFailure.fromDiorError(e));
       }
       return left(ServerFailure(message: e.toString()));
     }

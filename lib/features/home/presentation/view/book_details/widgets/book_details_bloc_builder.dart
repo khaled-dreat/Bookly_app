@@ -48,7 +48,7 @@ class BookDetailsViewBody extends StatelessWidget {
         child: Column(
           children: [
             // * AppBar
-            const CustomAppBarBookDetails(),
+            CustomAppBarBookDetails(book: book),
             // * Space
             20.verticalSpace,
             // * Image
