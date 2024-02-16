@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:clean_arch_bookly_app/features/favorite/domain/entity/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -18,18 +19,21 @@ class CustomAppBarBookDetails extends StatefulWidget {
 }
 
 class _CustomAppBarBookDetailsState extends State<CustomAppBarBookDetails> {
-  /// late bool isFavoriteBook;
-  /// @override
-  /// void initState() {
-  ///   x();
-  ///   super.initState();
-  /// }
-  ///
-  /// void x() async {
-  ///   FavoriteBooksCubit bFavoriteBooks = context.read<FavoriteBooksCubit>();
-  ///
-  ///   isFavoriteBook = await bFavoriteBooks.isFavoriteBook(widget.book.bookId);
-  /// }
+  late bool isFavoriteBook = false; // Initialize with a default value
+  @override
+  void initState() {
+    getFavoriteBookStatus();
+    super.initState();
+  }
+
+  Future<void> getFavoriteBookStatus() async {
+    bool value = await context
+        .read<FavoriteBooksCubit>()
+        .isFavoriteBook(widget.book.bookId);
+    setState(() {
+      isFavoriteBook = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +52,13 @@ class _CustomAppBarBookDetailsState extends State<CustomAppBarBookDetails> {
                   widget.book.autherName,
                   widget.book.price,
                   widget.book.rating);
+              setState(() {
+                isFavoriteBook = !isFavoriteBook;
+              });
             },
-            icon: // isFavoriteBook
-                //    ? const Icon(Icons.favorite_border)
-                const Icon(Icons.favorite_border)),
+            icon: isFavoriteBook
+                ? const Icon(Icons.favorite)
+                : const Icon(Icons.favorite_border_outlined)),
       ],
     );
   }

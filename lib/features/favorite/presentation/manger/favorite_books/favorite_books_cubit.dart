@@ -13,28 +13,39 @@ import '../../../domain/entity/book_entity.dart';
 part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
+  List<BookFavoriteEntity>? listfavoriteBooks;
+
   FavoriteBooksCubit() : super(FavoriteBooksInitial());
   Box<List<BookFavoriteEntity>> haivFavoriteBooks =
       Hive.box<List<BookFavoriteEntity>>(AppHiveKey.favoriteBooks);
-  Future<void> getFavoriteBooks() async {
-    emit(FavoriteBooksLoading());
-    try {
-      emit(FavoriteBooksSuccess(
-          books: haivFavoriteBooks.get(AppHiveKey.keyFavoriteBooks)!));
-      log(haivFavoriteBooks
-          .get(AppHiveKey.keyFavoriteBooks)!
-          .length
-          .toString());
-    } catch (e) {
-      emit(FavoriteBooksFailure(errMessage: e.toString()));
+  Future<void> fetchFavoriteBooks() async {
+    if (listfavoriteBooks != null) {
+      emit(FavoriteBooksLoading());
+      try {
+        emit(FavoriteBooksSuccess(books: listfavoriteBooks!));
+        log(haivFavoriteBooks
+            .get(AppHiveKey.keyFavoriteBooks)!
+            .length
+            .toString());
+      } catch (e) {
+        emit(FavoriteBooksFailure(errMessage: e.toString()));
+      }
     }
   }
 
-  // Future<bool> isFavoriteBook(String bookId) async {
-  //   Box<BookFavoriteEntity> box =
-  //       Hive.box<BookFavoriteEntity>(AppHiveKey.favoriteBooks);
-  //   return box.containsKey(bookId);
-  // }
+  Future<void> getFavoriteBooks() async {
+    List<BookFavoriteEntity>? favoriteBooks = haivFavoriteBooks
+        .get(AppHiveKey.keyFavoriteBooks)
+        ?.cast<BookFavoriteEntity>();
+    listfavoriteBooks = favoriteBooks ?? [];
+  }
+
+  Future<bool> isFavoriteBook(String bookId) async {
+    if (listfavoriteBooks != null) {
+      return listfavoriteBooks!.any((e) => e.bookId == bookId);
+    }
+    return false;
+  }
 
   void saveFavoriteBooks(
     String bookId,
@@ -44,7 +55,7 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     double? price,
     String rating,
   ) {
-    BookFavoriteEntity books = BookFavoriteEntity(
+    BookFavoriteEntity book = BookFavoriteEntity(
         bookId: bookId,
         image: image,
         title: title,
@@ -52,7 +63,16 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
         price: price,
         rating: rating);
 
-    log(books.title.toString());
-    haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, [books]);
+    if (listfavoriteBooks != null) {
+      listfavoriteBooks!.add(book);
+      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, listfavoriteBooks!);
+    } else {
+      listfavoriteBooks = [book];
+      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, [book]);
+    }
   }
 }
+// drmiEAAAQBAJ
+// drmiEAAAQBAJ
+// drmiEAAAQBAJ
+// drmiEAAAQBAJ

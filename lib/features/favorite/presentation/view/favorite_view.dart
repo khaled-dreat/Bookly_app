@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +33,7 @@ class FavoritViewBody extends StatefulWidget {
 class _FavoritViewBodyState extends State<FavoritViewBody> {
   @override
   void initState() {
-    context.read<FavoriteBooksCubit>().getFavoriteBooks();
+    context.read<FavoriteBooksCubit>().fetchFavoriteBooks();
     super.initState();
   }
 

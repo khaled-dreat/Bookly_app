@@ -89,9 +89,7 @@ class _SearchResultListViewState extends State<SearchResultListView> {
                               .fetchAlsoLike(
                                   author: widget.books[index].autherName);
                           AppRoutes.go(context, BookDetailsView.nameRoute);
-                          log(
-                              name: "Auther Name",
-                              widget.books[index].autherName);
+                          log(name: "Auther Name", widget.books[index].bookId);
                         },
                         child: Row(
                           children: [

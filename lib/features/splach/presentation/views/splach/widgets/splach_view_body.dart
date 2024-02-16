@@ -2,6 +2,7 @@ import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/routes/app_routes.dart';
+import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../maneg/select_category/select_category_cubit.dart';
 import 'sliding_text.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +68,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
   // * Go To Home
   void navigateToHome() {
     context.read<SelectCategoryCubit>().getSelectedCategory();
+    // context.read<FavoriteBooksCubit>().getFavoriteBooks();
     Future.delayed(const Duration(seconds: 3), () {
       if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
         AppRoutes.goReplace(context, HomeView.nameRoute);
