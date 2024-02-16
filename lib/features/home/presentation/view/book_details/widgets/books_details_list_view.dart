@@ -2,8 +2,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
 import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
+import '../book_details_view.dart';
 
 class AlsoLikeBooksDetailsBlocBuilder extends StatelessWidget {
   const AlsoLikeBooksDetailsBlocBuilder({super.key});
@@ -25,10 +28,21 @@ class AlsoLikeBooksDetailsBlocBuilder extends StatelessWidget {
                 // * Book Card
 
                 if (state.books.elementAt(index).image.isNotEmpty) {
-                  return CostomBookImage(
-                    image: state.books.elementAt(index).image,
-                    height: 130,
-                    width: 120,
+                  return InkWell(
+                    onTap: () async {
+                      await BlocProvider.of<BookDetailsCubit>(context)
+                          .fetchFeaturedBooksDetails(
+                              id: state.books.elementAt(index).bookId);
+                      await BlocProvider.of<AlsoLikeBooksCubit>(context)
+                          .fetchAlsoLike(
+                              author: state.books.elementAt(index).autherName);
+                      AppRoutes.go(context, BookDetailsView.nameRoute);
+                    },
+                    child: CostomBookImage(
+                      image: state.books.elementAt(index).image,
+                      height: 130,
+                      width: 120,
+                    ),
                   );
                 } else {
                   return Container();

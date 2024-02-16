@@ -4,9 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+import '../../../../core/utils/routes/app_routes.dart';
 import '../../../../core/widgets/custom_book_card/custom_book_card.dart';
 import '../../../../core/widgets/custom_img_books/costom_book_image.dart';
 import '../../../home/domain/entity/book_entity.dart';
+import '../../../home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
+import '../../../home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
+import '../../../home/presentation/view/book_details/book_details_view.dart';
 import '../manger/favorite_books/favorite_books_cubit.dart';
 
 class FavoriteView extends StatelessWidget {
@@ -86,6 +90,13 @@ class GridViewFavoriteBooks extends StatelessWidget {
                   height: 350,
                   child: CoustomBookCard(
                     books: book,
+                    onTap: () async {
+                      await BlocProvider.of<BookDetailsCubit>(context)
+                          .fetchFeaturedBooksDetails(id: book.bookId);
+                      await BlocProvider.of<AlsoLikeBooksCubit>(context)
+                          .fetchAlsoLike(author: book.autherName);
+                      AppRoutes.go(context, BookDetailsView.nameRoute);
+                    },
                   ),
                 ),
               ),
