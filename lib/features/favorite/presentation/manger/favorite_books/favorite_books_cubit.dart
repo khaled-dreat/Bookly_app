@@ -1,42 +1,40 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch_bookly_app/features/home/data/models/book/book.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
-
 import '../../../../../core/utils/local_data/app_local_data_key.dart';
-import '../../../../../core/utils/local_data/save_books_local_data.dart';
 import '../../../../home/domain/entity/book_entity.dart';
-import '../../../domain/entity/book_entity.dart';
-
 part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
-  List<BookFavoriteEntity>? listfavoriteBooks;
+  List<BookEntity>? listfavoriteBooks;
+  final Box<List<BookEntity>> haivFavoriteBooks;
 
-  FavoriteBooksCubit() : super(FavoriteBooksInitial());
-  Box<List<BookFavoriteEntity>> haivFavoriteBooks =
-      Hive.box<List<BookFavoriteEntity>>(AppHiveKey.favoriteBooks);
+  FavoriteBooksCubit()
+      : haivFavoriteBooks =
+            Hive.box<List<BookEntity>>(AppHiveKey.favoriteBooks),
+        super(FavoriteBooksInitial());
+
   Future<void> fetchFavoriteBooks() async {
-    if (listfavoriteBooks != null) {
-      emit(FavoriteBooksLoading());
-      try {
-        emit(FavoriteBooksSuccess(books: listfavoriteBooks!));
-        log(haivFavoriteBooks
-            .get(AppHiveKey.keyFavoriteBooks)!
-            .length
-            .toString());
-      } catch (e) {
-        emit(FavoriteBooksFailure(errMessage: e.toString()));
-      }
+    emit(FavoriteBooksLoading());
+    try {
+      emit(FavoriteBooksSuccess(
+          books: haivFavoriteBooks
+              .get(AppHiveKey.keyFavoriteBooks)!
+              .cast<BookEntity>()));
+      log(haivFavoriteBooks
+          .get(AppHiveKey.keyFavoriteBooks)!
+          .length
+          .toString());
+    } catch (e) {
+      emit(FavoriteBooksFailure(errMessage: e.toString()));
     }
   }
 
   Future<void> getFavoriteBooks() async {
-    List<BookFavoriteEntity>? favoriteBooks = haivFavoriteBooks
-        .get(AppHiveKey.keyFavoriteBooks)
-        ?.cast<BookFavoriteEntity>();
+    List<BookEntity>? favoriteBooks =
+        haivFavoriteBooks.get(AppHiveKey.keyFavoriteBooks)?.cast<BookEntity>();
     listfavoriteBooks = favoriteBooks ?? [];
   }
 
@@ -47,9 +45,7 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     return false;
   }
 
-  void unSaveFavoriteBooks(
-    String bookId,
-  ) {
+  void unSaveFavoriteBooks(String bookId) {
     if (listfavoriteBooks != null) {
       listfavoriteBooks!.removeWhere((e) => e.bookId == bookId);
       haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, listfavoriteBooks!);
@@ -64,13 +60,14 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     double? price,
     String rating,
   ) {
-    BookFavoriteEntity book = BookFavoriteEntity(
-        bookId: bookId,
-        image: image,
-        title: title,
-        autherName: autherName,
-        price: price,
-        rating: rating);
+    BookEntity book = BookEntity(
+      bookId: bookId,
+      image: image,
+      title: title,
+      autherName: autherName,
+      price: price,
+      rating: rating,
+    );
 
     if (listfavoriteBooks != null) {
       listfavoriteBooks!.add(book);
@@ -81,7 +78,3 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     }
   }
 }
-// drmiEAAAQBAJ
-// drmiEAAAQBAJ
-// drmiEAAAQBAJ
-// drmiEAAAQBAJ

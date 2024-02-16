@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:clean_arch_bookly_app/features/favorite/domain/entity/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -60,6 +59,9 @@ class _CustomAppBarBookDetailsState extends State<CustomAppBarBookDetails> {
                     widget.book.autherName,
                     widget.book.price,
                     widget.book.rating);
+                setState(() {
+                  isFavoriteBook = !isFavoriteBook;
+                });
               }
             },
             icon: isFavoriteBook

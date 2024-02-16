@@ -1,11 +1,10 @@
 import 'dart:developer';
-
-import 'package:clean_arch_bookly_app/features/favorite/domain/entity/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+import '../../../../core/widgets/custom_book_card/custom_book_card.dart';
 import '../../../../core/widgets/custom_img_books/costom_book_image.dart';
 import '../../../home/domain/entity/book_entity.dart';
 import '../manger/favorite_books/favorite_books_cubit.dart';
@@ -59,7 +58,7 @@ class GridViewFavoriteBooks extends StatelessWidget {
     super.key,
     required this.books,
   });
-  final List<BookFavoriteEntity> books;
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     int columnCount = 2;
@@ -72,9 +71,11 @@ class GridViewFavoriteBooks extends StatelessWidget {
         ),
         padding: EdgeInsets.all(15.r),
         crossAxisCount: columnCount,
-        children: books.map((book) {
+        children: books.asMap().entries.map((entry) {
+          final index = entry.key;
+          final book = entry.value;
           return AnimationConfiguration.staggeredGrid(
-            position: books.indexOf(book),
+            position: index,
             duration: const Duration(milliseconds: 500),
             columnCount: columnCount,
             child: ScaleAnimation(
@@ -83,10 +84,8 @@ class GridViewFavoriteBooks extends StatelessWidget {
               child: FadeInAnimation(
                 child: SizedBox(
                   height: 350,
-                  child: CostomBookImage(
-                    image: book.image,
-                    height: 300,
-                    width: 200,
+                  child: CoustomBookCard(
+                    books: book,
                   ),
                 ),
               ),
