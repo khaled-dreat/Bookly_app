@@ -45,16 +45,22 @@ class _CustomAppBarBookDetailsState extends State<CustomAppBarBookDetails> {
             icon: const Icon(Icons.close)),
         IconButton(
             onPressed: () {
-              context.read<FavoriteBooksCubit>().saveFavoriteBooks(
-                  widget.book.bookId,
-                  widget.book.image,
-                  widget.book.title,
-                  widget.book.autherName,
-                  widget.book.price,
-                  widget.book.rating);
-              setState(() {
-                isFavoriteBook = !isFavoriteBook;
-              });
+              if (isFavoriteBook) {
+                context
+                    .read<FavoriteBooksCubit>()
+                    .unSaveFavoriteBooks(widget.book.bookId);
+                setState(() {
+                  isFavoriteBook = !isFavoriteBook;
+                });
+              } else {
+                context.read<FavoriteBooksCubit>().saveFavoriteBooks(
+                    widget.book.bookId,
+                    widget.book.image,
+                    widget.book.title,
+                    widget.book.autherName,
+                    widget.book.price,
+                    widget.book.rating);
+              }
             },
             icon: isFavoriteBook
                 ? const Icon(Icons.favorite)

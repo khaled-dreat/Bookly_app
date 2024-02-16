@@ -47,6 +47,15 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     return false;
   }
 
+  void unSaveFavoriteBooks(
+    String bookId,
+  ) {
+    if (listfavoriteBooks != null) {
+      listfavoriteBooks!.removeWhere((e) => e.bookId == bookId);
+      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, listfavoriteBooks!);
+    }
+  }
+
   void saveFavoriteBooks(
     String bookId,
     String image,
