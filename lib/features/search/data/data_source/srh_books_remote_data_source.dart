@@ -20,7 +20,6 @@ class SrhBooksDataSourceImp extends SrhBooksRemoteDataSource {
   }
 }
 
-//    "volumes?q=$srhKey&startIndex=${pageNumber * 10}"
 List<SrhBookEntity> getBooksList(Map<String, dynamic> data) {
   List<SrhBookEntity> books = [];
   for (var bookMap in data['items']) {

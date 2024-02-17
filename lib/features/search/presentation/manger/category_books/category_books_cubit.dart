@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 
 part 'category_books_state.dart';
@@ -16,8 +14,6 @@ class SearchhByCubit extends Cubit<String> {
   SearchhByCubit() : super("");
 
   void updateSelectedSearchByChoices(String searchByChoices) {
-    //  log(name: "updateSelectedSearchByChoices", searchByChoices);
-
     emit(searchByChoices);
   }
 }
