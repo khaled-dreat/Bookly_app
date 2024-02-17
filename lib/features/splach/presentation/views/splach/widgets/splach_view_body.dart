@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:clean_arch_bookly_app/core/utils/constant/app_images.dart';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -9,6 +10,7 @@ import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../../../home/domain/entity/book_entity.dart';
 import '../../../maneg/select_category/select_category_cubit.dart';
+import 'custom_splach_logo.dart';
 import 'sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -48,15 +50,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // * image
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Image(
-              fit: BoxFit.fill,
-              height: 250,
-              image: AssetImage("assets/img/bookly-book-logo.png")),
-        ),
-        // * Space
-        // AppDime..verticalSpace,
+        const CustomSplachLogo(),
         // * Sliding Text
         SlidingText(slidingAnimation: slidingAnimation)
       ],
