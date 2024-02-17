@@ -18,17 +18,21 @@ class CoustomAppBar extends StatelessWidget {
         children: [
           Image.asset(
             AppImages.appIcon,
-            height: 18.h,
+            height: 25.h,
           ),
-          IconButton(
-              onPressed: () {
-                AppRoutes.go(context, FavoriteView.nameRoute);
-              },
-              icon: const Icon(Icons.favorite_border)),
-          IconButton(
-            onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
-            icon: const Icon(FontAwesomeIcons.magnifyingGlass),
-            iconSize: 21.r,
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () {
+                    AppRoutes.go(context, FavoriteView.nameRoute);
+                  },
+                  icon: const Icon(Icons.favorite_border)),
+              IconButton(
+                onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
+                icon: const Icon(FontAwesomeIcons.magnifyingGlass),
+                iconSize: 21.r,
+              ),
+            ],
           )
         ],
       ),

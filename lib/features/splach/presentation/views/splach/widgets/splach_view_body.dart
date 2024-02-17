@@ -48,9 +48,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // * image
-        Image.asset(
-          "assets/img/Grey Minimalist Bookstore Business Logo (1).png",
-          width: 100.w,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Image(
+              fit: BoxFit.fill,
+              height: 250,
+              image: AssetImage("assets/img/bookly-book-logo.png")),
         ),
         // * Space
         // AppDime..verticalSpace,

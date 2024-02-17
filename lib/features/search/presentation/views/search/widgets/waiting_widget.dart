@@ -11,9 +11,9 @@ class WaitingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-          height: 400.h,
+          height: 350.h,
           width: 350.w,
-          child: SvgPicture.asset("assets/svg/undraw_searching_re_3ra9.svg")),
+          child: SvgPicture.asset("assets/svg/search.svg")),
     );
   }
 }

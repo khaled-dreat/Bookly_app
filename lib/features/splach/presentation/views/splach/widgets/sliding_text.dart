@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SlidingText extends StatelessWidget {
   const SlidingText({
@@ -15,8 +16,12 @@ class SlidingText extends StatelessWidget {
         builder: (context, _) {
           return SlideTransition(
             position: slidingAnimation,
-            child: Image.asset(
-                "assets/img/Grey Minimalist Bookstore Business Logo (3).png"),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Image.asset(
+                "assets/img/logo/bookly light.png",
+              ),
+            ),
           );
         });
   }
