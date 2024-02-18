@@ -1,4 +1,3 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "cmake.sourceDirectory": "C:/Users/khale/Desktop/clean_arch_bookly_app/windows/runner"
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
