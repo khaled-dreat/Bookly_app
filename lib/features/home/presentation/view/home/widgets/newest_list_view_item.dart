@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../../../core/widgets/images/costom_book_image.dart';
 
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';

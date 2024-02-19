@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
-import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../../../core/widgets/images/costom_book_image.dart';
 import '../../../manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
 import '../book_details_view.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../features/home/domain/entity/book_entity.dart';
 import '../../../features/home/presentation/view/home/widgets/book_rating.dart';
 import '../../utils/theme/app_theme.dart';
-import '../custom_img_books/costom_book_image.dart';
+import '../images/costom_book_image.dart';
 
 class CoustomBookCard extends StatelessWidget {
   const CoustomBookCard({

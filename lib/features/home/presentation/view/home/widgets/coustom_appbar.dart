@@ -6,19 +6,30 @@ import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../favorite/presentation/view/favorite_view.dart';
 import '../../../../../search/presentation/views/search/search_view.dart';
 
-class CoustomAppBar extends StatelessWidget {
+class CoustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CoustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return AppBar(actions: [          IconButton(
+                  onPressed: () {
+                    AppRoutes.go(context, FavoriteView.nameRoute);
+                  },
+                  icon: const Icon(Icons.favorite_border)),
+              IconButton(
+                onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
+                icon: const Icon(FontAwesomeIcons.magnifyingGlass),
+                iconSize: 21.r,
+              ),],);
+
+    Padding(
       padding: EdgeInsets.only(top: 45.r),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(
-            AppImages.appLogoLight,
-            height: 25.h,
+            AppImages.booklyLogoLight,
+            height: 23.h,
           ),
           Row(
             children: [
@@ -38,4 +49,8 @@ class CoustomAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize =>
+      Size.fromHeight(AppBar().preferredSize.height * 0.9);
 }

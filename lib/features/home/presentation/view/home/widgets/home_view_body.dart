@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // * AppBar
-                const CoustomAppBar(),
+                //   const CoustomAppBar(),
                 // * Space
                 15.verticalSpace,
                 // ? ********************* Selected Category Index 0 *********************

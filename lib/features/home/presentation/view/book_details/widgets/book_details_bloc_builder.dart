@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';
 import '../../../manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
 import '../../home/widgets/book_rating.dart';
-import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../../../core/widgets/images/costom_book_image.dart';
 import 'book_details_shimmer.dart';
 import 'books_action.dart';
 import 'books_details_list_view.dart';

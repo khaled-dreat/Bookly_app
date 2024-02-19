@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import '../../../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../../../core/widgets/images/costom_book_image.dart';
 import '../../../../../home/domain/entity/book_entity.dart';
 import '../../manger/fetch_category_books/fetch_category_books_cubit.dart';
 

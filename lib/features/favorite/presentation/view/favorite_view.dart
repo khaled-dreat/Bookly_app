@@ -6,7 +6,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../../../core/utils/routes/app_routes.dart';
 import '../../../../core/widgets/custom_book_card/custom_book_card.dart';
-import '../../../../core/widgets/custom_img_books/costom_book_image.dart';
+import '../../../../core/widgets/images/costom_book_image.dart';
 import '../../../home/domain/entity/book_entity.dart';
 import '../../../home/presentation/manger/fetch_also_like_books_cubit/also_like_books_cubit.dart';
 import '../../../home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';

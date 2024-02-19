@@ -13,7 +13,7 @@ class CustomSplachLogo extends StatelessWidget {
       child: Image(
           fit: BoxFit.fill,
           height: 250,
-          image: AssetImage(AppImages.appLogoLight)),
+          image: AssetImage(AppImages.appBooklyBookLogoLight)),
     );
   }
 }
