@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../../core/widgets/snackbar/snackbar.dart';
 import '../../../../../home/domain/entity/book_entity.dart';
 import '../../manger/fetch_category_books/fetch_category_books_cubit.dart';
-import '../categories_view.dart';
 import 'grid_view_category.dart';
 
 class CategoriesViewBody extends StatefulWidget {
