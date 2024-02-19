@@ -4,6 +4,7 @@ import '../../../features/category/presentation/categories/view/categories_view.
 import '../../../features/favorite/presentation/view/favorite_view.dart';
 import '../../../features/home/presentation/view/book_details/book_details_view.dart';
 import '../../../features/home/presentation/view/home/home_view.dart';
+import '../../../features/profile/presentation/views/profile_view.dart';
 import '../../../features/search/presentation/views/search/search_view.dart';
 import '../../../features/splach/presentation/views/select_category/select_category_view.dart';
 import '../../../features/splach/presentation/views/splach/splach_view.dart';
@@ -19,10 +20,11 @@ class AppRoutes {
     BookCategoriesView.nameRoute: (context) => const BookCategoriesView(),
     SelectCategoryView.nameRoute: (context) => const SelectCategoryView(),
     FavoriteView.nameRoute: (context) => const FavoriteView(),
+    ProfileView.nameRoute: (context) => const ProfileView(),
   };
 
   // * inti Route
-  static String? get initRoute => SplachView.nameRoute;
+  static String? get initRoute => ProfileView.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>

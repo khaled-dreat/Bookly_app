@@ -63,6 +63,7 @@ class AppColors {
   static final Color splashBtnLight = bgBlue.withOpacity(0.5);
   static final Color splashBtnDark = bgPink.withAlpha(100);
   static Color primaryColor = const Color(0xff100b20);
+  static Color primaryColor2 = Color.fromARGB(255, 16, 11, 33);
   static Color textColor = const Color(0xFF2B2B2B);
 
   static LinearGradient buttonGradi = const LinearGradient(
