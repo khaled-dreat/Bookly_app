@@ -28,10 +28,11 @@ class _FeaturedSrhBooksListViewBlocConsumerState
         bSrhBooks.booksList.addAll(state.books);
       }
       if (state is SrhBooksPaginationFailure) {
+        // TODO
         // * Pagination Failure State
-        ScaffoldMessenger.of(context).showSnackBar(
-          buildErrorWidget(state.errorMessage),
-        );
+        //     ScaffoldMessenger.of(context).showSnackBar(
+        //       buildErrorWidget(state.errorMessage),
+        //     );
       }
     }, builder: (context, state) {
       if (state is SrhBooksSuccess ||

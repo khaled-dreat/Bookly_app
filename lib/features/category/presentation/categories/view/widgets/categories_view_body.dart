@@ -31,9 +31,10 @@ class _CategoriesViewBodyState extends State<CategoriesViewBody> {
         }
 
         if (state is FetchCategoryBooksFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            buildErrorWidget(state.errMessage),
-          );
+          // TODO
+          //      ScaffoldMessenger.of(context).showSnackBar(
+          //        buildErrorWidget(state.errMessage),
+          //      );
         }
       },
       builder: (context, state) {
