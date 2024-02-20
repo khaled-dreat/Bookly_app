@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../features/auth/sign_in.dart';
 import '../../../features/category/presentation/book_categorie/view/book_categories_view.dart';
 import '../../../features/category/presentation/categories/view/categories_view.dart';
 import '../../../features/favorite/presentation/view/favorite_view.dart';
@@ -21,10 +22,11 @@ class AppRoutes {
     SelectCategoryView.nameRoute: (context) => const SelectCategoryView(),
     FavoriteView.nameRoute: (context) => const FavoriteView(),
     ProfileView.nameRoute: (context) => const ProfileView(),
+    PageSignIn.nameRoute: (context) => const PageSignIn(),
   };
 
   // * inti Route
-  static String? get initRoute => SplachView.nameRoute;
+  static String? get initRoute => PageSignIn.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>
