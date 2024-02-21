@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/constant/app_icons.dart';
-import '../../../core/utils/language/app_lang_key.dart';
-import '../../../core/utils/validators/app_validators.dart';
-import '../../../core/widgets/text_form/text_form_field.dart';
+import '../../../../../core/utils/constant/app_icons.dart';
+import '../../../../../core/utils/language/app_lang_key.dart';
+import '../../../../../core/widgets/text_form/text_form_field.dart';
 
 class AuthFieldPass extends StatelessWidget {
   const AuthFieldPass({Key? key, this.isConfirm = false}) : super(key: key);

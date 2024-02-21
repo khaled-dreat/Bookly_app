@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/theme/app_theme.dart';
+import '../../../../../core/utils/theme/app_theme.dart';
 
 class AuthFooter extends StatelessWidget {
   const AuthFooter({

@@ -1,5 +1,5 @@
+import 'package:clean_arch_bookly_app/features/auth/presentation/view/sign_in.dart';
 import 'package:flutter/material.dart';
-import '../../../features/auth/sign_in.dart';
 import '../../../features/category/presentation/book_categorie/view/book_categories_view.dart';
 import '../../../features/category/presentation/categories/view/categories_view.dart';
 import '../../../features/favorite/presentation/view/favorite_view.dart';

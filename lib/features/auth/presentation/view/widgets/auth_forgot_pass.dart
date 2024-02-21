@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/language/app_lang_key.dart';
-import '../../../core/utils/routes/app_routes.dart';
-import '../../../core/utils/theme/app_theme.dart';
+import '../../../../../core/utils/language/app_lang_key.dart';
+import '../../../../../core/utils/routes/app_routes.dart';
+import '../../../../../core/utils/theme/app_theme.dart';
+
 import '../forgot_pass.dart';
 
 class AuthForgotPass extends StatelessWidget {

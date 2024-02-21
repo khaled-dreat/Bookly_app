@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/utils/dime/app_dime.dart';
-import '../../core/utils/language/app_lang_key.dart';
-import '../../core/widgets/loading/app_loading.dart';
-import '../profile/presentation/views/widgets/custom_btn.dart';
+import '../../../../core/utils/dime/app_dime.dart';
+import '../../../../core/utils/language/app_lang_key.dart';
+
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
 import 'widgets/auth_field_email.dart';
