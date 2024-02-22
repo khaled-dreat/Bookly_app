@@ -1,3 +1,4 @@
+import 'package:clean_arch_bookly_app/features/auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import 'package:clean_arch_bookly_app/features/favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 
 import '../features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
@@ -19,6 +20,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../core/utils/routes/app_routes.dart';
 import '../core/utils/setup_service_locator/setup_service_locator.dart';
 import '../core/utils/theme/app_theme_choose.dart';
+import '../features/auth/presentation/maneg/auth_cubit/auth_cubit.dart';
 import 'package:nested/nested.dart';
 import '../features/home/presentation/manger/fetch_featured_book_details_cubit/fetch_book_details_cubit.dart';
 import '../features/home/presentation/manger/fetch_new_books_cubit/fetch_new_books_cubit.dart';
@@ -123,7 +125,17 @@ class Bookly extends StatelessWidget {
       ),
       BlocProvider(
         create: (context) {
+          return AuthCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
           return FavoriteBooksCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
+          return WrapperCubit();
         },
       ),
       BlocProvider(

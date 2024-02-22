@@ -1,10 +1,18 @@
+import 'dart:developer';
+
+import 'package:clean_arch_bookly_app/core/widgets/toast/app_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/dime/app_dime.dart';
 import '../../../../core/utils/language/app_lang_key.dart';
 import '../../../../core/utils/routes/app_routes.dart';
 
+import '../../../../core/widgets/loading/app_loading.dart';
+import '../../../profile/presentation/views/widgets/custom_btn.dart';
+import '../maneg/auth_cubit/auth_cubit.dart';
+import '../maneg/wrapper_cubit/wrapper_cubit.dart';
 import 'register.dart';
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
@@ -22,7 +30,7 @@ class PageSignIn extends StatelessWidget {
     //  ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
 
     return Scaffold(
-      appBar: AuthAppBar(title: "AppLangKey.login"),
+      appBar: AuthAppBar(title: AppLangKey.login),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -33,44 +41,54 @@ class PageSignIn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // * Space
-                  AppDime.lg.verticalSpace,
+                  AppDime.xxl.verticalSpace,
                   // * logo
                   const AuthAppIcon(),
                   // * Space
-                  AppDime.lg.verticalSpace,
+                  AppDime.xxl.verticalSpace,
                   // * Email
                   const AuthFieldEmail(),
                   // * Space
-                  AppDime.lg.verticalSpace,
+                  AppDime.xlg.verticalSpace,
                   // * Pass
                   const AuthFieldPass(),
                   // * Forgot Pass
                   const AuthForgotPass(),
 
                   // * Button Sign in
-                  //   TODO       pAuth.loading
-                  //              ? const AppLoading(loading: TypeLoading.send)
-                  //              : CustomBtn(
-                  //                  title: AppLangKey.login,
-                  //                  onTap: () async {
-                  //                    if (keyForm.currentState?.validate() ?? false) {
-                  //                      // ✅
+                  //   pAuth.loading
+                  //   ? const AppLoading(loading: TypeLoading.send)
+                  //   :
+                  CustomBtn(
+                    title: AppLangKey.login,
+                    onTap: () async {
+                      await context.read<AuthCubit>().authMethod();
 
-                  //                      keyForm.currentState?.save();
-                  //                      if (await pAuth.authMethod() != null) {
-                  //                      } else {
-                  //                        AppToast.toast(pAuth.errorMessage);
-                  //                      }
-                  //                    }
-                  //                  },
-                  //                ),
+                      if (keyForm.currentState?.validate() ?? false) {
+                        // ✅
+                        log("✅");
+
+                        BlocBuilder<AuthCubit, AuthState>(
+                            builder: (context, state) {
+                          keyForm.currentState?.save();
+                          if (state is AuthFailure) {
+                            return AppToast.toast(state.errMessage);
+                          }
+                          return const AppLoading(loading: TypeLoading.send);
+                        });
+                      }
+                    },
+                  ),
                   // * Space
-                  AppDime.lg.verticalSpace,
+                  AppDime.xxxi.verticalSpace,
+                  AppDime.xlg.verticalSpace,
                   // * Footer
                   AuthFooter(
                     first: AppLangKey.notAccount,
                     second: AppLangKey.register,
-                    onTap: () => AppRoutes.go(context, PageRegister.nameRoute),
+                    onTap: () {
+                      AppRoutes.go(context, PageRegister.nameRoute);
+                    },
                   ),
                 ],
               ),

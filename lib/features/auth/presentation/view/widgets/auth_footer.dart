@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/theme/app_theme.dart';
@@ -21,10 +22,11 @@ class AuthFooter extends StatelessWidget {
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[
           const TextSpan(text: ' '),
-          TextSpan(text: second, style: AppTheme.h6(context)
-              //   TODO        ?.copyWith(color: AppTheme.colorAuth(context)),
-              //       recognizer: TapGestureRecognizer()..onTap = onTap,
-              ),
+          TextSpan(
+            text: second, style: AppTheme.h6(context),
+            //   TODO        ?.copyWith(color: AppTheme.colorAuth(context)),
+            recognizer: TapGestureRecognizer()..onTap = onTap,
+          ),
         ],
       ),
     );

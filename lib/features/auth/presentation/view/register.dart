@@ -1,9 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/dime/app_dime.dart';
 import '../../../../core/utils/language/app_lang_key.dart';
 
+import '../../../../core/widgets/loading/app_loading.dart';
+import '../../../../core/widgets/toast/app_toast.dart';
+import '../../../profile/presentation/views/widgets/custom_btn.dart';
+import '../maneg/auth_cubit/auth_cubit.dart';
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
 import 'widgets/auth_field_email.dart';
@@ -66,23 +73,28 @@ class _PageRegisterState extends State<PageRegister> {
                   // ),
 
                   // * Button Sign in
-                  // TODO        pAuth.loading
-                  //             ? const AppLoading(loading: TypeLoading.send)
-                  //             : CustomBtn(
-                  //                 title: AppLangKey.register,
-                  //                 onTap: () async {
-                  //                   if (PageRegister.keyForm.currentState?.validate() ??
-                  //                       false) {
-                  //                     // ✅
-                  //                     PageRegister.keyForm.currentState?.save();
-                  //                     if (await pAuth.authMethod(isSignIn: false) !=
-                  //                         null) {
-                  //                     } else {
-                  //                       AppToast.toast(pAuth.errorMessage);
-                  //                     }
-                  //                   }
-                  //                 },
-                  //               ),
+                  CustomBtn(
+                    title: AppLangKey.login,
+                    onTap: () async {
+                      await context
+                          .read<AuthCubit>()
+                          .authMethod(isSignIn: false);
+                      if (PageRegister.keyForm.currentState?.validate() ??
+                          false) {
+                        // ✅
+                        log("✅");
+                        PageRegister.keyForm.currentState?.save();
+
+                        BlocBuilder<AuthCubit, AuthState>(
+                            builder: (context, state) {
+                          if (state is AuthFailure) {
+                            return AppToast.toast(state.errMessage);
+                          } else if (state is AuthSuccess) {}
+                          return const AppLoading(loading: TypeLoading.send);
+                        });
+                      }
+                    },
+                  ),
                   // * Space
                   AppDime.lg.verticalSpace,
                   // * Footer

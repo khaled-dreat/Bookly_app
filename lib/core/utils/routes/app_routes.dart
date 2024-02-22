@@ -1,5 +1,7 @@
 import 'package:clean_arch_bookly_app/features/auth/presentation/view/sign_in.dart';
 import 'package:flutter/material.dart';
+import '../../../features/auth/presentation/view/register.dart';
+import '../../../features/auth/presentation/view/wrapper.dart';
 import '../../../features/category/presentation/book_categorie/view/book_categories_view.dart';
 import '../../../features/category/presentation/categories/view/categories_view.dart';
 import '../../../features/favorite/presentation/view/favorite_view.dart';
@@ -23,10 +25,12 @@ class AppRoutes {
     FavoriteView.nameRoute: (context) => const FavoriteView(),
     ProfileView.nameRoute: (context) => const ProfileView(),
     PageSignIn.nameRoute: (context) => const PageSignIn(),
+    WrapperView.nameRoute: (context) => const WrapperView(),
+    PageRegister.nameRoute: (context) => const PageRegister(),
   };
 
   // * inti Route
-  static String? get initRoute => PageSignIn.nameRoute;
+  static String? get initRoute => SplachView.nameRoute;
 
   // * push Name
   static void go(BuildContext context, String nameRoute) =>

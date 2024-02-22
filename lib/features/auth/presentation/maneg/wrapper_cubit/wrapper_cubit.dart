@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
@@ -12,7 +14,7 @@ class WrapperCubit extends Cubit<WrapperState> {
     try {
       emit(WrapperSuccess(currentUsers: firebaseAuth.authStateChanges()));
     } catch (e) {
-      WrapperFailure(errMessage: e.toString());
+      emit(WrapperFailure(errMessage: e.toString()));
     }
   }
 }

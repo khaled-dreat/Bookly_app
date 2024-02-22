@@ -13,7 +13,7 @@ class AuthAppIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image(
       image: const AssetImage(AppImages.booklyLogoLight),
-      width: AppDime.half.sw,
+      width: AppDime.half.sw * 1.6,
     );
   }
 }

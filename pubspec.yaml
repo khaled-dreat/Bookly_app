@@ -37,6 +37,7 @@ dependencies:
   validators: ^3.0.0
   firebase_core: ^2.24.2
   firebase_auth: ^4.17.5
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:
