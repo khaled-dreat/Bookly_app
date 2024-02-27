@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/dime/app_dime.dart';
 import '../../../../core/utils/language/app_lang_key.dart';
 import '../../../../core/utils/theme/app_theme.dart';
 
+import '../../../profile/presentation/views/widgets/custom_btn.dart';
+import '../maneg/auth_cubit/auth_cubit.dart';
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
 import 'widgets/auth_field_email.dart';
@@ -48,20 +51,18 @@ class PageForgotPass extends StatelessWidget {
                   // * Space
                   AppDime.lg.verticalSpace,
                   // * Button Sign in
-                  //  TODO      pAuth.loading
-                  //            ? const AppLoading(loading: TypeLoading.send)
-                  //            : CustomBtn(
-                  //                title: AppLangKey.send,
-                  //                onTap: () {
-                  //                  if (keyForm.currentState?.validate() ?? false) {
-                  //                    // ✅
+                  CustomBtn(
+                    title: AppLangKey.send,
+                    onTap: () async {
+                      if (keyForm.currentState?.validate() ?? false) {
+                        // ✅
 
-                  //                    keyForm.currentState?.save();
-                  //                    pAuth.resetPass();
-                  //                    Navigator.pop(context);
-                  //                  }
-                  //                },
-                  //              ),
+                        keyForm.currentState?.save();
+                        //        await context.read<AuthCubit>().resetPass();
+                        Navigator.pop(context);
+                      }
+                    },
+                  ),
                   // * Space
                   AppDime.lg.verticalSpace,
                   // * Footer

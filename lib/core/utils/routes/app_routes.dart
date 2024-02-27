@@ -1,5 +1,6 @@
 import 'package:clean_arch_bookly_app/features/auth/presentation/view/sign_in.dart';
 import 'package:flutter/material.dart';
+import '../../../features/auth/presentation/view/forgot_pass.dart';
 import '../../../features/auth/presentation/view/register.dart';
 import '../../../features/auth/presentation/view/wrapper.dart';
 import '../../../features/category/presentation/book_categorie/view/book_categories_view.dart';
@@ -27,6 +28,7 @@ class AppRoutes {
     PageSignIn.nameRoute: (context) => const PageSignIn(),
     WrapperView.nameRoute: (context) => const WrapperView(),
     PageRegister.nameRoute: (context) => const PageRegister(),
+    PageForgotPass.nameRoute: (context) => const PageForgotPass(),
   };
 
   // * inti Route

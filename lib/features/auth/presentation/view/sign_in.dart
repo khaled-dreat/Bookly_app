@@ -56,23 +56,22 @@ class PageSignIn extends StatelessWidget {
                   const AuthForgotPass(),
 
                   // * Button Sign in
-                  //   pAuth.loading
-                  //   ? const AppLoading(loading: TypeLoading.send)
-                  //   :
+
                   CustomBtn(
                     title: AppLangKey.login,
                     onTap: () async {
+                      keyForm.currentState?.save();
                       await context.read<AuthCubit>().authMethod();
 
                       if (keyForm.currentState?.validate() ?? false) {
                         // ✅
                         log("✅");
-
                         BlocBuilder<AuthCubit, AuthState>(
                             builder: (context, state) {
-                          keyForm.currentState?.save();
                           if (state is AuthFailure) {
                             return AppToast.toast(state.errMessage);
+                          } else if (state is AuthLoading) {
+                            return const AppLoading(loading: TypeLoading.send);
                           }
                           return const AppLoading(loading: TypeLoading.send);
                         });

@@ -8,6 +8,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../../../core/utils/local_data/app_local_data_key.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
+import '../../../../../auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import '../../../../../auth/presentation/view/wrapper.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../../../home/domain/entity/book_entity.dart';
@@ -39,16 +40,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
     Timer(const Duration(seconds: 3), () async {
       context.read<SelectCategoryCubit>().getSelectedCategory();
       context.read<FavoriteBooksCubit>().getFavoriteBooks();
+      context.read<WrapperCubit>().currentUserState();
+
       Future.delayed(const Duration(seconds: 3), () {
-        if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
-          AppRoutes.goReplace(context, WrapperView.nameRoute);
-        } else {
-          AppRoutes.goReplace(context, SelectCategoryView.nameRoute);
-        }
+        AppRoutes.goReplace(context, WrapperView.nameRoute);
       });
     });
-
-    // navigateToHome();
   }
 
   @override

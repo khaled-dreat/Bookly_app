@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   // * Register
-  Future<void> authMethod({bool isSignIn = true}) async {
+  Future<User?> authMethod({bool isSignIn = true}) async {
     try {
       emit(AuthLoading());
       UserCredential resultUser = isSignIn
@@ -46,9 +46,12 @@ class AuthCubit extends Cubit<AuthState> {
           : await firebaseAuth.createUserWithEmailAndPassword(
               email: userAuth.email!, password: userAuth.password!);
       if (resultUser.user != null) {
-        emit(AuthSuccess(user: resultUser.user!));
+        emit(AuthLoading());
+//emit(AuthSuccess(user: resultUser.user!));
+        return resultUser.user!;
       } else {
         emit(AuthFailure(errMessage: AppLangKey.notAccount));
+        return null;
       }
     } on SocketException {
       emit(AuthFailure(errMessage: AppLangKey.noInternet));
@@ -57,5 +60,24 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (error) {
       emit(AuthFailure(errMessage: error.toString()));
     }
+    return null;
   }
+/*
+  // * Forgot pass
+  Future<void> resetPass() async {
+    try {
+      await firebaseAuth.sendPasswordResetEmail(email: userAuth.email!);
+    } on SocketException {
+      emit(AuthFailure(errMessage: AppLangKey.noInternet));
+    } on FirebaseAuthException catch (error) {
+      emit(AuthFailure(errMessage: error.message ?? ""));
+    } catch (error) {
+      emit(AuthFailure(errMessage: error.toString()));
+    }
+  }
+
+  // * signOut
+  Future<void> signOut() async {
+    firebaseAuth.signOut();
+  }*/
 }
