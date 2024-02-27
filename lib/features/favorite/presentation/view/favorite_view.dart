@@ -87,18 +87,17 @@ class GridViewFavoriteBooks extends StatelessWidget {
               curve: Curves.fastLinearToSlowEaseIn,
               child: FadeInAnimation(
                 child: SizedBox(
-                  height: 350,
-                  child: CoustomBookCard(
-                    books: book,
-                    onTap: () async {
-                      await BlocProvider.of<BookDetailsCubit>(context)
-                          .fetchFeaturedBooksDetails(id: book.bookId);
-                      await BlocProvider.of<AlsoLikeBooksCubit>(context)
-                          .fetchAlsoLike(author: book.autherName);
-                      AppRoutes.go(context, BookDetailsView.nameRoute);
-                    },
-                  ),
-                ),
+                    height: 350,
+                    child: CoustomBookCard(
+                      books: book,
+                      onTap: () async {
+                        await BlocProvider.of<BookDetailsCubit>(context)
+                            .fetchFeaturedBooksDetails(id: book.bookId);
+                        await BlocProvider.of<AlsoLikeBooksCubit>(context)
+                            .fetchAlsoLike(author: book.autherName);
+                        AppRoutes.go(context, BookDetailsView.nameRoute);
+                      },
+                    )),
               ),
             ),
           );
