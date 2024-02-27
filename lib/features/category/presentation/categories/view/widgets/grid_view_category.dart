@@ -70,8 +70,8 @@ class _GridViewCategoryState extends State<GridViewCategory> {
     return AnimationLimiter(
       child: GridView.count(
         controller: _scrollController,
-        childAspectRatio: .7,
-        mainAxisSpacing: 15,
+        childAspectRatio: .6,
+        mainAxisSpacing: 16,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),
@@ -87,7 +87,7 @@ class _GridViewCategoryState extends State<GridViewCategory> {
               curve: Curves.fastLinearToSlowEaseIn,
               child: FadeInAnimation(
                 child: SizedBox(
-                  height: 350,
+                  height: 400,
                   child: CoustomBookCard(
                     books: book,
                     onTap: () async {
