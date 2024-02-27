@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,6 +31,11 @@ class _GridViewCategoryState extends State<GridViewCategory> {
   var nextPage = 1;
   var isLoading = false;
 
+  List<BookEntity> removeNullBooks(List<BookEntity> books) {
+    log(books.length.toString());
+    return books.where((book) => book.image.isNotEmpty).toList();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -57,6 +64,8 @@ class _GridViewCategoryState extends State<GridViewCategory> {
 
   @override
   Widget build(BuildContext context) {
+    List<BookEntity> newBookList = removeNullBooks(widget.books);
+    log(newBookList.length.toString());
     int columnCount = 2;
     return AnimationLimiter(
       child: GridView.count(
@@ -68,7 +77,7 @@ class _GridViewCategoryState extends State<GridViewCategory> {
         ),
         padding: EdgeInsets.all(15.r),
         crossAxisCount: columnCount,
-        children: widget.books.map((book) {
+        children: newBookList.map((book) {
           return AnimationConfiguration.staggeredGrid(
             position: widget.books.indexOf(book),
             duration: const Duration(milliseconds: 500),
