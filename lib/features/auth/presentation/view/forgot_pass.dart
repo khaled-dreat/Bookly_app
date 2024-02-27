@@ -58,7 +58,7 @@ class PageForgotPass extends StatelessWidget {
                         // ✅
 
                         keyForm.currentState?.save();
-                        //        await context.read<AuthCubit>().resetPass();
+                        await context.read<AuthCubit>().resetPass();
                         Navigator.pop(context);
                       }
                     },
