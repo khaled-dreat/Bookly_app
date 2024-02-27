@@ -62,7 +62,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
     return null;
   }
-/*
+
   // * Forgot pass
   Future<void> resetPass() async {
     try {
@@ -79,5 +79,5 @@ class AuthCubit extends Cubit<AuthState> {
   // * signOut
   Future<void> signOut() async {
     firebaseAuth.signOut();
-  }*/
+  }
 }
