@@ -59,7 +59,7 @@ class _WrapperViewBodyState extends State<WrapperViewBody> {
         } else if (state is WrapperFailure) {
           Text(state.errMessage);
         }
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

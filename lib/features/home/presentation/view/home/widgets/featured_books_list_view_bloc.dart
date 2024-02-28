@@ -45,7 +45,7 @@ class _FeaturedBooksListViewBlocIndex1State
         } else if (state is FetchCategoryBooksIndex1Failure) {
           return Text(state.errMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );
@@ -89,7 +89,7 @@ class _FeaturedBooksListViewBlocIndex2State
         } else if (state is FetchCategoryBooksIndex2Failure) {
           return Text(state.errMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );
@@ -134,7 +134,7 @@ class _FeaturedBooksListViewBlocIndex3State
         } else if (state is FetchCategoryBooksIndex3Failure) {
           return Text(state.errMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

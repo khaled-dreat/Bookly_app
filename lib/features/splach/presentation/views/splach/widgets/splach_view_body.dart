@@ -48,6 +48,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
       children: [
         // * image
         const CustomSplachLogo(),
+
         // * Sliding Text
         SlidingText(slidingAnimation: slidingAnimation)
       ],

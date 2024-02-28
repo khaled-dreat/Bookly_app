@@ -53,7 +53,7 @@ class AlsoLikeBooksDetailsBlocBuilder extends StatelessWidget {
         } else if (state is AlsoLikeBooksFailure) {
           return Text(state.errMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -45,7 +45,7 @@ class _CategoriesViewBodyState extends State<CategoriesViewBody> {
         } else if (state is FetchCategoryBooksFailure) {
           return Text(state.errMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

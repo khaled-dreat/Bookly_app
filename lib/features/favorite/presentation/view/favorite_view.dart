@@ -51,7 +51,7 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
         } else if (state is FavoriteBooksFailure) {
           Text(state.errMessage);
         }
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
