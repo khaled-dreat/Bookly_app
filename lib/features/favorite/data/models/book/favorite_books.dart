@@ -1,10 +1,10 @@
-import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
+import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class FavoriteBooksModel extends BookEntity {
+class FavoriteBooksModel extends FavoriteBookEntity {
   String? kind;
   String? id;
   String? etag;
