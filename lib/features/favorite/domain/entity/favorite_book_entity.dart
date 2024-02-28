@@ -1,4 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
+
 part 'favorite_book_entity.g.dart';
 
 @HiveType(typeId: 1)
@@ -24,4 +28,15 @@ class FavoriteBookEntity {
     required this.price,
     required this.rating,
   });
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'bookId': bookId,
+      'image': image,
+      'title': title,
+      'autherName': autherName,
+      'price': price,
+      'rating': rating,
+    };
+  }
 }

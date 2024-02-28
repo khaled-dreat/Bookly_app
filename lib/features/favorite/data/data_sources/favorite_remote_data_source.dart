@@ -1,20 +1,27 @@
+import 'package:clean_arch_bookly_app/core/firebase/firebase_key.dart';
+import 'package:clean_arch_bookly_app/core/widgets/snackbar/snackbar.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
-
-import '../../../../core/api/api_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 abstract class FavoriteRemoteDataSource {
   // * Fetch All Books
-  Future<FavoriteBookEntity> addFavoriteBooks({FavoriteBookEntity book});
+  Future<void> addFavoriteBooks({FavoriteBookEntity book});
 }
 
 class FavoriteRemoteDataSourceImpl extends FavoriteRemoteDataSource {
-  final ApiService apiService;
+  final FirebaseFirestore firestore;
 
-  FavoriteRemoteDataSourceImpl({required this.apiService});
+  FavoriteRemoteDataSourceImpl({required this.firestore});
 
   @override
-  Future<FavoriteBookEntity> addFavoriteBooks({FavoriteBookEntity? book}) {
-    // TODO: implement fetchFavoriteBooks
-    throw UnimplementedError();
+  Future<void> addFavoriteBooks({FavoriteBookEntity? book}) async {
+    try {
+      await firestore
+          .collection(FireBaseKey.collectionFavoriteBook)
+          .doc(book?.bookId)
+          .set(book!.toMap());
+    } catch (e) {
+      AppSnackBar.snackBarError(msg: e.toString());
+    }
   }
 }
