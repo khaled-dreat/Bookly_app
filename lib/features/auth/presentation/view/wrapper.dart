@@ -19,8 +19,8 @@ class WrapperView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const WrapperViewBody(),
+    return const Scaffold(
+      body: WrapperViewBody(),
     );
   }
 }
@@ -81,16 +81,11 @@ class WrapperStreamBuilder extends StatelessWidget {
             return const AppLoading(loading: TypeLoading.page);
           }
           if (snapshot.hasData) {
-            //  context.read<SelectCategoryCubit>().getSelectedCategory();
-            //  context.read<FavoriteBooksCubit>().getFavoriteBooks();
-            //  Future.delayed(const Duration(seconds: 3), () {
-            //    if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
-            //      AppRoutes.goReplace(context, HomeView.nameRoute);
-            //    } else {
-            //      AppRoutes.goReplace(context, SelectCategoryView.nameRoute);
-            //    }
-            //  });
-            return const SelectCategoryView();
+            if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
+              return const HomeView();
+            } else {
+              return const SelectCategoryView();
+            }
           } else {
             return const PageSignIn();
           }

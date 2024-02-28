@@ -1,24 +1,14 @@
 import 'dart:async';
-import 'dart:developer';
-
-import 'package:clean_arch_bookly_app/core/utils/constant/app_images.dart';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-
-import '../../../../../../core/utils/local_data/app_local_data_key.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import '../../../../../auth/presentation/view/wrapper.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
-import '../../../../../home/domain/entity/book_entity.dart';
 import '../../../maneg/select_category/select_category_cubit.dart';
 import 'custom_splach_logo.dart';
 import 'sliding_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../../core/utils/dime/app_dime.dart';
 import '../../select_category/select_category_view.dart';
 
 class SplachViewBody extends StatefulWidget {
@@ -40,11 +30,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
     Timer(const Duration(seconds: 3), () async {
       context.read<SelectCategoryCubit>().getSelectedCategory();
       context.read<FavoriteBooksCubit>().getFavoriteBooks();
-      context.read<WrapperCubit>().currentUserState();
-
-      Future.delayed(const Duration(seconds: 3), () {
-        AppRoutes.goReplace(context, WrapperView.nameRoute);
-      });
+      AppRoutes.goReplace(context, WrapperView.nameRoute);
     });
   }
 
