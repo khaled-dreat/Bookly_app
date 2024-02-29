@@ -14,7 +14,7 @@ final class FavoriteBooksFailure extends FavoriteBooksState {
 }
 
 final class FavoriteBooksSuccess extends FavoriteBooksState {
-  final List<BookEntity> books;
+  final List<FavoriteBookEntity> books;
 
   FavoriteBooksSuccess({required this.books});
 }

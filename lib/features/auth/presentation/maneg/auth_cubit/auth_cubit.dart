@@ -47,7 +47,7 @@ class AuthCubit extends Cubit<AuthState> {
               email: userAuth.email!, password: userAuth.password!);
       if (resultUser.user != null) {
         emit(AuthLoading());
-//emit(AuthSuccess(user: resultUser.user!));
+        emit(AuthSuccess());
         return resultUser.user!;
       } else {
         emit(AuthFailure(errMessage: AppLangKey.notAccount));

@@ -5,10 +5,10 @@ import '../../../../core/usecase/use_case.dart';
 import '../../../../core/utils/constant/app_failure.dart';
 import '../repo/repo_favorite.dart';
 
-class FetchFavoriteBooksUseCase extends UseCase<void, FavoriteBookEntity> {
+class AddFavoriteBooksUseCase extends UseCase<void, FavoriteBookEntity> {
   final FavoriteRepo favoriteRepo;
 
-  FetchFavoriteBooksUseCase({required this.favoriteRepo});
+  AddFavoriteBooksUseCase({required this.favoriteRepo});
 
   @override
   Future<Either<Failure, void>> call([FavoriteBookEntity? param]) async {

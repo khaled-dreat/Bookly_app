@@ -29,6 +29,17 @@ class FavoriteBookEntity {
     required this.rating,
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'bookId': bookId,
+      'image': image,
+      'title': title,
+      'authorName': autherName,
+      'price': price,
+      'rating': rating,
+    };
+  }
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'bookId': bookId,

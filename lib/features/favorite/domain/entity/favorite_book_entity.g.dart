@@ -6,7 +6,7 @@ part of 'favorite_book_entity.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BookEntityAdapter extends TypeAdapter<FavoriteBookEntity> {
+class FavoriteBookEntityAdapter extends TypeAdapter<FavoriteBookEntity> {
   @override
   final int typeId = 1;
 
@@ -50,7 +50,7 @@ class BookEntityAdapter extends TypeAdapter<FavoriteBookEntity> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BookEntityAdapter &&
+      other is FavoriteBookEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

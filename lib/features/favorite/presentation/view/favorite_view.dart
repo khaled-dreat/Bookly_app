@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,7 +63,7 @@ class GridViewFavoriteBooks extends StatelessWidget {
     super.key,
     required this.books,
   });
-  final List<BookEntity> books;
+  final List<FavoriteBookEntity> books;
   @override
   Widget build(BuildContext context) {
     int columnCount = 2;
@@ -88,7 +89,7 @@ class GridViewFavoriteBooks extends StatelessWidget {
               child: FadeInAnimation(
                 child: SizedBox(
                     height: 350,
-                    child: CoustomBookCard(
+                    child: CoustomFavoriteBookCard(
                       books: book,
                       onTap: () async {
                         await BlocProvider.of<BookDetailsCubit>(context)

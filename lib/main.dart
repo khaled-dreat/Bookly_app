@@ -1,3 +1,4 @@
+import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:clean_arch_bookly_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(BookEntityAdapter());
+  Hive.registerAdapter(FavoriteBookEntityAdapter());
 
   // * FireBase
   await Firebase.initializeApp(
@@ -25,13 +27,14 @@ void main() async {
 
   setupServiceLocatorHome();
   setupServiceLocatorSrh();
+  setupServiceLocatorFavorite();
   Bloc.observer = SimpleBlocObserver();
   runApp(const Bookly());
 }
 
 Future<void> openHiveBoxes() async {
   await Hive.openBox<List<String>>(AppHiveKey.selectedCategory);
-  await Hive.openBox<List<BookEntity>>(AppHiveKey.favoriteBooks);
+  await Hive.openBox<List<FavoriteBookEntity>>(AppHiveKey.favoriteBooks);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory1);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory2);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory3);

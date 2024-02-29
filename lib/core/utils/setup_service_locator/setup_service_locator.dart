@@ -1,3 +1,7 @@
+import 'package:clean_arch_bookly_app/features/favorite/data/data_sources/favorite_remote_data_source.dart';
+import 'package:clean_arch_bookly_app/features/favorite/data/repo/favorite_repo_empl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../../features/search/data/data_source/srh_books_remote_data_source.dart';
 import '../../../features/search/data/repo/srh_repo_emp.dart';
 import 'package:dio/dio.dart';
@@ -29,4 +33,9 @@ void setupServiceLocatorSrh() {
   getIt.registerSingleton<SrhRepoEmpl>(SrhRepoEmpl(
       srhBooksRemoteDataSource:
           SrhBooksDataSourceImp(apiService: getIt.get<ApiService>())));
+}
+
+void setupServiceLocatorFavorite() {
+  getIt.registerSingleton<FavoriteRepoEmpl>(FavoriteRepoEmpl(
+      favoriteRemoteDataSource: FavoriteRemoteDataSourceImpl()));
 }
