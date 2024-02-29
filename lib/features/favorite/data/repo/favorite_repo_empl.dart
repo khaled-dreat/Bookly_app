@@ -33,8 +33,16 @@ class FavoriteRepoEmpl extends FavoriteRepo {
   }
 
   @override
-  Future<Either<Failure, List<FavoriteBookEntity>>> fetchFavoriteBooks() {
-    // TODO: implement fetchFavoriteBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<FavoriteBookEntity>>> fetchFavoriteBooks() async {
+    try {
+      List<FavoriteBookEntity> favoriteBook;
+      favoriteBook = await favoriteRemoteDataSource.fetchFavoriteBooks();
+      return right(favoriteBook);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDiorError(e));
+      }
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }

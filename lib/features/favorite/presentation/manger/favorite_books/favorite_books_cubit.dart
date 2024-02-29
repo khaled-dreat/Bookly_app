@@ -4,16 +4,22 @@ import 'package:bloc/bloc.dart';
 import 'package:clean_arch_bookly_app/core/usecase/use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
+import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
+import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
+import '../../../../../core/utils/constant/app_failure.dart';
 import '../../../../../core/utils/local_data/app_local_data_key.dart';
 part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
   List<FavoriteBookEntity>? listfavoriteBooks;
+  List<FavoriteBookEntity>? listfavoriteBooksDB;
   final Box<List<FavoriteBookEntity>> haivFavoriteBooks;
   final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
-  FavoriteBooksCubit(this.addFavoriteBooksUseCase)
+  final FetchFavoriteBooksUseCase fetchFavoriteBooksUseCase;
+  FavoriteBooksCubit(
+      this.addFavoriteBooksUseCase, this.fetchFavoriteBooksUseCase)
       : haivFavoriteBooks =
             Hive.box<List<FavoriteBookEntity>>(AppHiveKey.favoriteBooks),
         super(FavoriteBooksInitial());
@@ -32,6 +38,17 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     } catch (e) {
       emit(FavoriteBooksFailure(errMessage: e.toString()));
     }
+  }
+
+  Future<void> fetchFavoriteBooksDB() async {
+    Either<Failure, List<FavoriteBookEntity>> result =
+        await fetchFavoriteBooksUseCase.call();
+
+    result.fold((failure) {
+      log(failure.message);
+    }, (books) {
+      listfavoriteBooksDB = books;
+    });
   }
 
   Future<void> getFavoriteBooks() async {
