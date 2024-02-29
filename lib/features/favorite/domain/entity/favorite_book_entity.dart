@@ -50,4 +50,18 @@ class FavoriteBookEntity {
       'rating': rating,
     };
   }
+
+  factory FavoriteBookEntity.fromMap(Map<String, dynamic> map) {
+    return FavoriteBookEntity(
+      bookId: map['bookId'] as String,
+      image: map['image'] as String,
+      title: map['title'] != null ? map['title'] as String : null,
+      autherName: map['autherName'] as String,
+      price: map['price'] != null ? map['price'] as double : null,
+      rating: map['rating'] as String,
+    );
+  }
+
+  factory FavoriteBookEntity.fromJson(String source) =>
+      FavoriteBookEntity.fromMap(json.decode(source) as Map<String, dynamic>);
 }

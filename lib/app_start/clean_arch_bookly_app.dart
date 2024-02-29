@@ -10,7 +10,7 @@ import '../features/auth/presentation/maneg/auth_cubit/auth_cubit.dart';
 import '../features/auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import '../features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 import '../features/favorite/data/repo/favorite_repo_empl.dart';
-import '../features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
+import '../features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import '../features/favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../features/home/data/repo/home_repo_empl.dart';
 import '../features/home/domain/use_cases/fetch_also_like_book_use_case.dart';

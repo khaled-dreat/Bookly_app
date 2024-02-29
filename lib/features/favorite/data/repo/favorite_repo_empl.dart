@@ -31,4 +31,10 @@ class FavoriteRepoEmpl extends FavoriteRepo {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<FavoriteBookEntity>>> fetchFavoriteBooks() {
+    // TODO: implement fetchFavoriteBooks
+    throw UnimplementedError();
+  }
 }

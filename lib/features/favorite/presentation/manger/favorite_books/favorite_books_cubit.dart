@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:clean_arch_bookly_app/core/usecase/use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
-import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
+import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
 import '../../../../../core/utils/local_data/app_local_data_key.dart';
