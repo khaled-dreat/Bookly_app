@@ -37,7 +37,15 @@ class FavoritViewBody extends StatefulWidget {
 class _FavoritViewBodyState extends State<FavoritViewBody> {
   @override
   void initState() {
-    context.read<FavoriteBooksCubit>().fetchFavoriteBooks();
+    if (context.read<FavoriteBooksCubit>().listfavoriteBooksDB != null) {
+      Future.delayed(
+        Duration.zero,
+        () async {
+          await context.read<FavoriteBooksCubit>().fetchFavoriteBooks();
+        },
+      );
+    }
+
     super.initState();
   }
 

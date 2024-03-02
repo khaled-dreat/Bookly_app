@@ -41,12 +41,17 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
   }
 
   Future<void> fetchFavoriteBooksDB() async {
+    emit(FavoriteBooksLoading());
+
     Either<Failure, List<FavoriteBookEntity>> result =
         await fetchFavoriteBooksUseCase.call();
 
     result.fold((failure) {
+      emit(FavoriteBooksFailure(errMessage: failure.message));
+
       log(failure.message);
     }, (books) {
+      emit(FavoriteBooksSuccess(books: books));
       listfavoriteBooksDB = books;
     });
   }
