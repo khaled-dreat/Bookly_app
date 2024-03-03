@@ -45,4 +45,17 @@ class FavoriteRepoEmpl extends FavoriteRepo {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> removeFavoriteBooks({String? bookID}) async {
+    try {
+      favoriteRemoteDataSource.removeFavoriteBooks(bookID: bookID!);
+      return const Right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDiorError(e));
+      }
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
 }

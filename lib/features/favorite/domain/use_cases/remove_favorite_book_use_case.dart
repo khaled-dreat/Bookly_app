@@ -10,6 +10,6 @@ class AddFavoriteBooksUseCase extends UseCase<void, String> {
 
   @override
   Future<Either<Failure, void>> call([String? param]) async {
-    return await favoriteRepo.removeFavoriteBooks(book: param!);
+    return await favoriteRepo.removeFavoriteBooks(bookID: param!);
   }
 }
