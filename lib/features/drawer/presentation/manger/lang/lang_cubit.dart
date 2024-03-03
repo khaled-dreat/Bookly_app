@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import '../../../../../core/utils/language/app_lang.dart';
 import '../../../../../core/utils/language/app_lang_config.dart';
 import '../../../../../core/utils/language/app_lang_key.dart';
+import '../../../../../core/utils/restart/app_restart.dart';
 import '../../../../../core/utils/theme/app_color.dart';
 import '../../../../../core/utils/theme/app_theme.dart';
 import '../../../../../core/widgets/toast/app_toast.dart';
@@ -41,7 +42,7 @@ class LangCubit extends Cubit<LangState> {
       context.setLocale(lang == ChoiceLang.en
           ? AppLangConfig.enLocale
           : AppLangConfig.arLocale);
-      // TODo   AppRestart.reBuild(context);
+      AppRestart.reBuild(context);
       // notifyListeners();
     } else {
       AppToast.toast(AppLangKey.chosenLang.tr(),
