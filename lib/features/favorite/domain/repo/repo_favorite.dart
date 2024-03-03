@@ -6,5 +6,6 @@ import '../../../../core/utils/constant/app_failure.dart';
 
 abstract class FavoriteRepo {
   Future<Either<Failure, void>> addFavoriteBooks({FavoriteBookEntity book});
+  Future<Either<Failure, void>> removeFavoriteBooks({FavoriteBookEntity book});
   Future<Either<Failure, List<FavoriteBookEntity>>> fetchFavoriteBooks();
 }
