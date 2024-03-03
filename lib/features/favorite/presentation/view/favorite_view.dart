@@ -105,7 +105,10 @@ class GridViewFavoriteBooks extends StatelessWidget {
                             .fetchFeaturedBooksDetails(id: book.bookId);
                         await BlocProvider.of<AlsoLikeBooksCubit>(context)
                             .fetchAlsoLike(author: book.autherName);
-                        AppRoutes.go(context, BookDetailsView.nameRoute);
+                        Navigator.pushNamed(context, BookDetailsView.nameRoute)
+                            .then((value) => context
+                                .read<FavoriteBooksCubit>()
+                                .fetchFavoriteBooks());
                       },
                     )),
               ),
