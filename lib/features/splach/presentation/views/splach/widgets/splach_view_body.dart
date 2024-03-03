@@ -28,6 +28,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
     super.initState();
     initSlidingAnimation();
     Timer(const Duration(seconds: 3), () async {
+      context.read<SelectCategoryCubit>().getSelectedCategory();
       AppRoutes.goReplace(context, WrapperView.nameRoute);
     });
   }
