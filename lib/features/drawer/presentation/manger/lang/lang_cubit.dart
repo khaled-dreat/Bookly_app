@@ -32,4 +32,22 @@ class LangCubit extends Cubit<LangState> {
             ? ChoiceLang.en
             : ChoiceLang.ar));
   }
+
+  // * change lang
+  void changeLang(BuildContext context, {required ChoiceLang lang}) {
+    if (lang != this.lang) {
+      this.lang = lang;
+
+      context.setLocale(lang == ChoiceLang.en
+          ? AppLangConfig.enLocale
+          : AppLangConfig.arLocale);
+      // TODo   AppRestart.reBuild(context);
+      // notifyListeners();
+    } else {
+      AppToast.toast(AppLangKey.chosenLang.tr(),
+          color: AppTheme.isDark(context)
+              ? AppColors.darkTab
+              : AppColors.lightTab);
+    }
+  }
 }
