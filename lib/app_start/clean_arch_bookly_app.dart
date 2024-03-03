@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nested/nested.dart';
@@ -31,8 +32,21 @@ import '../features/search/presentation/manger/category_books/category_books_cub
 import '../features/search/presentation/manger/srh_books/srh_books_cubit.dart';
 import '../features/splach/presentation/maneg/select_category/select_category_cubit.dart';
 
-class Bookly extends StatelessWidget {
+class Bookly extends StatefulWidget {
   const Bookly({super.key});
+
+  @override
+  State<Bookly> createState() => _BooklyState();
+}
+
+class _BooklyState extends State<Bookly> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+  }
 
   // This widget is the root of your application.
   @override
