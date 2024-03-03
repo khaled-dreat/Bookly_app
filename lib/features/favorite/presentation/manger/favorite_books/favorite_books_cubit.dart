@@ -5,6 +5,7 @@ import 'package:clean_arch_bookly_app/core/usecase/use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
+import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/remove_favorite_book_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dartz/dartz_unsafe.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -14,8 +15,8 @@ import '../../../../../core/utils/local_data/app_local_data_key.dart';
 part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
-  FavoriteBooksCubit(
-      this.addFavoriteBooksUseCase, this.fetchFavoriteBooksUseCase)
+  FavoriteBooksCubit(this.addFavoriteBooksUseCase,
+      this.fetchFavoriteBooksUseCase, this.removeFavoriteBooksUseCase)
       : super(FavoriteBooksInitial());
 
   Box<FavoriteBookEntity> haivFavoriteBooks =
@@ -23,6 +24,7 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
 //  List<FavoriteBookEntity>? listfavoriteBooksDB;
   List<FavoriteBookEntity>? listfavoriteBooks;
   final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
+  final RemoveFavoriteBooksUseCase removeFavoriteBooksUseCase;
   final FetchFavoriteBooksUseCase fetchFavoriteBooksUseCase;
 
   Future<void> fetchFavoriteBooks() async {
@@ -66,8 +68,13 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
           listfavoriteBooks!.indexWhere((book) => book.bookId == bookId);
       if (index != -1) {
         haivFavoriteBooks.deleteAt(index);
+        unSaveFavoriteBooksDB(bookId);
       }
     }
+  }
+
+  void unSaveFavoriteBooksDB(String bookId) {
+    removeFavoriteBooksUseCase.call(bookId);
   }
 
   void saveFavoriteBooks(
@@ -95,7 +102,10 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
   void addFavoriteBooks({required FavoriteBookEntity book}) async {
     Box<FavoriteBookEntity> haivADDFavoriteBooks =
         Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
-
     await haivADDFavoriteBooks.add(book);
   }
-}
+}/*
+,
+            RemoveFavoriteBooksUseCase(
+              favoriteRepo: getIt.get<FavoriteRepoEmpl>(),
+            ),*/

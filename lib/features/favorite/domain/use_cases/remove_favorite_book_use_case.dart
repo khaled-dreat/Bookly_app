@@ -3,10 +3,10 @@ import '../../../../core/usecase/use_case.dart';
 import '../../../../core/utils/constant/app_failure.dart';
 import '../repo/repo_favorite.dart';
 
-class AddFavoriteBooksUseCase extends UseCase<void, String> {
+class RemoveFavoriteBooksUseCase extends UseCase<void, String> {
   final FavoriteRepo favoriteRepo;
 
-  AddFavoriteBooksUseCase({required this.favoriteRepo});
+  RemoveFavoriteBooksUseCase({required this.favoriteRepo});
 
   @override
   Future<Either<Failure, void>> call([String? param]) async {
