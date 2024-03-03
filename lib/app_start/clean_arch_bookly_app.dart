@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,6 +58,10 @@ class _BooklyState extends State<Bookly> {
           designSize: const Size(360, 690),
           builder: (context, child) => MaterialApp(
                 debugShowCheckedModeBanner: false,
+                // * Language
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
                 // * Theme
                 theme: AppThemeChoose.light(context),
                 darkTheme: AppThemeChoose.dark(context),
