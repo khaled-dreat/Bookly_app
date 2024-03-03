@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class FavoriteRemoteDataSource {
   // * Fetch All Books
   Future<void> addFavoriteBooks({FavoriteBookEntity book});
+  Future<void> removeFavoriteBooks({String bookID});
   Future<List<FavoriteBookEntity>> fetchFavoriteBooks();
 }
 
@@ -15,6 +16,23 @@ class FavoriteRemoteDataSourceImpl extends FavoriteRemoteDataSource {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   FavoriteRemoteDataSourceImpl();
+
+  // ! ************************ Frtch Favorite Books Data From FireBase **********************
+  @override
+  Future<void> removeFavoriteBooks({String? bookID}) async {
+    try {
+      if (bookID != null) {
+        await firestore
+            .collection(FireBaseKey.users)
+            .doc(auth.currentUser!.uid)
+            .collection(FireBaseKey.collectionFavoriteBook)
+            .doc(bookID)
+            .delete();
+      }
+    } catch (e) {
+      AppSnackBar.snackBarError(msg: e.toString());
+    }
+  }
 
 // ? ************************ Add Favorite Books to FireBase **********************
 
