@@ -6,6 +6,7 @@ import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_b
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz_unsafe.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
 import '../../../../../core/utils/constant/app_failure.dart';
@@ -19,13 +20,14 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
 
   Box<FavoriteBookEntity> haivFavoriteBooks =
       Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
-  List<FavoriteBookEntity>? listfavoriteBooksDB;
+//  List<FavoriteBookEntity>? listfavoriteBooksDB;
   List<FavoriteBookEntity>? listfavoriteBooks;
   final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
   final FetchFavoriteBooksUseCase fetchFavoriteBooksUseCase;
 
   Future<void> fetchFavoriteBooks() async {
     emit(FavoriteBooksLoading());
+    getFavoriteBooks();
     try {
       log(listfavoriteBooks.toString());
       emit(FavoriteBooksSuccess(books: listfavoriteBooks!));
@@ -35,18 +37,14 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
   }
 
   Future<void> fetchFavoriteBooksDB() async {
-    emit(FavoriteBooksLoading());
-
     Either<Failure, List<FavoriteBookEntity>> result =
         await fetchFavoriteBooksUseCase.call();
-
     result.fold((failure) {
-      emit(FavoriteBooksFailure(errMessage: failure.message));
-
       log(failure.message);
     }, (books) {
-      emit(FavoriteBooksSuccess(books: books));
-      listfavoriteBooksDB = books;
+      for (var book in books) {
+        addFavoriteBooks(book: book);
+      }
     });
   }
 
@@ -90,7 +88,7 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
       rating: rating,
     );
 
-    // addFavoriteBooksUseCase.call(book);
+    addFavoriteBooksUseCase.call(book);
     addFavoriteBooks(book: book);
   }
 

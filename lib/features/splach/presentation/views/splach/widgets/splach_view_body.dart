@@ -29,7 +29,6 @@ class _SplachViewBodyState extends State<SplachViewBody>
     initSlidingAnimation();
     Timer(const Duration(seconds: 3), () async {
       context.read<SelectCategoryCubit>().getSelectedCategory();
-      //   context.read<FavoriteBooksCubit>().getFavoriteBooks();
       AppRoutes.goReplace(context, WrapperView.nameRoute);
     });
   }

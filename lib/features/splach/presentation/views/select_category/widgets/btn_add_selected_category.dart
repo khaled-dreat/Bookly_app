@@ -1,5 +1,6 @@
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_color.dart';
+import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../../../home/presentation/view/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +16,9 @@ class BtnAddSelectedCategory extends StatelessWidget {
     return BlocBuilder<SelectCategoryCubit, List<String>>(
       builder: (context, state) {
         return InkWell(
-          onTap: () {
+          onTap: () async {
             if (state.length == 3) {
+              context.read<FavoriteBooksCubit>().fetchFavoriteBooksDB();
               context.read<SelectCategoryCubit>().addSelectedCategory();
               AppRoutes.goReplace(context, HomeView.nameRoute);
             }
