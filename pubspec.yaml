@@ -41,6 +41,7 @@ dependencies:
   firebase_storage: ^11.6.6
   cloud_firestore: ^4.15.5
   awesome_dialog: ^3.2.0
+  easy_localization: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -56,4 +57,5 @@ flutter:
     - assets/img/ 
     - assets/svg/ 
     - assets/img/logo/ 
+    - assets/lang/ 
      
