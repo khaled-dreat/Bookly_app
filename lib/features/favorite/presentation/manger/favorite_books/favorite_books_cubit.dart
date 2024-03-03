@@ -105,7 +105,4 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     await haivADDFavoriteBooks.add(book);
   }
 }/*
-,
-            RemoveFavoriteBooksUseCase(
-              favoriteRepo: getIt.get<FavoriteRepoEmpl>(),
-            ),*/
+*/
