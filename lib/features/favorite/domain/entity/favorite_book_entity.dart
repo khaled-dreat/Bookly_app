@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 part 'favorite_book_entity.g.dart';
 
 @HiveType(typeId: 1)
-class FavoriteBookEntity {
+class FavoriteBookEntity extends HiveObject {
   @HiveField(0)
   final String bookId;
   @HiveField(1)

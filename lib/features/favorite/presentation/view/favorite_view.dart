@@ -37,12 +37,12 @@ class FavoritViewBody extends StatefulWidget {
 class _FavoritViewBodyState extends State<FavoritViewBody> {
   @override
   void initState() {
+    context.read<FavoriteBooksCubit>().getFavoriteBooks();
+    context.read<FavoriteBooksCubit>().fetchFavoriteBooks();
     if (context.read<FavoriteBooksCubit>().listfavoriteBooksDB != null) {
       Future.delayed(
         Duration.zero,
-        () async {
-          await context.read<FavoriteBooksCubit>().fetchFavoriteBooks();
-        },
+        () async {},
       );
     }
 
@@ -58,6 +58,7 @@ class _FavoritViewBodyState extends State<FavoritViewBody> {
             books: state.books,
           );
         } else if (state is FavoriteBooksFailure) {
+          log(state.errMessage);
           Text(state.errMessage);
         }
         return const Center(child: CircularProgressIndicator());

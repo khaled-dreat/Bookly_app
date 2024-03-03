@@ -13,28 +13,22 @@ import '../../../../../core/utils/local_data/app_local_data_key.dart';
 part 'favorite_books_state.dart';
 
 class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
-  List<FavoriteBookEntity>? listfavoriteBooks;
-  List<FavoriteBookEntity>? listfavoriteBooksDB;
-  final Box<List<FavoriteBookEntity>> haivFavoriteBooks;
-  final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
-  final FetchFavoriteBooksUseCase fetchFavoriteBooksUseCase;
   FavoriteBooksCubit(
       this.addFavoriteBooksUseCase, this.fetchFavoriteBooksUseCase)
-      : haivFavoriteBooks =
-            Hive.box<List<FavoriteBookEntity>>(AppHiveKey.favoriteBooks),
-        super(FavoriteBooksInitial());
+      : super(FavoriteBooksInitial());
+
+  Box<FavoriteBookEntity> haivFavoriteBooks =
+      Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
+  List<FavoriteBookEntity>? listfavoriteBooksDB;
+  List<FavoriteBookEntity>? listfavoriteBooks;
+  final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
+  final FetchFavoriteBooksUseCase fetchFavoriteBooksUseCase;
 
   Future<void> fetchFavoriteBooks() async {
     emit(FavoriteBooksLoading());
     try {
-      emit(FavoriteBooksSuccess(
-          books: haivFavoriteBooks
-              .get(AppHiveKey.keyFavoriteBooks)!
-              .cast<FavoriteBookEntity>()));
-      log(haivFavoriteBooks
-          .get(AppHiveKey.keyFavoriteBooks)!
-          .length
-          .toString());
+      log(listfavoriteBooks.toString());
+      emit(FavoriteBooksSuccess(books: listfavoriteBooks!));
     } catch (e) {
       emit(FavoriteBooksFailure(errMessage: e.toString()));
     }
@@ -57,10 +51,8 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
   }
 
   Future<void> getFavoriteBooks() async {
-    List<FavoriteBookEntity>? favoriteBooks = haivFavoriteBooks
-        .get(AppHiveKey.keyFavoriteBooks)
-        ?.cast<FavoriteBookEntity>();
-    listfavoriteBooks = favoriteBooks ?? [];
+    List<FavoriteBookEntity> favoriteBooks = haivFavoriteBooks.values.toList();
+    listfavoriteBooks = favoriteBooks;
   }
 
   Future<bool> isFavoriteBook(String bookId) async {
@@ -72,8 +64,11 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
 
   void unSaveFavoriteBooks(String bookId) {
     if (listfavoriteBooks != null) {
-      listfavoriteBooks!.removeWhere((e) => e.bookId == bookId);
-      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, listfavoriteBooks!);
+      final index =
+          listfavoriteBooks!.indexWhere((book) => book.bookId == bookId);
+      if (index != -1) {
+        haivFavoriteBooks.deleteAt(index);
+      }
     }
   }
 
@@ -95,17 +90,14 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
       rating: rating,
     );
 
-    addFavoriteBooksUseCase.call(book);
+    // addFavoriteBooksUseCase.call(book);
     addFavoriteBooks(book: book);
   }
 
-  void addFavoriteBooks({required FavoriteBookEntity book}) {
-    if (listfavoriteBooks != null) {
-      listfavoriteBooks!.add(book);
-      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, listfavoriteBooks!);
-    } else {
-      listfavoriteBooks = [book];
-      haivFavoriteBooks.put(AppHiveKey.keyFavoriteBooks, [book]);
-    }
+  void addFavoriteBooks({required FavoriteBookEntity book}) async {
+    Box<FavoriteBookEntity> haivADDFavoriteBooks =
+        Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
+
+    await haivADDFavoriteBooks.add(book);
   }
 }

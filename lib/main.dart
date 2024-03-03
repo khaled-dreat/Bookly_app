@@ -34,7 +34,7 @@ void main() async {
 
 Future<void> openHiveBoxes() async {
   await Hive.openBox<List<String>>(AppHiveKey.selectedCategory);
-  await Hive.openBox<List<FavoriteBookEntity>>(AppHiveKey.favoriteBooks);
+  await Hive.openBox<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory1);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory2);
   await Hive.openBox<BookEntity>(AppHiveKey.selectedCategory3);

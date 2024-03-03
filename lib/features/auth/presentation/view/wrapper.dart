@@ -3,10 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/routes/app_routes.dart';
 import '../../../../core/widgets/loading/app_loading.dart';
-import '../../../drawer/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../home/presentation/view/home/home_view.dart';
 import '../../../splach/presentation/maneg/select_category/select_category_cubit.dart';
 import '../../../splach/presentation/views/select_category/select_category_view.dart';
