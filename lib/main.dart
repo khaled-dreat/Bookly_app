@@ -10,6 +10,7 @@ import 'app_start/clean_arch_bookly_app.dart';
 import 'core/utils/language/app_lang.dart';
 import 'core/utils/language/app_lang_config.dart';
 import 'core/utils/local_data/app_local_data_key.dart';
+import 'core/utils/restart/app_restart.dart';
 import 'core/utils/setup_service_locator/setup_service_locator.dart';
 import 'core/utils/simple_bloc_observer/simple_bloc_observer.dart';
 import 'features/home/domain/entity/book_entity.dart';
@@ -38,7 +39,7 @@ void main() async {
     supportedLocales: AppLangConfig.supportLocale,
     path: AppLangConfig.path,
     fallbackLocale: AppLangConfig.enLocale,
-    child: const Bookly(),
+    child: const AppRestart(child: Bookly()),
   ));
 }
 
