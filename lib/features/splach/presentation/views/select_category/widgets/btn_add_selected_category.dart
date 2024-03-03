@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_color.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
@@ -19,8 +21,10 @@ class BtnAddSelectedCategory extends StatelessWidget {
           onTap: () async {
             if (state.length == 3) {
               context.read<FavoriteBooksCubit>().fetchFavoriteBooksDB();
-              context.read<SelectCategoryCubit>().addSelectedCategory();
+              await context.read<SelectCategoryCubit>().addSelectedCategory();
               AppRoutes.goReplace(context, HomeView.nameRoute);
+              //4  Timer(Duration.zero, () {
+              //4  });
             }
           },
           child: Container(

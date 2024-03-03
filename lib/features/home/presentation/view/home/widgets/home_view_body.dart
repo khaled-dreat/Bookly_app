@@ -9,8 +9,19 @@ import 'coustom_appbar.dart';
 import 'featured_books_list_view_bloc.dart';
 import 'section_headar.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<SelectCategoryCubit>().getSelectedCategory();
+  }
 
   @override
   Widget build(BuildContext context) {

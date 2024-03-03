@@ -10,8 +10,8 @@ class SelectCategoryCubit extends Cubit<List<String>> {
   Box<List<String>> haivSelectedCategory =
       Hive.box<List<String>>(AppHiveKey.selectedCategory);
 
-  void addSelectedCategory() async {
-    haivSelectedCategory.put(AppHiveKey.keyselectedCategory, state);
+  Future<void> addSelectedCategory() async {
+    await haivSelectedCategory.put(AppHiveKey.keyselectedCategory, state);
   }
 
   Future<void> getSelectedCategory() async {
