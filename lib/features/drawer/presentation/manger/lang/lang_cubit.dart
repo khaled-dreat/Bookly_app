@@ -21,17 +21,14 @@ enum ChoiceLang {
   const ChoiceLang(this.nameLang);
 }
 
-class LangCubit extends Cubit<LangState> {
-  LangCubit() : super(LangInitial());
+class LangCubit extends Cubit<ChoiceLang> {
+  LangCubit() : super(ChoiceLang.ar);
   // * UI Widget
   ChoiceLang? lang;
 
   // * check lang used easy locale
   void checkLang(BuildContext context) {
-    emit(LangcheckLangSuccess(
-        lang: AppLang.currentLang(context) == kEn
-            ? ChoiceLang.en
-            : ChoiceLang.ar));
+    emit(AppLang.currentLang(context) == kEn ? ChoiceLang.en : ChoiceLang.ar);
   }
 
   // * change lang
@@ -43,7 +40,6 @@ class LangCubit extends Cubit<LangState> {
           ? AppLangConfig.enLocale
           : AppLangConfig.arLocale);
       AppRestart.reBuild(context);
-      // notifyListeners();
     } else {
       AppToast.toast(AppLangKey.chosenLang.tr(),
           color: AppTheme.isDark(context)

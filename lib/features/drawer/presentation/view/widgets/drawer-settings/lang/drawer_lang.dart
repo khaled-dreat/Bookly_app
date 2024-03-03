@@ -1,6 +1,13 @@
+import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-/*
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../../../core/utils/dime/app_dime.dart';
+import '../../../../manger/lang/lang_cubit.dart';
+
 class DrawerLang extends StatefulWidget {
   const DrawerLang({super.key});
 
@@ -16,33 +23,36 @@ class _DrawerLangState extends State<DrawerLang> {
     super.initState();
     // * check lang before build UI
     Future.delayed(Duration.zero, () {
-      // * Provider Lang
-      final ControllerLang pLang =
-          Provider.of<ControllerLang>(context, listen: false);
-      pLang.checkLang(context);
+      context.read<LangCubit>().checkLang;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     // * Provider Lang
-    final ControllerLang pLang = Provider.of<ControllerLang>(context);
-    return Padding(
-      padding: EdgeInsets.all(AppDime.md.r),
-      child: DropdownButton<ChoiceLang>(
-        value: pLang.lang,
-        items: [
-          DropdownMenuItem(
-              value: ChoiceLang.en, child: Text(ChoiceLang.en.nameLang.tr())),
-          DropdownMenuItem(
-              value: ChoiceLang.ar, child: Text(ChoiceLang.ar.nameLang.tr())),
-        ],
-        onChanged: (value) {
-          dev.log('lang : $value', name: 'DrawerLang');
-          pLang.changeLang(context, lang: value ?? ChoiceLang.en);
-        },
-      ),
+    final LangCubit cLang = context.read<LangCubit>();
+
+    return BlocBuilder<LangCubit, ChoiceLang>(
+      builder: (context, state) {
+        return Padding(
+          padding: EdgeInsets.all(AppDime.md.r),
+          child: DropdownButton<ChoiceLang>(
+            value: state,
+            items: [
+              DropdownMenuItem(
+                  value: ChoiceLang.en,
+                  child: Text(ChoiceLang.en.nameLang.tr())),
+              DropdownMenuItem(
+                  value: ChoiceLang.ar,
+                  child: Text(ChoiceLang.ar.nameLang.tr())),
+            ],
+            onChanged: (value) {
+              log('lang : $value', name: 'DrawerLang');
+              cLang.changeLang(context, lang: value ?? ChoiceLang.en);
+            },
+          ),
+        );
+      },
     );
   }
 }
-*/
