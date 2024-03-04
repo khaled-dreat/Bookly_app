@@ -23,7 +23,7 @@ class _DrawerLangState extends State<DrawerLang> {
     super.initState();
     // * check lang before build UI
     Future.delayed(Duration.zero, () {
-      context.read<LangCubit>().checkLang;
+      context.read<LangCubit>().checkLang(context);
     });
   }
 

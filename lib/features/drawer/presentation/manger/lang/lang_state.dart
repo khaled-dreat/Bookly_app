@@ -1,3 +1,4 @@
+/*
 part of 'lang_cubit.dart';
 
 @immutable
@@ -12,3 +13,4 @@ final class LangcheckLangSuccess extends LangState {
 }
 
 final class LangcheckLangFailure extends LangState {}
+/*

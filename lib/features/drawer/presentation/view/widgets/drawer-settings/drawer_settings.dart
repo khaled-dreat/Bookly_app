@@ -1,4 +1,5 @@
 import 'package:clean_arch_bookly_app/features/favorite/presentation/view/favorite_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../../../core/utils/language/app_lang_key.dart';
@@ -28,7 +29,7 @@ class DrawerSettings extends StatelessWidget {
           // * Lang
           DrawerSettingDesign(
             icon: AppSvg.lang,
-            title: AppLangKey.language,
+            title: AppLangKey.language.tr(),
             trailing: const DrawerLang(),
           ),
           // * Theme
