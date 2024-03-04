@@ -84,4 +84,8 @@ class AppLangKey {
 
   // * Internet
   static String noInternet = 'noInternet';
+
+  // * Sselect Categories
+  static String selectCategories = 'Select_3_Categories';
+  static String finish = 'Finish';
 }

@@ -13,4 +13,4 @@ final class LangcheckLangSuccess extends LangState {
 }
 
 final class LangcheckLangFailure extends LangState {}
-/*
+*/

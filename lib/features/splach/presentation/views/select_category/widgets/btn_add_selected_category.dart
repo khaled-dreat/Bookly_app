@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang.dart';
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/theme/app_color.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
@@ -23,8 +27,6 @@ class BtnAddSelectedCategory extends StatelessWidget {
               context.read<FavoriteBooksCubit>().fetchFavoriteBooksDB();
               await context.read<SelectCategoryCubit>().addSelectedCategory();
               AppRoutes.goReplace(context, HomeView.nameRoute);
-              //4  Timer(Duration.zero, () {
-              //4  });
             }
           },
           child: Container(
@@ -36,7 +38,7 @@ class BtnAddSelectedCategory extends StatelessWidget {
                     : const Color(0XFFA0A0A0),
                 borderRadius: BorderRadius.circular(15)),
             child: Text(
-              'Finish',
+              AppLangKey.finish.tr(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 19.sp,

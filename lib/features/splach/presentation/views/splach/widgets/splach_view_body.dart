@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
-import '../../../../../auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import '../../../../../auth/presentation/view/wrapper.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
 import '../../../maneg/select_category/select_category_cubit.dart';
