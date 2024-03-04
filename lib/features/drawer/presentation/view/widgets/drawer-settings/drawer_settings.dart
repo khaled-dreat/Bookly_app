@@ -6,6 +6,7 @@ import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/svg/app_svg.dart';
 import '../../../../../../core/widgets/dialog/app_dialog.dart';
 import 'drawer_setting_design.dart';
+import 'lang/drawer_lang.dart';
 
 class DrawerSettings extends StatelessWidget {
   const DrawerSettings({super.key});
@@ -25,11 +26,11 @@ class DrawerSettings extends StatelessWidget {
             onTap: () => AppRoutes.go(context, FavoriteView.nameRoute),
           ),
           // * Lang
-          //       DrawerSettingDesign(
-          //         icon: AppSvg.lang,
-          //         title: AppLangKey.language,
-          //         trailing: const DrawerLang(),
-          //       ),
+          DrawerSettingDesign(
+            icon: AppSvg.lang,
+            title: AppLangKey.language,
+            trailing: const DrawerLang(),
+          ),
           // * Theme
           //      DrawerSettingDesign(
           //        icon: AppSvg.theme,

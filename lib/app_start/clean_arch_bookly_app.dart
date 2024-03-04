@@ -4,13 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nested/nested.dart';
-
 import '../core/utils/routes/app_routes.dart';
 import '../core/utils/setup_service_locator/setup_service_locator.dart';
 import '../core/utils/theme/app_theme_choose.dart';
 import '../features/auth/presentation/maneg/auth_cubit/auth_cubit.dart';
 import '../features/auth/presentation/maneg/wrapper_cubit/wrapper_cubit.dart';
 import '../features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
+import '../features/drawer/presentation/manger/lang/lang_cubit.dart';
 import '../features/favorite/data/repo/favorite_repo_empl.dart';
 import '../features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import '../features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
@@ -75,6 +75,11 @@ class _BooklyState extends State<Bookly> {
 
   List<SingleChildWidget> get providers {
     return [
+      BlocProvider(
+        create: (context) {
+          return LangCubit();
+        },
+      ),
       BlocProvider(create: (context) {
         return SrhBooksCubit(
           FeaturedSrhBooksUseCase(
@@ -146,6 +151,7 @@ class _BooklyState extends State<Bookly> {
           return SearchhByCubit();
         },
       ),
+
       BlocProvider(
         create: (context) {
           return AuthCubit();
@@ -180,7 +186,12 @@ class _BooklyState extends State<Bookly> {
         create: (context) {
           return SelectCategoryCubit();
         },
-      )
+      ),
+      //  BlocProvider(
+      //    create: (context) {
+      //      return LangCubit();
+      //    },
+      //  )
     ];
   }
 }

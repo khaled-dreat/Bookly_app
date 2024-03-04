@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-
 import '../../../../../core/utils/language/app_lang.dart';
 import '../../../../../core/utils/language/app_lang_config.dart';
 import '../../../../../core/utils/language/app_lang_key.dart';
@@ -10,16 +8,6 @@ import '../../../../../core/utils/restart/app_restart.dart';
 import '../../../../../core/utils/theme/app_color.dart';
 import '../../../../../core/utils/theme/app_theme.dart';
 import '../../../../../core/widgets/toast/app_toast.dart';
-
-part 'lang_state.dart';
-
-enum ChoiceLang {
-  en(AppLangKey.english),
-  ar(AppLangKey.arabic);
-
-  final String nameLang;
-  const ChoiceLang(this.nameLang);
-}
 
 class LangCubit extends Cubit<ChoiceLang> {
   LangCubit() : super(ChoiceLang.ar);
@@ -47,4 +35,12 @@ class LangCubit extends Cubit<ChoiceLang> {
               : AppColors.lightTab);
     }
   }
+}
+
+enum ChoiceLang {
+  en(AppLangKey.english),
+  ar(AppLangKey.arabic);
+
+  final String nameLang;
+  const ChoiceLang(this.nameLang);
 }
