@@ -16,6 +16,7 @@ class LangCubit extends Cubit<ChoiceLang> {
 
   // * check lang used easy locale
   void checkLang(BuildContext context) {
+    lang = AppLang.currentLang(context) == kEn ? ChoiceLang.en : ChoiceLang.ar;
     emit(AppLang.currentLang(context) == kEn ? ChoiceLang.en : ChoiceLang.ar);
   }
 
