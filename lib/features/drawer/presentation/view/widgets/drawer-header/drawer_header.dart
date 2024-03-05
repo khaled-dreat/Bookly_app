@@ -1,8 +1,11 @@
 import 'package:clean_arch_bookly_app/core/utils/constant/app_images.dart';
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang.dart';
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_config.dart';
 import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
 import 'package:clean_arch_bookly_app/core/utils/theme/app_theme.dart';
 import 'package:clean_arch_bookly_app/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/dime/app_dime.dart';
@@ -55,11 +58,14 @@ class DrawerHeade extends StatelessWidget {
                           // * sizedBox height 8dp
                           AppDime.md.verticalSpace,
                           // * Email
-                          Text(
-                            'dreatkhaled@gmail.com',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTheme.b2(context),
+                          Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              'dreatkhaled@gmail.com',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTheme.b2(context),
+                            ),
                           ),
                         ],
                       ),

@@ -1,6 +1,7 @@
 import 'package:clean_arch_bookly_app/features/favorite/presentation/view/favorite_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/language/app_lang_key.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
@@ -50,11 +51,13 @@ class DrawerSettings extends StatelessWidget {
           //      },
           //    ),
           // * Logout
+          Spacer(),
           DrawerSettingDesign(
             icon: AppSvg.logout,
             title: AppLangKey.logout.tr(),
             onTap: () => AppDialog.logout(context),
           ),
+          20.verticalSpace
         ],
       ),
     );

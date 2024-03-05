@@ -1,5 +1,7 @@
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_config.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/utils/language/app_lang.dart';
 import '../../../../../../core/utils/theme/app_theme.dart';
 
 class SectionHeadar extends StatelessWidget {
@@ -23,7 +25,9 @@ class SectionHeadar extends StatelessWidget {
         ),
         IconButton(
             onPressed: onPressed,
-            icon: const Icon(Icons.keyboard_double_arrow_right_outlined))
+            icon: Icon(AppLang.currentLang(context) == kEn
+                ? Icons.keyboard_double_arrow_right_outlined
+                : Icons.keyboard_double_arrow_left_outlined))
       ],
     );
   }
