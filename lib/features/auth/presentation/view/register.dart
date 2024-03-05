@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +34,7 @@ class _PageRegisterState extends State<PageRegister> {
     // ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
 
     return Scaffold(
-      appBar: AuthAppBar(title: AppLangKey.register),
+      appBar: AuthAppBar(title: AppLangKey.register.tr()),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -74,7 +75,7 @@ class _PageRegisterState extends State<PageRegister> {
 
                   // * Button Sign in
                   CustomBtn(
-                    title: AppLangKey.login,
+                    title: AppLangKey.register.tr(),
                     onTap: () async {
                       await context
                           .read<AuthCubit>()
@@ -99,8 +100,8 @@ class _PageRegisterState extends State<PageRegister> {
                   AppDime.lg.verticalSpace,
                   // * Footer
                   AuthFooter(
-                    first: AppLangKey.haveAccount,
-                    second: AppLangKey.login,
+                    first: AppLangKey.haveAccount.tr(),
+                    second: AppLangKey.login.tr(),
                     onTap: () {
                       Navigator.pop(context);
                     },

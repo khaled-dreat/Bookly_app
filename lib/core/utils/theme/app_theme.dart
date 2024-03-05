@@ -1,4 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+
+import '../constant/app_images.dart';
+import '../language/app_lang_key.dart';
+import 'app_color.dart';
 
 class AppTheme {
   // * headline1
@@ -41,7 +47,6 @@ class AppTheme {
   // * check Theme dark or light (Application)
   static bool isDark(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark;
-/*
   // * check Theme dark or light for Device not application theme
   static bool brightnessDevice() {
     Brightness brightness = SchedulerBinding.instance.window.platformBrightness;
@@ -50,15 +55,15 @@ class AppTheme {
 
   //  * return text light or dark
   static String textTheme(BuildContext context) =>
-      isDark(context) ? AppLangKey.dark : AppLangKey.light;
+      isDark(context) ? AppLangKey.dark.tr() : AppLangKey.light.tr();
 
   // * return color depend on theme
   static Color themeColor(BuildContext context) =>
       isDark(context) ? AppColors.darkMode : AppColors.lightMode;
   // todo : get appIconDark
   // * return icon depend on theme
-  static String iconApp(BuildContext context) =>
-      isDark(context) ? AppImages.appLogo : AppImages.appLogo;
+  //static String iconApp(BuildContext context) =>
+  //    isDark(context) ? AppImages.appLogo : AppImages.appLogo;
 
   static Color colorAuth(BuildContext context) =>
       isDark(context) ? AppColors.bgPink : AppColors.bgBlue;
@@ -67,5 +72,5 @@ class AppTheme {
       isDark(context) ? AppColors.bgWhite : AppColors.bgBlue;
 
   static Color borderErrorTheme(BuildContext context) =>
-      isDark(context) ? Colors.pink : AppColors.bgRed;*/
+      isDark(context) ? Colors.pink : AppColors.bgRed;
 }

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:clean_arch_bookly_app/core/widgets/toast/app_toast.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,10 +28,8 @@ class PageSignIn extends StatelessWidget {
   const PageSignIn({super.key});
   @override
   Widget build(BuildContext context) {
-    //  ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
-
     return Scaffold(
-      appBar: AuthAppBar(title: AppLangKey.login),
+      appBar: AuthAppBar(title: AppLangKey.login.tr()),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -58,7 +57,7 @@ class PageSignIn extends StatelessWidget {
                   // * Button Sign in
 
                   CustomBtn(
-                    title: AppLangKey.login,
+                    title: AppLangKey.login.tr(),
                     onTap: () async {
                       keyForm.currentState?.save();
                       await context.read<AuthCubit>().authMethod();
@@ -83,8 +82,8 @@ class PageSignIn extends StatelessWidget {
                   AppDime.xlg.verticalSpace,
                   // * Footer
                   AuthFooter(
-                    first: AppLangKey.notAccount,
-                    second: AppLangKey.register,
+                    first: AppLangKey.notAccount.tr(),
+                    second: AppLangKey.register.tr(),
                     onTap: () {
                       AppRoutes.go(context, PageRegister.nameRoute);
                     },

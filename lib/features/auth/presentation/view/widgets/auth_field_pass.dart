@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,7 @@ class AuthFieldPass extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthCubit cAuth = context.read<AuthCubit>();
     return CustomTextForm(
-      label: isConfirm ? AppLangKey.confirmPass : AppLangKey.pass,
+      label: isConfirm ? AppLangKey.confirmPass.tr() : AppLangKey.pass.tr(),
       preIcon: AppIcons.pass,
       postIcon: cAuth.icon,
       isPass: cAuth.isNotShowPass,

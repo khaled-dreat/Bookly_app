@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class PageForgotPass extends StatelessWidget {
     //  ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
 
     return Scaffold(
-      appBar: AuthAppBar(title: AppLangKey.forgotPass),
+      appBar: AuthAppBar(title: AppLangKey.forgotPass.tr()),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -40,7 +41,7 @@ class PageForgotPass extends StatelessWidget {
                   AppDime.lg.verticalSpace,
                   // * hint Reset pass
                   Text(
-                    AppLangKey.hintResetPass,
+                    AppLangKey.hintResetPass.tr(),
                     textAlign: TextAlign.center,
                     style: AppTheme.s1(context)?.copyWith(height: 1.5),
                   ),
@@ -52,7 +53,7 @@ class PageForgotPass extends StatelessWidget {
                   AppDime.lg.verticalSpace,
                   // * Button Sign in
                   CustomBtn(
-                    title: AppLangKey.send,
+                    title: AppLangKey.send.tr(),
                     onTap: () async {
                       if (keyForm.currentState?.validate() ?? false) {
                         // ✅
@@ -67,8 +68,8 @@ class PageForgotPass extends StatelessWidget {
                   AppDime.lg.verticalSpace,
                   // * Footer
                   AuthFooter(
-                    first: AppLangKey.haveAccount,
-                    second: AppLangKey.login,
+                    first: AppLangKey.haveAccount.tr(),
+                    second: AppLangKey.login.tr(),
                     onTap: () => Navigator.pop(context),
                   ),
                 ],
