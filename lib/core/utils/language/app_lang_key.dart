@@ -108,4 +108,6 @@ class AppLangKey {
   // * Home
   static String free = 'free';
   static String youCanAlsoLike = 'youCanAlsoLike';
+  // * Favorite
+  static String favorite = 'favorite';
 }
