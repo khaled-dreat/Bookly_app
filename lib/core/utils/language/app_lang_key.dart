@@ -112,4 +112,20 @@ class AppLangKey {
   static String favorite = 'favorite';
   // * Category
   static String book = 'book';
+  // * Selected Category
+  static String msteryAndThrillers = "Mystery and Thrillers";
+  static String biographyAndMemoirs = "Biography and Memoirs";
+  static String selfDevelopment = "Self Development";
+  static String romance = "Romance";
+  static String fantasy = "Fantasy";
+  static String history = "History";
+  static String philosophy = "Philosophy";
+  static String religionAndSpirituality = "Religion and Spirituality";
+  static String artAndDesign = "Art and Design";
+  static String businessAndFinance = "Business and Finance";
+  static String healthAndWellness = "Health and Wellness";
+  static String scienceAndTechnology = "Science and Technology";
+  static String politicsAndGovernment = "Politics and Government";
+  static String sportsAndRecreation = "Sports and Recreation";
+  static String childrensBooks = "Children's Books";
 }
