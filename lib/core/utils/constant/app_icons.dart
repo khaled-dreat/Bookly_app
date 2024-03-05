@@ -4,7 +4,7 @@ class AppIcons {
   static const String favorite = 'assets/svg/favorite.svg';
   static const String translate = 'assets/svg/translate.svg';
   static const String theme = 'assets/icons/paint.svg';
-  static const String terms = 'assets/icons/terms.svg';
+  static const String terms = 'assets/svg/terms.svg';
   static const String logout = 'assets/svg/logout.svg';
 
   static IconData mail = CupertinoIcons.mail_solid;
