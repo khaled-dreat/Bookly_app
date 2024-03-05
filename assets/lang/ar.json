@@ -72,5 +72,20 @@
   "free": "مجاناَ",
   "youCanAlsoLike": "كتب اخرى يمكن ان تعجبك",
   "favorite": "المفضلة",
-  "books": "قسم"
+  "books": "قسم",
+  "Mystery and Thrillers": "الغموض والإثارة",
+  "Biography and Memoirs": "السير الذاتية والمذكرات",
+  "Self Development": "التطوير الشخصي",
+  "Romance": "رومانسية",
+  "Fantasy": "الخيال",
+  "History": "التاريخ",
+  "Philosophy": "الفلسفة",
+  "Religion and Spirituality": "الدين والروحانية",
+  "Art and Design": "الفن والتصميم",
+  "Business and Finance": "الأعمال والتمويل",
+  "Health and Wellness": "الصحة والعافية",
+  "Science and Technology": "العلوم والتكنولوجيا",
+  "Politics and Government": "السياسة والحكومة",
+  "Sports and Recreation": "الرياضة والترفيه",
+  "Children's Books": "كتب الأطفال"
 }
