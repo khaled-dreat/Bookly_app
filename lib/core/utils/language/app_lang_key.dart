@@ -85,7 +85,16 @@ class AppLangKey {
   // * Internet
   static String noInternet = 'noInternet';
 
-  // * Sselect Categories
+  // * Select Categories
   static String selectCategories = 'Select_3_Categories';
   static String finish = 'Finish';
+
+  // * Search
+  static String searchResult = 'SearchResult';
+  static String noReating = 'noReating';
+  static String search = 'search';
+  static String customSearch = 'customSearch';
+  static String searchBy = 'searchBy';
+  static String done = 'done';
+  static String categories = 'categories';
 }

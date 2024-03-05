@@ -56,5 +56,11 @@
   "emptyDownloaded": "There are no downloaded applications",
   "noInternet": "No internet, please connect to the internet",
   "Select_3_Categories": "Select 3 Categories",
-  "Finish": "Finish"
+  "Finish": "Finish",
+  "SearchResult": "Search Result",
+  "search": "Search",
+  "customSearch": "Custom search",
+  "searchBy": "Search By",
+  "done": "Done",
+  "categories": "Categories"
 }

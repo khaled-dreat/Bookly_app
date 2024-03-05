@@ -56,5 +56,12 @@
   "emptyDownloaded": "لا يوجد اي تطبيقات محملة",
   "noInternet": "لا يوجد إنترنت ، يرجى الاتصال بالإنترنت",
   "Select_3_Categories": "أختر 3 فئات",
-  "Finish": "حفظ"
+  "Finish": "حفظ",
+  "SearchResult": "نتأج البحث",
+  "noReating": "بدون تقيم",
+  "search": "بحث",
+  "customSearch": "تخصيص البحث",
+  "searchBy": "البحث عن طريق",
+  "done": "تم",
+  "categories": "فئات"
 }

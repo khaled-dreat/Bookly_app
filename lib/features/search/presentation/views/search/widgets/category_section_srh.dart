@@ -1,4 +1,6 @@
 import 'package:chips_choice/chips_choice.dart';
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +17,7 @@ class CategorySectionSrh extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpansionTile(
       tilePadding: EdgeInsets.only(left: 90.r),
-      title: const Text("Category"),
+      title: Text(AppLangKey.categories.tr()),
       children: [
         BlocBuilder<CategoryCubit, List<String>>(
           builder: (context, state) {
