@@ -14,3 +14,9 @@ final class AuthFailure extends AuthState {
 }
 
 final class AuthSuccess extends AuthState {}
+
+final class AuthisNotShowPass extends AuthState {
+  final bool isNotShowPass;
+
+  AuthisNotShowPass({required this.isNotShowPass});
+}

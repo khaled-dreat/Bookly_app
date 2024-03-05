@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 import '../../../../../core/utils/constant/app_icons.dart';
 import '../../../../../core/utils/language/app_lang_key.dart';
@@ -27,13 +26,14 @@ class AuthCubit extends Cubit<AuthState> {
 
   void changeIcon() {
     if (isNotShowPass) {
+      emit(AuthisNotShowPass(isNotShowPass: false));
       isNotShowPass = false;
       icon = AppIcons.noShowPass;
     } else {
+      emit(AuthisNotShowPass(isNotShowPass: true));
       isNotShowPass = true;
       icon = AppIcons.showPass;
     }
-    // notifyListeners();
   }
 
   // * Register

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../features/auth/presentation/maneg/auth_cubit/auth_cubit.dart';
 import '../../utils/dime/app_dime.dart';
 import '../../utils/theme/app_color.dart';
 import '../../utils/theme/app_theme.dart';
@@ -51,7 +53,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
 
   @override
   Widget build(BuildContext context) {
-    // ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
+    AuthCubit cAuth = context.read<AuthCubit>();
 
     return TextFormField(
       focusNode: focusNode,
@@ -74,17 +76,17 @@ class _CustomTextFormState extends State<CustomTextForm> {
         prefixIcon: widget.preIcon != null
             ? Icon(
                 widget.preIcon,
-                //  color: focusNode.hasFocus
-                //      ? AppTheme.iconColorTheme(context)
-                //      : AppColors.bgGrey,
+                color: focusNode.hasFocus
+                    ? AppTheme.iconColorTheme(context)
+                    : AppColors.bgGrey,
               )
             : null,
         suffixIcon: widget.postIcon != null
             ? IconButton(
-                onPressed: () {},
+                onPressed: () => cAuth.changeIcon(),
                 icon: Icon(
                   widget.postIcon,
-                  //   color: AppTheme.iconColorTheme(context),
+                  color: AppTheme.iconColorTheme(context),
                 ),
               )
             : null,
