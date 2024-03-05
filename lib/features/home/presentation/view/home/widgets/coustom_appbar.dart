@@ -13,10 +13,13 @@ class CoustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       actions: [
-        IconButton(
-          onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
-          icon: const Icon(FontAwesomeIcons.magnifyingGlass),
-          iconSize: 21.r,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
+            icon: const Icon(FontAwesomeIcons.magnifyingGlass),
+            iconSize: 21.r,
+          ),
         ),
       ],
     );
