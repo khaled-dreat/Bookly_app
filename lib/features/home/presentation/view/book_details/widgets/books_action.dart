@@ -1,3 +1,5 @@
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +25,7 @@ class BooksAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
               fontSize: 16.sp,
-              text: "Free",
+              text: AppLangKey.free.tr(),
               backgroundColor: const Color(0xffEF8262),
               textColor: AppColors.bgWhite,
               borderRadius: const BorderRadius.only(

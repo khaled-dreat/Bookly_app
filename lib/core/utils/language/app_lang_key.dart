@@ -104,4 +104,8 @@ class AppLangKey {
   static String saveChanges = 'saveChanges';
   static String phoneNumber = 'phoneNumber';
   static String editProfile = 'editProfile';
+
+  // * Home
+  static String free = 'free';
+  static String youCanAlsoLike = 'youCanAlsoLike';
 }

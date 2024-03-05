@@ -1,3 +1,6 @@
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../../../domain/entity/book_entity.dart';
 import 'custom_appbar_book_details.dart';
 import 'package:flutter/material.dart';
@@ -80,9 +83,9 @@ class BookDetailsViewBody extends StatelessWidget {
             // * Space
             25.verticalSpace,
             // * Text Also Like
-            const Align(
+            Align(
                 alignment: Alignment.centerLeft,
-                child: Text("You Can Also Like")),
+                child: Text(AppLangKey.youCanAlsoLike.tr())),
             // * Space
             5.verticalSpace,
             // * Text Also Like List View

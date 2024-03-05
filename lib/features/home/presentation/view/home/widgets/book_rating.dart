@@ -1,3 +1,5 @@
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +26,7 @@ class BookRating extends StatelessWidget {
         ),
         5.horizontalSpace,
         Text(
-          reating == "NOT_MATURE" ? getRandomNumber() : reating,
+          reating == AppLangKey.noReating.tr() ? getRandomNumber() : reating,
           style: TextStyle(fontSize: 10.sp),
         ),
       ],
