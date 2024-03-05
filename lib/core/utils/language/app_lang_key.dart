@@ -97,4 +97,11 @@ class AppLangKey {
   static String searchBy = 'searchBy';
   static String done = 'done';
   static String categories = 'categories';
+  // * profile
+
+  static String fullName = 'fullName';
+  static String yourPssword = 'yourPssword';
+  static String saveChanges = 'saveChanges';
+  static String phoneNumber = 'phoneNumber';
+  static String editProfile = 'editProfile';
 }

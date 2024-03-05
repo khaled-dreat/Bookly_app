@@ -62,5 +62,10 @@
   "customSearch": "Custom search",
   "searchBy": "Search By",
   "done": "Done",
-  "categories": "Categories"
+  "categories": "Categories",
+  "fullName": "Full Name",
+  "yourPssword": "Your Pssword",
+  "saveChanges": "Save changes",
+  "phoneNumber": "Phone Number",
+  "editProfile": "Edit Profile"
 }

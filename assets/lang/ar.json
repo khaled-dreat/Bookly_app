@@ -63,5 +63,10 @@
   "customSearch": "تخصيص البحث",
   "searchBy": "البحث عن طريق",
   "done": "تم",
-  "categories": "فئات"
+  "categories": "فئات",
+  "fullName": "الاسم كامل",
+  "yourPssword": "كلمة السر الخاصة بك",
+  "saveChanges": "حفظ التغيرات",
+  "phoneNumber": "رقم الهاتف",
+  "editProfile": "تعديل"
 }
