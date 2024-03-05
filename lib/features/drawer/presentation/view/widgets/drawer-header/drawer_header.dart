@@ -42,7 +42,7 @@ class DrawerHeade extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 65.h, child: ImageProfile()),
+                    SizedBox(height: 65.h, child: const ImageProfile()),
                     20.horizontalSpace,
                     // * Name
                     Expanded(

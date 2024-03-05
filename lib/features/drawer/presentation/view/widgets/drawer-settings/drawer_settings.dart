@@ -23,7 +23,7 @@ class DrawerSettings extends StatelessWidget {
           // * My App
           DrawerSettingDesign(
             icon: AppSvg.favorite,
-            title: "Favorite",
+            title: AppLangKey.favorite.tr(),
             onTap: () => AppRoutes.go(context, FavoriteView.nameRoute),
           ),
           // * Lang
@@ -52,7 +52,7 @@ class DrawerSettings extends StatelessWidget {
           // * Logout
           DrawerSettingDesign(
             icon: AppSvg.logout,
-            title: AppLangKey.logout,
+            title: AppLangKey.logout.tr(),
             onTap: () => AppDialog.logout(context),
           ),
         ],
