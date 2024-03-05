@@ -11,6 +11,7 @@ import '../../../features/home/presentation/view/home/home_view.dart';
 import '../../../features/profile/presentation/views/profile_view.dart';
 import '../../../features/search/presentation/views/search/search_view.dart';
 import '../../../features/splach/presentation/views/select_category/select_category_view.dart';
+import '../../../features/splach/presentation/views/selected-lang/page_selected_lang_view.dart';
 import '../../../features/splach/presentation/views/splach/splach_view.dart';
 
 class AppRoutes {
@@ -29,6 +30,7 @@ class AppRoutes {
     WrapperView.nameRoute: (context) => const WrapperView(),
     PageRegister.nameRoute: (context) => const PageRegister(),
     PageForgotPass.nameRoute: (context) => const PageForgotPass(),
+    PageSelectedLangView.nameRoute: (context) => const PageSelectedLangView(),
   };
 
   // * inti Route
