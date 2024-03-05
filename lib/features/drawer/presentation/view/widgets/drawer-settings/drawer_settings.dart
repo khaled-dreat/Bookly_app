@@ -3,10 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/api/api_key.dart';
 import '../../../../../../core/utils/language/app_lang_key.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../../core/utils/svg/app_svg.dart';
 import '../../../../../../core/widgets/dialog/app_dialog.dart';
+import '../../../../../webview/web_view.dart';
 import 'drawer_setting_design.dart';
 import 'lang/drawer_lang.dart';
 
@@ -40,18 +42,18 @@ class DrawerSettings extends StatelessWidget {
           //        trailing: const DrawerTheme(),
           //      ),
           // * Terms
-          //    DrawerSettingDesign(
-          //      icon: AppSvg.terms,
-          //      title: AppLangKey.terms,
-          //      onTap: () {
-          //        AppRoutes.goMaterial(
-          //          context,
-          //          PageWebView(url: ApiKey.termsUrl(context)),
-          //        );
-          //      },
-          //    ),
+          DrawerSettingDesign(
+            icon: AppSvg.terms,
+            title: AppLangKey.terms,
+            onTap: () {
+              AppRoutes.goMaterial(
+                context,
+                const PageWebView(url: ApiKey.termsUrl),
+              );
+            },
+          ),
           // * Logout
-          Spacer(),
+          const Spacer(),
           DrawerSettingDesign(
             icon: AppSvg.logout,
             title: AppLangKey.logout.tr(),

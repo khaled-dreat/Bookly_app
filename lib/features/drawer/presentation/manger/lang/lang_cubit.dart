@@ -30,6 +30,7 @@ class LangCubit extends Cubit<ChoiceLang> {
       context.setLocale(lang == ChoiceLang.en
           ? AppLangConfig.enLocale
           : AppLangConfig.arLocale);
+
       AppRestart.reBuild(context);
     } else {
       AppToast.toast(AppLangKey.chosenLang.tr(),

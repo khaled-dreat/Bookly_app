@@ -31,4 +31,6 @@ class ApiKey {
 
   // * HTML
   static const String items = "items";
+  static const String termsUrl =
+      "https://www.youtube.com/watch?v=wPf-7rrng-8&t=245s";
 }
