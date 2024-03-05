@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:clean_arch_bookly_app/features/home/presentation/view/home/home_view.dart';
+import 'package:clean_arch_bookly_app/features/splach/presentation/views/selected-lang/page_selected_lang_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/utils/language/app_lang.dart';
 import '../../../../../../core/utils/routes/app_routes.dart';
 import '../../../../../auth/presentation/view/wrapper.dart';
 import '../../../../../favorite/presentation/manger/favorite_books/favorite_books_cubit.dart';
@@ -28,7 +30,14 @@ class _SplachViewBodyState extends State<SplachViewBody>
     initSlidingAnimation();
     Timer(const Duration(seconds: 3), () async {
       context.read<SelectCategoryCubit>().getSelectedCategory();
-      AppRoutes.goReplace(context, WrapperView.nameRoute);
+      Timer(const Duration(seconds: 3), () async {
+        if (await AppLang.showSelectLang) {
+          AppRoutes.goReplace(context, PageSelectedLangView.nameRoute);
+        } else {
+          // wrapper
+          AppRoutes.goReplace(context, WrapperView.nameRoute);
+        }
+      });
     });
   }
 
