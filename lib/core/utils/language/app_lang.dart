@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -15,7 +17,7 @@ class AppLang {
   Box<bool> haivSelectedLang = Hive.box<bool>(keyShowLang);
 
   /// [setShowLang] save key show lang  is false stop show selected lang
-  Future<void> setShowLang() async {
+  static Future<void> setShowLang() async {
     Box<bool> haivSelectedLang = Hive.box<bool>(keyShowLang);
     await haivSelectedLang.put(keyShowLang, false);
   }

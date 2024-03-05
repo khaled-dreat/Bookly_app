@@ -25,7 +25,7 @@ class FlagLang extends StatelessWidget {
             AppLang.setLang(context,
                 lang == kEn ? AppLangConfig.enLocale : AppLangConfig.arLocale);
             // * change shared preference key to false (false stop show lang)
-            AppLang().setShowLang;
+            AppLang.setShowLang();
             // * Push  Wrapper
             AppRoutes.go(context, WrapperView.nameRoute);
           },
