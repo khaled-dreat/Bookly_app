@@ -1,12 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import '../language/app_lang_key.dart';
 import 'package:validators/validators.dart' as validators;
 
 class AppValidators {
   // * message Error
-  static final String messageEnterValue = AppLangKey.enterValue;
-  static final String messageCorrectEmail = AppLangKey.errorEmail;
-  static final String messageCorrectPass = AppLangKey.errorPass;
-  static final String messageConfirmPass = AppLangKey.errorConfirmPass;
+  static final String messageEnterValue = AppLangKey.enterValue.tr();
+  static final String messageCorrectEmail = AppLangKey.errorEmail.tr();
+  static final String messageCorrectPass = AppLangKey.errorPass.tr();
+  static final String messageConfirmPass = AppLangKey.errorConfirmPass.tr();
 
   static String? isEmail(String? value) => templateValidator(
       value, !validators.isEmail(value ?? ''), messageCorrectEmail);
