@@ -110,4 +110,6 @@ class AppLangKey {
   static String youCanAlsoLike = 'youCanAlsoLike';
   // * Favorite
   static String favorite = 'favorite';
+  // * Category
+  static String book = 'book';
 }
