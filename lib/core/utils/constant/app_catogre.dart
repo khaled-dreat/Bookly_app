@@ -1,3 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
+
+import '../language/app_lang_key.dart';
+
 List<String> choicesSearchBy = [
   "Title",
   "Auther",
@@ -21,19 +25,19 @@ String? searchByChoicesValue(String key) {
 }
 
 List<String> choices = [
-  "Mystery and Thrillers",
-  "Biography and Memoirs",
-  "Self Development",
-  "Romance",
-  "Fantasy",
-  "History",
-  "Philosophy",
-  "Religion and Spirituality",
-  "Art and Design",
-  "Business and Finance",
-  "Health and Wellness",
-  "Science and Technology",
-  "Politics and Government",
-  "Sports and Recreation",
-  "Children's Books",
+  AppLangKey.msteryAndThrillers.tr(),
+  AppLangKey.biographyAndMemoirs.tr(),
+  AppLangKey.selfDevelopment.tr(),
+  AppLangKey.romance.tr(),
+  AppLangKey.fantasy.tr(),
+  AppLangKey.history.tr(),
+  AppLangKey.philosophy.tr(),
+  AppLangKey.religionAndSpirituality.tr(),
+  AppLangKey.artAndDesign.tr(),
+  AppLangKey.businessAndFinance.tr(),
+  AppLangKey.healthAndWellness.tr(),
+  AppLangKey.scienceAndTechnology.tr(),
+  AppLangKey.politicsAndGovernment.tr(),
+  AppLangKey.sportsAndRecreation.tr(),
+  AppLangKey.childrensBooks.tr(),
 ];
