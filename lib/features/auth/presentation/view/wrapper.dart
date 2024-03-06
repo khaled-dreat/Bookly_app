@@ -79,7 +79,7 @@ class WrapperStreamBuilder extends StatelessWidget {
             return const AppLoading(loading: TypeLoading.page);
           }
           if (snapshot.hasData) {
-            if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
+            if (context.read<SelectCategoryCubit>().itemSelected.isNotEmpty) {
               return const HomeView();
             } else {
               return const SelectCategoryView();

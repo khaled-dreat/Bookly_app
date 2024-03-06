@@ -26,6 +26,7 @@ class BtnAddSelectedCategory extends StatelessWidget {
             if (state.length == 3) {
               context.read<FavoriteBooksCubit>().fetchFavoriteBooksDB();
               await context.read<SelectCategoryCubit>().addSelectedCategory();
+
               AppRoutes.goReplace(context, HomeView.nameRoute);
             }
           },

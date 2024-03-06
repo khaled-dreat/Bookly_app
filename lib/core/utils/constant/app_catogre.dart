@@ -24,7 +24,7 @@ String? searchByChoicesValue(String key) {
   return value;
 }
 
-List<String> choices = [
+List<String> splachSelectedLang = [
   AppLangKey.msteryAndThrillers.tr(),
   AppLangKey.biographyAndMemoirs.tr(),
   AppLangKey.selfDevelopment.tr(),
@@ -40,4 +40,22 @@ List<String> choices = [
   AppLangKey.politicsAndGovernment.tr(),
   AppLangKey.sportsAndRecreation.tr(),
   AppLangKey.childrensBooks.tr(),
+];
+
+List<String> homeSelectedLang = [
+  AppLangKey.msteryAndThrillers,
+  AppLangKey.biographyAndMemoirs,
+  AppLangKey.selfDevelopment,
+  AppLangKey.romance,
+  AppLangKey.fantasy,
+  AppLangKey.history,
+  AppLangKey.philosophy,
+  AppLangKey.religionAndSpirituality,
+  AppLangKey.artAndDesign,
+  AppLangKey.businessAndFinance,
+  AppLangKey.healthAndWellness,
+  AppLangKey.scienceAndTechnology,
+  AppLangKey.politicsAndGovernment,
+  AppLangKey.sportsAndRecreation,
+  AppLangKey.childrensBooks,
 ];

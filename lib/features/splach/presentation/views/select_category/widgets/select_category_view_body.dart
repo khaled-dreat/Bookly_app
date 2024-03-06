@@ -21,7 +21,7 @@ class SelectCategoryViewBody extends StatelessWidget {
                 .updateSelectedCategoryChoices(val);
           },
           choiceItems: C2Choice.listFrom<String, String>(
-            source: choices,
+            source: splachSelectedLang,
             value: (i, v) => v,
             label: (i, v) => v,
           ),

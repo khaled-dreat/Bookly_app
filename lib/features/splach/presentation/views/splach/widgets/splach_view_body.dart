@@ -77,7 +77,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
     context.read<SelectCategoryCubit>().getSelectedCategory();
     context.read<FavoriteBooksCubit>().getFavoriteBooks();
     Future.delayed(const Duration(seconds: 3), () {
-      if (context.read<SelectCategoryCubit>().itemCount.isNotEmpty) {
+      if (context.read<SelectCategoryCubit>().itemSelected.isNotEmpty) {
         AppRoutes.goReplace(context, HomeView.nameRoute);
       } else {
         AppRoutes.goReplace(context, SelectCategoryView.nameRoute);
