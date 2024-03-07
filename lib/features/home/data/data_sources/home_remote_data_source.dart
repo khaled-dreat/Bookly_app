@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../../../../core/utils/local_data/app_local_data_key.dart';
 import '../../../../core/api/api_key.dart';
 import '../../../../core/api/api_service.dart';
@@ -26,7 +28,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint:
             'volumes?Filtering=free-ebooks&q=$categoryTitle&startIndex=${pageNumber * 10}');
-
+    log(categoryTitle!);
     List<BookEntity> books = getBooksList(data);
     saveBooksData(books, listCategoryIndex.toString());
     return books;

@@ -1,8 +1,11 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:clean_arch_bookly_app/core/utils/local_data/app_local_data_key.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import '../../../../../core/utils/constant/app_catogre.dart';
 import '../../../../../core/utils/language/app_lang.dart';
 import '../../../../../core/utils/language/app_lang_config.dart';
 import '../../../../../core/utils/language/app_lang_key.dart';
@@ -10,6 +13,8 @@ import '../../../../../core/utils/restart/app_restart.dart';
 import '../../../../../core/utils/theme/app_color.dart';
 import '../../../../../core/utils/theme/app_theme.dart';
 import '../../../../../core/widgets/toast/app_toast.dart';
+import '../../../../home/domain/entity/book_entity.dart';
+import '../../../../splach/presentation/maneg/select_category/select_category_cubit.dart';
 
 class LangCubit extends Cubit<ChoiceLang> {
   LangCubit() : super(ChoiceLang.ar);
@@ -30,7 +35,9 @@ class LangCubit extends Cubit<ChoiceLang> {
       context.setLocale(lang == ChoiceLang.en
           ? AppLangConfig.enLocale
           : AppLangConfig.arLocale);
-
+      Hive.box<BookEntity>(AppHiveKey.selectedCategory1).clear();
+      Hive.box<BookEntity>(AppHiveKey.selectedCategory2).clear();
+      Hive.box<BookEntity>(AppHiveKey.selectedCategory3).clear();
       AppRestart.reBuild(context);
     } else {
       AppToast.toast(AppLangKey.chosenLang.tr(),

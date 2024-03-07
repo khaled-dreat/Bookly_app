@@ -16,23 +16,33 @@ class SelectCategoryCubit extends Cubit<List<String>> {
 
   Future<void> addSelectedCategory() async {
     // * For loob for get index of Selected category in splach Selected Lang List
+    List<int> indexes = getIndexOfSelectedCategory();
+
+    // * For loob for get name of Selected category in home Selected Lang List
+    List<String> itemSelectedForTest = [];
+    String newSelectedForTest = "";
+
+    getNameOfSelectedCategory(indexes, newSelectedForTest, itemSelectedForTest);
+
+    await haivSelectedCategory.put(
+        AppHiveKey.keyselectedCategory, itemSelectedForTest);
+  }
+
+  void getNameOfSelectedCategory(List<int> indexes, String newSelectedForTest,
+      List<String> itemSelectedForTest) {
+    for (int choice in indexes) {
+      newSelectedForTest = homeSelectedLang[choice];
+      itemSelectedForTest.add(newSelectedForTest);
+    }
+  }
+
+  List<int> getIndexOfSelectedCategory() {
     List<int> indexes = [];
     for (String choice in state) {
       int index = splachSelectedLang.indexOf(choice);
       indexes.add(index);
     }
-
-    // * For loob for get name of Selected category in home Selected Lang List
-    List<String> itemSelectedForTest = [];
-    String newSelectedForTest;
-
-    for (int choice in indexes) {
-      newSelectedForTest = homeSelectedLang[choice];
-      itemSelectedForTest.add(newSelectedForTest);
-    }
-
-    await haivSelectedCategory.put(
-        AppHiveKey.keyselectedCategory, itemSelectedForTest);
+    return indexes;
   }
 
   Future<void> getSelectedCategory() async {
