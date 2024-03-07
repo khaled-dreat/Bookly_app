@@ -25,7 +25,8 @@ class CustomBtnDialog extends StatelessWidget {
     SearchhByCubit cSearchhBy = context.read<SearchhByCubit>();
     IconButtonCubit cIconButton = context.read<IconButtonCubit>();
     cSrhBooks.changeCategoryChoices(cCategory.state);
-    cSrhBooks.changeSearchByChoices(cSearchhBy.state);
+    cSrhBooks.changeSearchByChoices(
+        cSearchhBy.state == "" ? AppLangKey.title : cSearchhBy.state);
     cIconButton.numOfSelectedSetting(cCategory.count() + cSearchhBy.count());
     Navigator.of(context).pop();
   }
