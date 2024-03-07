@@ -11,12 +11,12 @@ List<String> choicesSearchBy = [
 
 String? searchByChoicesValue(String key) {
   Map<String, String> choicesSearchBy2 = {
-    "Title": "intitle",
-    "Author": "inauthor",
-    "In Publisher": "inpublisher",
-    "SBN Number": "isbn",
-    "ICCN Number": "lccn",
-    "OCLC Number": "oclc",
+    AppLangKey.title: "intitle",
+    AppLangKey.auther: "inauthor",
+    AppLangKey.inPublisher: "inpublisher",
+    AppLangKey.sBNNumber: "isbn",
+    AppLangKey.iCCNNumber: "lccn",
+    AppLangKey.oCLCnumber: "oclc",
   };
   String? value = choicesSearchBy2[key];
   return value;
