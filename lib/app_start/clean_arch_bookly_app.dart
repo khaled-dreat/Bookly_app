@@ -179,6 +179,11 @@ class _BooklyState extends State<Bookly> {
       ),
       BlocProvider(
         create: (context) {
+          return IconButtonCubit();
+        },
+      ),
+      BlocProvider(
+        create: (context) {
           return CategoryCubit();
         },
       ),
