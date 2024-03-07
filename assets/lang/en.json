@@ -86,5 +86,11 @@
   "Science and Technology": "Science and Technology",
   "Politics and Government": "Politics and Government",
   "Sports and Recreation": "Sports and Recreation",
-  "Children's Books": "Children's Books"
+  "Children's Books": "Childn's Books",
+  "title": "Title",
+  "auther": "Auther",
+  "inPublisher": "In Publisher",
+  "sBNNumber": "SBN Number",
+  "iCCNNumber": "ICCN Number",
+  "oCLCnumber": "OCLC Number"
 }

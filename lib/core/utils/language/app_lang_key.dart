@@ -130,10 +130,10 @@ class AppLangKey {
   static String childrensBooks = "Children's Books";
   // * Choices Search By
 
-  static String title = "Title";
-  static String auther = "Auther";
-  static String inPublisher = "In Publisher";
-  static String sBNNumber = "SBN Number";
-  static String iCCNNumber = "ICCN Number";
-  static String oCLCnumber = "OCLC Number";
+  static String title = "title";
+  static String auther = "auther";
+  static String inPublisher = "inPublisher";
+  static String sBNNumber = "sBNNumber";
+  static String iCCNNumber = "iCCNNumber";
+  static String oCLCnumber = "oCLCnumber";
 }

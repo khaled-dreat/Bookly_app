@@ -87,5 +87,11 @@
   "Science and Technology": "العلوم والتكنولوجيا",
   "Politics and Government": "السياسة والحكومة",
   "Sports and Recreation": "الرياضة والترفيه",
-  "Children's Books": "كتب الأطفال"
+  "Children's Books": "كتب الأطفال",
+  "title": "العنوان",
+  "auther": "المؤلف",
+  "inPublisher": "الناشر",
+  "sBNNumber": "-SBN-رقم",
+  "iCCNNumber": "-ICCN-رقم",
+  "oCLCnumber": "-OCLC-رقم"
 }
