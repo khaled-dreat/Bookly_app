@@ -13,28 +13,30 @@ class NumOfSelectedSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<IconButtonCubit, int?>(
       builder: (context, state) {
-        return state != null
-            ? Positioned(
-                right: 5,
-                bottom: 25,
-                child: Container(
-                  alignment: Alignment.topCenter,
-                  height: 13.h,
-                  width: 13.w,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    state.toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
+        if (state != null && state != 0) {
+          return Positioned(
+            right: 5,
+            bottom: 25,
+            child: Container(
+              alignment: Alignment.topCenter,
+              height: 13.h,
+              width: 13.w,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                state.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
                 ),
-              )
-            : const SizedBox();
+              ),
+            ),
+          );
+        } else {
+          return const SizedBox();
+        }
       },
     );
   }
