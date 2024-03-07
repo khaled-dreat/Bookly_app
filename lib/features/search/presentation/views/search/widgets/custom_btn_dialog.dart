@@ -19,14 +19,14 @@ class CustomBtnDialog extends StatelessWidget {
         });
   }
 
-  //void onPressed(BuildContext context) {
-  //  SrhBooksCubit cSrhBooks = context.read<SrhBooksCubit>();
-  //  CategoryCubit cCategory = context.read<CategoryCubit>();
-  //  SearchhByCubit cSearchhBy = context.read<SearchhByCubit>();
-  //  IconButtonCubit cIconButton = context.read<IconButtonCubit>();
-  //  cSrhBooks.changeCategoryChoices(cCategory.state);
-  //  cSrhBooks.changeSearchByChoices(cSearchhBy.state);
-  //  cIconButton.numOfSelectedSetting(cCategory.count() + cSearchhBy.count());
-  //  Navigator.of(context).pop();
-  //}
+  void onPressed(BuildContext context) {
+    SrhBooksCubit cSrhBooks = context.read<SrhBooksCubit>();
+    CategoryCubit cCategory = context.read<CategoryCubit>();
+    SearchhByCubit cSearchhBy = context.read<SearchhByCubit>();
+    IconButtonCubit cIconButton = context.read<IconButtonCubit>();
+    cSrhBooks.changeCategoryChoices(cCategory.state);
+    cSrhBooks.changeSearchByChoices(cSearchhBy.state);
+    cIconButton.numOfSelectedSetting(cCategory.count() + cSearchhBy.count());
+    Navigator.of(context).pop();
+  }
 }
