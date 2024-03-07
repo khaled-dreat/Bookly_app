@@ -15,13 +15,18 @@ class CustomBtnDialog extends StatelessWidget {
     return ElevatedButton(
         child: Text(AppLangKey.done.tr()),
         onPressed: () {
-          context
-              .read<SrhBooksCubit>()
-              .changeCategoryChoices(context.read<CategoryCubit>().state);
-          context
-              .read<SrhBooksCubit>()
-              .changeSearchByChoices(context.read<SearchhByCubit>().state);
-          Navigator.of(context).pop();
+          onPressed(context);
         });
   }
+
+  //void onPressed(BuildContext context) {
+  //  SrhBooksCubit cSrhBooks = context.read<SrhBooksCubit>();
+  //  CategoryCubit cCategory = context.read<CategoryCubit>();
+  //  SearchhByCubit cSearchhBy = context.read<SearchhByCubit>();
+  //  IconButtonCubit cIconButton = context.read<IconButtonCubit>();
+  //  cSrhBooks.changeCategoryChoices(cCategory.state);
+  //  cSrhBooks.changeSearchByChoices(cSearchhBy.state);
+  //  cIconButton.numOfSelectedSetting(cCategory.count() + cSearchhBy.count());
+  //  Navigator.of(context).pop();
+  //}
 }
