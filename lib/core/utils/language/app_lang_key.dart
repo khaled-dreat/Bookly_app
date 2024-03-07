@@ -128,4 +128,12 @@ class AppLangKey {
   static String politicsAndGovernment = "Politics and Government";
   static String sportsAndRecreation = "Sports and Recreation";
   static String childrensBooks = "Children's Books";
+  // * Choices Search By
+
+  static String title = "Title";
+  static String auther = "Auther";
+  static String inPublisher = "In Publisher";
+  static String sBNNumber = "SBN Number";
+  static String iCCNNumber = "ICCN Number";
+  static String oCLCnumber = "OCLC Number";
 }
