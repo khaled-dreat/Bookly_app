@@ -30,9 +30,9 @@ class CategorySectionSrh extends StatelessWidget {
                     .updateSelectedCategoryChoices(val);
               },
               choiceItems: C2Choice.listFrom<String, String>(
-                source: splachSelectedLang,
+                source: homeSelectedLang,
                 value: (i, v) => v,
-                label: (i, v) => v,
+                label: (i, v) => v.tr(),
               ),
             );
           },
