@@ -91,7 +91,7 @@
   "title": "العنوان",
   "auther": "المؤلف",
   "inPublisher": "الناشر",
-  "sBNNumber": "-SBN-رقم",
-  "iCCNNumber": "-ICCN-رقم",
-  "oCLCnumber": "-OCLC-رقم"
+  "sBNNumber": "رقم SBN",
+  "iCCNNumber": "رقم ICCN",
+  "oCLCnumber": "رقم OCLC"
 }
