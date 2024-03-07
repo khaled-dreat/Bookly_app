@@ -1,12 +1,12 @@
 import '../language/app_lang_key.dart';
 
 List<String> choicesSearchBy = [
-  "Title",
-  "Auther",
-  "In Publisher",
-  "SBN Number",
-  "ICCN Number",
-  "OCLC Number",
+  AppLangKey.title,
+  AppLangKey.auther,
+  AppLangKey.inPublisher,
+  AppLangKey.sBNNumber,
+  AppLangKey.iCCNNumber,
+  AppLangKey.oCLCnumber,
 ];
 
 String? searchByChoicesValue(String key) {

@@ -1,4 +1,5 @@
 import 'package:chips_choice/chips_choice.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class SearchBySectionSrh extends StatelessWidget {
           choiceItems: C2Choice.listFrom<String, String>(
             source: choicesSearchBy,
             value: (i, v) => v,
-            label: (i, v) => v,
+            label: (i, v) => v.tr(),
           ),
         );
       },
