@@ -1,6 +1,5 @@
+import 'package:clean_arch_bookly_app/features/search/presentation/views/search/widgets/num_of_selected_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'custom_search_dialog.dart';
 import 'custom_search_text_field.dart';
 
@@ -13,10 +12,15 @@ class CustomSrhAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       elevation: 10,
       actions: [
-        IconButton(
-          onPressed: () => CustomSrhDialog.showCustomDialog(context),
-          icon: Icon(Icons.filter_alt, size: 20.r),
-        )
+        Stack(children: [
+          IconButton(
+            onPressed: () => CustomSrhDialog.showCustomDialog(context),
+            icon: const Icon(
+              Icons.tune_outlined,
+            ),
+          ),
+          const NumOfSelectedSettings(),
+        ])
       ],
       title: const CustomSearchTextField(),
     );
