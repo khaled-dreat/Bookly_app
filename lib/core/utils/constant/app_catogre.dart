@@ -1,5 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
-
 import '../language/app_lang_key.dart';
 
 List<String> choicesSearchBy = [
@@ -24,25 +22,7 @@ String? searchByChoicesValue(String key) {
   return value;
 }
 
-List<String> splachSelectedLang = [
-  AppLangKey.msteryAndThrillers.tr(),
-  AppLangKey.biographyAndMemoirs.tr(),
-  AppLangKey.selfDevelopment.tr(),
-  AppLangKey.romance.tr(),
-  AppLangKey.fantasy.tr(),
-  AppLangKey.history.tr(),
-  AppLangKey.philosophy.tr(),
-  AppLangKey.religionAndSpirituality.tr(),
-  AppLangKey.artAndDesign.tr(),
-  AppLangKey.businessAndFinance.tr(),
-  AppLangKey.healthAndWellness.tr(),
-  AppLangKey.scienceAndTechnology.tr(),
-  AppLangKey.politicsAndGovernment.tr(),
-  AppLangKey.sportsAndRecreation.tr(),
-  AppLangKey.childrensBooks.tr(),
-];
-
-List<String> homeSelectedLang = [
+List<String> selectedLang = [
   AppLangKey.msteryAndThrillers,
   AppLangKey.biographyAndMemoirs,
   AppLangKey.selfDevelopment,
