@@ -28,16 +28,14 @@ class _SplachViewBodyState extends State<SplachViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
+    context.read<SelectCategoryCubit>().getSelectedCategory();
     Timer(const Duration(seconds: 3), () async {
-      context.read<SelectCategoryCubit>().getSelectedCategory();
-      Timer(const Duration(seconds: 3), () async {
-        if (await AppLang.showSelectLang) {
-          AppRoutes.goReplace(context, PageSelectedLangView.nameRoute);
-        } else {
-          // wrapper
-          AppRoutes.goReplace(context, WrapperView.nameRoute);
-        }
-      });
+      if (await AppLang.showSelectLang) {
+        AppRoutes.goReplace(context, PageSelectedLangView.nameRoute);
+      } else {
+        // wrapper
+        AppRoutes.goReplace(context, WrapperView.nameRoute);
+      }
     });
   }
 
