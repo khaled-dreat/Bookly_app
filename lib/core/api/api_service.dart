@@ -13,6 +13,7 @@ class ApiService {
     log(name: "Url", endPoint);
     var response = await _dio.get('$baseUrl$endPoint');
 
+    log(name: "statusCode Url", response.toString());
     return response.data;
   }
 }
