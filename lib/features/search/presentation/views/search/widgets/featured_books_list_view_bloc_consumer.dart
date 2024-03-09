@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../core/widgets/error/error_text.dart';
 import '../../../../../../core/widgets/snackbar/snackbar.dart';
 import '../../../manger/srh_books/srh_books_cubit.dart';
 import 'list_view_shimmer_srh.dart';
@@ -44,7 +45,7 @@ class _FeaturedSrhBooksListViewBlocConsumerState
         );
       } else if (state is SrhBooksFailure) {
         // * Failure State
-        return Text(state.errorMessage);
+        return ErrorText(title: state.errorMessage);
       } else if (state is SrhBooksshowSrhView) {
         // *  Waiting For Search State
         return const WaitingWidget();

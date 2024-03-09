@@ -136,4 +136,7 @@ class AppLangKey {
   static String sBNNumber = "sBNNumber";
   static String iCCNNumber = "iCCNNumber";
   static String oCLCnumber = "oCLCnumber";
+
+  // * Srh Failer
+  static String bookNotFound = "book not found";
 }

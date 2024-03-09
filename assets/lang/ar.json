@@ -93,5 +93,6 @@
   "inPublisher": "الناشر",
   "sBNNumber": "رقم SBN",
   "iCCNNumber": "رقم ICCN",
-  "oCLCnumber": "رقم OCLC"
+  "oCLCnumber": "رقم OCLC",
+  "book not found": "عذرا، الكتاب غير موجود"
 }

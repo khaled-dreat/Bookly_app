@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import '../../../../../core/api/api_key.dart';
 import '../../../../../core/utils/constant/app_catogre.dart';
+import '../../../../../core/utils/language/app_lang_key.dart';
 import '../../../domain/use_cases/featured_srh_books_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,7 @@ class SrhBooksCubit extends Cubit<SrhBooksState> {
         if (pageNumber == 0 &&
             failure.message ==
                 "type 'Null' is not a subtype of type 'Iterable<dynamic>'") {
-          emit(SrhBooksFailure(errorMessage: "Sorry, The book not found"));
+          emit(SrhBooksFailure(errorMessage: AppLangKey.bookNotFound));
         } else if (pageNumber == 0) {
           log(failure.message);
           emit(SrhBooksFailure(errorMessage: failure.message));
