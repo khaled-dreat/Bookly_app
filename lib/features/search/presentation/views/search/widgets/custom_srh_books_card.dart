@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,6 +19,7 @@ class CustomSrhBooksCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(book.price.toString());
     return Row(
       children: [
         CostomBookImage(image: book.image, height: 150, width: 120),
