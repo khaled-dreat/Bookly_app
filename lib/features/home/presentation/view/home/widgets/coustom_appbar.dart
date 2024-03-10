@@ -1,12 +1,7 @@
 import 'package:clean_arch_bookly_app/core/api/api_service.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/connectitivy_icon.dart';
+import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/srh_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../../../core/utils/constant/app_images.dart';
-import '../../../../../../core/utils/routes/app_routes.dart';
-import '../../../../../favorite/presentation/view/favorite_view.dart';
-import '../../../../../search/presentation/views/search/search_view.dart';
 
 class CoustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CoustomAppBar({super.key});
@@ -29,25 +24,9 @@ class _CoustomAppBarState extends State<CoustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actions: [
-        StreamBuilder<ConnectivityResult>(
-            stream: Connectivity().onConnectivityChanged,
-            builder: (context, snapshot) {
-              return snapshot.data == ConnectivityResult.none
-                  ? const Icon(
-                      Icons.wifi_off,
-                      color: Colors.red,
-                    )
-                  : const SizedBox();
-            }),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: IconButton(
-            onPressed: () => AppRoutes.go(context, SearchView.nameRoute),
-            icon: const Icon(FontAwesomeIcons.magnifyingGlass),
-            iconSize: 21.r,
-          ),
-        ),
+      actions: const [
+        ConnectitivyIcon(),
+        SrhIcon(),
       ],
     );
   }
