@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 import '../../../../../category/presentation/categories/view/categories_view.dart';
 import '../../../../../splach/presentation/maneg/select_category/select_category_cubit.dart';
+import 'swipeable_view.dart';
 import 'featured_books_list_view_bloc.dart';
 import 'section_headar.dart';
 
@@ -37,12 +38,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.r),
+              padding: EdgeInsets.symmetric(horizontal: 10.r),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // * AppBar
-                  //   const CoustomAppBar(),
+                  10.verticalSpace,
+                  // * Swipeable
+                  const Swipeable(),
                   // * Space
                   15.verticalSpace,
                   // ? ********************* Selected Category Index 0 *********************
