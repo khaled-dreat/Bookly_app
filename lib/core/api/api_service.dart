@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -15,5 +16,9 @@ class ApiService {
 
     //  log(name: "statusCode Url", response.toString());
     return response.data;
+  }
+
+  void checkConnectitivy() async {
+    await Connectivity().checkConnectivity();
   }
 }
