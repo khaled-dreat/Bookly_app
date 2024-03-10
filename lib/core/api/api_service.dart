@@ -18,7 +18,7 @@ class ApiService {
     return response.data;
   }
 
-  void checkConnectitivy() async {
+  static void checkConnectitivy() async {
     await Connectivity().checkConnectivity();
   }
 }
