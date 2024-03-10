@@ -30,7 +30,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 35,
+      height: 35.h,
       child: TextField(
         style: TextStyle(color: Colors.black45, fontSize: 20.sp),
         controller: searchController,
@@ -46,7 +46,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
           fillColor: Colors.white,
           filled: true,
           hintStyle: TextStyle(
-              color: Colors.grey, fontWeight: FontWeight.w600, fontSize: 17.sp),
+              color: Colors.grey, fontWeight: FontWeight.w600, fontSize: 20.sp),
           suffixIcon: IconButton(
             onPressed: () async {
               BlocProvider.of<SrhBooksCubit>(context)
