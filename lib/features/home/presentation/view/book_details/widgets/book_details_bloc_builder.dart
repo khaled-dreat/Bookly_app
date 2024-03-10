@@ -1,4 +1,5 @@
 import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:clean_arch_bookly_app/core/widgets/error/error_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../domain/entity/book_entity.dart';
@@ -24,7 +25,7 @@ class BookDetailsBlocBuilder extends StatelessWidget {
         if (state is BookDetailsLoading) {
           return const BookDetailsShimmer();
         } else if (state is BookDetailsFailure) {
-          Text(state.errMessage);
+          return ErrorText(title: state.errMessage);
         } else if (state is BookDetailsSuccess) {
           return BookDetailsViewBody(
             book: state.book,
