@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
     return const Scaffold(
       drawer: DrawerBody(),
       appBar: CoustomAppBar(),
-      body: HomeViewBody(),
+      body: Center(child: HomeViewBody()),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:clean_arch_bookly_app/core/widgets/loading/app_loading.dart';
+
 import '../../../../domain/entity/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +47,10 @@ class _FeaturedBooksListViewBlocIndex1State
         } else if (state is FetchCategoryBooksIndex1Failure) {
           return Text(state.errMessage);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: AppLoading(
+            loading: TypeLoading.page,
+          ));
         }
       },
     );
@@ -89,7 +94,10 @@ class _FeaturedBooksListViewBlocIndex2State
         } else if (state is FetchCategoryBooksIndex2Failure) {
           return Text(state.errMessage);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: AppLoading(
+            loading: TypeLoading.page,
+          ));
         }
       },
     );
@@ -134,7 +142,10 @@ class _FeaturedBooksListViewBlocIndex3State
         } else if (state is FetchCategoryBooksIndex3Failure) {
           return Text(state.errMessage);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: AppLoading(
+            loading: TypeLoading.page,
+          ));
         }
       },
     );
