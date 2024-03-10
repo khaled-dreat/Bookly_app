@@ -1,4 +1,5 @@
 import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../manger/srh_books/srh_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +61,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
               color: Colors.black54,
             ),
           ),
-          hintText: AppLangKey.search,
+          hintText: AppLangKey.search.tr(),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide.none),
