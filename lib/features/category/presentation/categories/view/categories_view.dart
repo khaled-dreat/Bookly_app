@@ -10,7 +10,7 @@ class CategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("$title ${AppLangKey.book.tr()}")),
+      appBar: AppBar(title: Text("${AppLangKey.book.tr()} $title")),
       body: const CategoriesViewBody(),
     );
   }
