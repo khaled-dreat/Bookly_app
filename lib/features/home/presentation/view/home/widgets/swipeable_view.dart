@@ -19,6 +19,11 @@ class _SwipeableState extends State<Swipeable> {
   @override
   void initState() {
     _controller = PageController(initialPage: 0);
+    timer();
+    super.initState();
+  }
+
+  void timer() {
     _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
       if (currentIndex < contents.length - 1) {
         _controller.nextPage(
@@ -29,7 +34,6 @@ class _SwipeableState extends State<Swipeable> {
         _controller.jumpToPage(0);
       }
     });
-    super.initState();
   }
 
   @override
@@ -104,11 +108,20 @@ class _SwipeableState extends State<Swipeable> {
     return Container(
       height: 10,
       width: currentIndex == index ? 25 : 10,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: AppColors.bgWhite,
       ),
     );
+  }
+}
+
+class SwipeablePageViewBuilder extends StatelessWidget {
+  const SwipeablePageViewBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
