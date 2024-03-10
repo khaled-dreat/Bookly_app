@@ -1,3 +1,4 @@
+import 'package:clean_arch_bookly_app/core/widgets/error/error_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/widgets/snackbar/snackbar.dart';
@@ -38,12 +39,12 @@ class _CategoriesViewBodyState extends State<CategoriesViewBody> {
         }
       },
       builder: (context, state) {
-        if (state is FetchCategoryBooksSuccess ||
+        if (state is FetchCategoryBooksFailure) {
+          return ErrorText(title: state.errMessage);
+        } else if (state is FetchCategoryBooksSuccess ||
             state is FetchCategoryBooksPaginationLoading ||
             state is FetchCategoryBooksFailure) {
           return GridViewCategory(books: books);
-        } else if (state is FetchCategoryBooksFailure) {
-          return Text(state.errMessage);
         } else {
           return const Center(child: CircularProgressIndicator());
         }
