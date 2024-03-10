@@ -1,4 +1,6 @@
+import 'package:clean_arch_bookly_app/core/utils/language/app_lang_key.dart';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 abstract class Failure {
   final String message;
@@ -24,7 +26,7 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure(message: 'Request to ApiServer was canceld');
       case DioExceptionType.connectionError:
-        return ServerFailure(message: 'No Internet Connection');
+        return ServerFailure(message: AppLangKey.noInternet.tr());
       case DioExceptionType.unknown:
         return ServerFailure(
             message: 'Opps There was an Error, Please try again');
