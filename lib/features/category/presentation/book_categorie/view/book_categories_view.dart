@@ -2,12 +2,12 @@ import 'package:clean_arch_bookly_app/core/utils/theme/app_color.dart';
 import 'package:clean_arch_bookly_app/core/utils/theme/app_theme.dart';
 import 'package:clean_arch_bookly_app/features/category/presentation/categories/view/categories_view.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/routes/app_routes.dart';
 import 'package:provider/src/provider.dart';
 import 'package:clean_arch_bookly_app/features/category/presentation/categories/manger/fetch_category_books/fetch_category_books_cubit.dart';
 
 import '../../../../../core/utils/constant/app_catogre.dart';
-import '../../../../../core/widgets/images/costom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
@@ -17,8 +17,8 @@ class BookCategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: const Scaffold(
+    return const SafeArea(
+      child: Scaffold(
         body: BookCategoriesViewBody(),
       ),
     );
@@ -32,7 +32,7 @@ class BookCategoriesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimationLimiter(
       child: GridView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 15.r),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 15,
             mainAxisSpacing: 15,
@@ -60,8 +60,9 @@ class BookCategoriesViewBody extends StatelessWidget {
                 child: Text(
                   selectedLang.elementAt(index).tr(),
                   textAlign: TextAlign.center,
-                  style: AppTheme.h5(context)!
-                      .copyWith(color: AppColors.primaryColor),
+                  style: AppTheme.h5(context)!.copyWith(
+                      color: AppColors.primaryColor,
+                      fontWeight: FontWeight.w700),
                 )),
           );
         },
