@@ -19,6 +19,7 @@ class CustomSrhBooksCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double price = double.parse(((book.price ?? 10) * 0.1).toStringAsFixed(1));
     log(book.price.toString());
     return Row(
       children: [
@@ -45,7 +46,7 @@ class CustomSrhBooksCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${book.price}\$",
+                    "$price\$",
                     style: AppTheme.s1(context),
                   ),
                   BookRating(

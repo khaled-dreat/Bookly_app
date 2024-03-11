@@ -26,7 +26,7 @@ class BookRating extends StatelessWidget {
         ),
         5.horizontalSpace,
         Text(
-          reating == AppLangKey.noReating.tr() ? getRandomNumber() : reating,
+          getRandomNumber(),
           style: TextStyle(fontSize: 10.sp),
         ),
       ],
