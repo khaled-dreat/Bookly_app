@@ -5,17 +5,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/utils/theme/app_color.dart';
 import '../../../../../../core/widgets/buttons/custom_button.dart';
+import '../../../../domain/entity/book_entity.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  const BooksAction({super.key, required this.book});
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
+    double price = double.parse(((book.price ?? 10) * 0.1).toStringAsFixed(1));
+
     return Row(
       children: [
         Expanded(
           child: CustomButton(
-              text: "19.00\$",
+              text: "$price\$",
               backgroundColor: AppColors.bgWhite,
               textColor: AppColors.bgBlack,
               borderRadius: const BorderRadius.only(

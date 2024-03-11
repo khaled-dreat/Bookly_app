@@ -62,9 +62,11 @@ class BookDetailsViewBody extends StatelessWidget {
             // * Title
             Text(
               "${book.title}",
+              textAlign: TextAlign.center,
               style: AppTheme.h4(context),
             ),
-            // * Name of Writer
+            10.verticalSpace,
+            // * Name of Auther
             Opacity(
               opacity: 0.5,
               child: Text(
@@ -73,14 +75,14 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
             ),
             // *   BookRating
-            BookRating(
+            DetailsBookRating(
               mainAxisAlignment: MainAxisAlignment.center,
               reating: book.rating,
             ),
             // *    Space
             30.verticalSpace,
             // * Bottun
-            const BooksAction(),
+            BooksAction(book: book),
             // * Space
             25.verticalSpace,
             // * Text Also Like

@@ -22,12 +22,40 @@ class BookRating extends StatelessWidget {
         Icon(
           FontAwesomeIcons.solidStar,
           color: Colors.amber,
-          size: 10.r,
+          size: 15.r,
         ),
         5.horizontalSpace,
         Text(
           getRandomNumber(),
-          style: TextStyle(fontSize: 10.sp),
+          style: AppTheme.b2(context),
+        ),
+      ],
+    );
+  }
+}
+
+class DetailsBookRating extends StatelessWidget {
+  const DetailsBookRating({
+    super.key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.reating,
+  });
+  final String reating;
+  final MainAxisAlignment mainAxisAlignment;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      children: [
+        Icon(
+          FontAwesomeIcons.solidStar,
+          color: Colors.amber,
+          size: 20.r,
+        ),
+        5.horizontalSpace,
+        Text(
+          getRandomNumber(),
+          style: AppTheme.h6(context),
         ),
       ],
     );
