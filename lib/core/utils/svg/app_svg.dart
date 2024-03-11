@@ -18,8 +18,8 @@ class AppSvg {
     height: xlg.w,
   );
 
-  static final SvgPicture theme = SvgPicture.asset(
-    AppIcons.theme,
+  static final SvgPicture category = SvgPicture.asset(
+    AppIcons.category,
     width: xlg.w,
     height: xlg.w,
   );

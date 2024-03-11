@@ -38,9 +38,8 @@ class DrawerSettings extends StatelessWidget {
           ),
           // * Category
           DrawerSettingDesign(
-            icon: AppSvg.terms,
-            title: "pTheme.nameTheme",
-            //    trailing: const DrawerTheme(),
+            icon: AppSvg.category,
+            title: "Category",
             onTap: () {
               AppRoutes.go(context, BookCategoriesView.nameRoute);
             },
