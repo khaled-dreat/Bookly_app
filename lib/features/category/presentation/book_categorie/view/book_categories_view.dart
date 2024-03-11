@@ -1,3 +1,8 @@
+import 'package:clean_arch_bookly_app/core/utils/theme/app_color.dart';
+import 'package:clean_arch_bookly_app/core/utils/theme/app_theme.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../../../../core/utils/constant/app_catogre.dart';
 import '../../../../../core/widgets/images/costom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -8,8 +13,10 @@ class BookCategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: BookCategoriesViewBody(),
+    return SafeArea(
+      child: const Scaffold(
+        body: BookCategoriesViewBody(),
+      ),
     );
   }
 }
@@ -21,15 +28,25 @@ class BookCategoriesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimationLimiter(
       child: GridView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, mainAxisExtent: 230),
-        itemCount: 3,
+            crossAxisSpacing: 15,
+            mainAxisSpacing: 15,
+            crossAxisCount: 2,
+            mainAxisExtent: 200),
+        itemCount: selectedLang.length,
         itemBuilder: (BuildContext context, int index) {
-          return const CostomBookImage(
-              image:
-                  "https://scontent.fjrs2-2.fna.fbcdn.net/v/t39.30808-6/419339470_704059315202351_7860119078169063731_n.jpg?stp=dst-jpg_p843x403&_nc_cat=102&ccb=1-7&_nc_sid=3635dc&_nc_ohc=K72w8bkRNuYAX_huJsq&_nc_oc=AQnic0actuzbqBopMka1LUWvVkzDqMKYNbSfK2Y0ZmnKeIcLh5luL_WSyiUwzzXEyKA&_nc_ht=scontent.fjrs2-2.fna&oh=00_AfCvC08D7lY305xTOu5Ywc1x10eSxakn2CCdv-ua-IWKJQ&oe=65B6BBEC",
-              height: 170,
-              width: 100);
+          return Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: AppColors.bgWhite,
+                  borderRadius: const BorderRadius.all(Radius.circular(25))),
+              child: Text(
+                selectedLang.elementAt(index).tr(),
+                textAlign: TextAlign.center,
+                style: AppTheme.h5(context)!
+                    .copyWith(color: AppColors.primaryColor),
+              ));
         },
       ),
     );

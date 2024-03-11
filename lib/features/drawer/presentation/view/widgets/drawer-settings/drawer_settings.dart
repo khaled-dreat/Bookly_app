@@ -1,3 +1,4 @@
+import 'package:clean_arch_bookly_app/features/category/presentation/book_categorie/view/book_categories_view.dart';
 import 'package:clean_arch_bookly_app/features/favorite/presentation/view/favorite_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,12 +36,15 @@ class DrawerSettings extends StatelessWidget {
             title: AppLangKey.language.tr(),
             trailing: const DrawerLang(),
           ),
-          // * Theme
-          //      DrawerSettingDesign(
-          //        icon: AppSvg.theme,
-          //        title: pTheme.nameTheme,
-          //        trailing: const DrawerTheme(),
-          //      ),
+          // * Category
+          DrawerSettingDesign(
+            icon: AppSvg.terms,
+            title: "pTheme.nameTheme",
+            //    trailing: const DrawerTheme(),
+            onTap: () {
+              AppRoutes.go(context, BookCategoriesView.nameRoute);
+            },
+          ),
           // * Terms
           DrawerSettingDesign(
             icon: AppSvg.terms,
