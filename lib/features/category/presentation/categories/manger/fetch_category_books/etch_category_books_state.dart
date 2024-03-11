@@ -1,14 +1,13 @@
 part of 'fetch_category_books_cubit.dart';
 
 @immutable
-sealed class FetchCategoryBooksState {}
+class FetchCategoryBooksState {}
 
-final class FetchCategoryBooksInitial extends FetchCategoryBooksState {}
+class FetchCategoryBooksInitial extends FetchCategoryBooksState {}
 
-final class FetchCategoryBooksLoading extends FetchCategoryBooksState {}
+class FetchCategoryBooksLoading extends FetchCategoryBooksState {}
 
-final class FetchCategoryBooksPaginationLoading
-    extends FetchCategoryBooksState {}
+class FetchCategoryBooksPaginationLoading extends FetchCategoryBooksState {}
 
 class FetchCategoryBooksFailure extends FetchCategoryBooksState {
   final String errMessage;
@@ -22,7 +21,7 @@ class FetchCategoryBooksPaginationFailure extends FetchCategoryBooksState {
   FetchCategoryBooksPaginationFailure({required this.errMessage});
 }
 
-final class FetchCategoryBooksSuccess extends FetchCategoryBooksState {
+class FetchCategoryBooksSuccess extends FetchCategoryBooksState {
   final List<BookEntity> books;
 
   FetchCategoryBooksSuccess({required this.books});

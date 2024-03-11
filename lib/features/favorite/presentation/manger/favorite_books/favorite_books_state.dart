@@ -1,19 +1,19 @@
 part of 'favorite_books_cubit.dart';
 
 @immutable
-sealed class FavoriteBooksState {}
+class FavoriteBooksState {}
 
-final class FavoriteBooksInitial extends FavoriteBooksState {}
+class FavoriteBooksInitial extends FavoriteBooksState {}
 
-final class FavoriteBooksLoading extends FavoriteBooksState {}
+class FavoriteBooksLoading extends FavoriteBooksState {}
 
-final class FavoriteBooksFailure extends FavoriteBooksState {
+class FavoriteBooksFailure extends FavoriteBooksState {
   final String errMessage;
 
   FavoriteBooksFailure({required this.errMessage});
 }
 
-final class FavoriteBooksSuccess extends FavoriteBooksState {
+class FavoriteBooksSuccess extends FavoriteBooksState {
   final List<FavoriteBookEntity> books;
 
   FavoriteBooksSuccess({required this.books});

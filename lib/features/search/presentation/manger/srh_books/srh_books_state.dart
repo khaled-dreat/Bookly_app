@@ -1,29 +1,29 @@
 part of 'srh_books_cubit.dart';
 
 @immutable
-sealed class SrhBooksState {}
+class SrhBooksState {}
 
-final class SrhBooksInitial extends SrhBooksState {}
+class SrhBooksInitial extends SrhBooksState {}
 
-final class SrhBooksLoading extends SrhBooksState {}
+class SrhBooksLoading extends SrhBooksState {}
 
-final class SrhBooksshowSrhView extends SrhBooksState {}
+class SrhBooksshowSrhView extends SrhBooksState {}
 
-final class SrhBooksPaginationLoading extends SrhBooksState {}
+class SrhBooksPaginationLoading extends SrhBooksState {}
 
-final class SrhBooksFailure extends SrhBooksState {
+class SrhBooksFailure extends SrhBooksState {
   final String errorMessage;
 
   SrhBooksFailure({required this.errorMessage});
 }
 
-final class SrhBooksPaginationFailure extends SrhBooksState {
+class SrhBooksPaginationFailure extends SrhBooksState {
   final String errorMessage;
 
   SrhBooksPaginationFailure({required this.errorMessage});
 }
 
-final class SrhBooksSuccess extends SrhBooksState {
+class SrhBooksSuccess extends SrhBooksState {
   final List<SrhBookEntity> books;
 
   SrhBooksSuccess({required this.books});
