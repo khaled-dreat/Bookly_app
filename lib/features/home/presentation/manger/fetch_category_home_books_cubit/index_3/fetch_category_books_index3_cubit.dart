@@ -11,7 +11,7 @@ class FetchCategoryBooksIndex3Cubit
   FetchCategoryBooksIndex3Cubit(this.featuredBooksUseCase)
       : super(FetchCategoryBooksIndex3Initial());
 
-  final FetchCategoryHomeBooksUseCase featuredBooksUseCase;
+  FetchCategoryHomeBooksUseCase featuredBooksUseCase;
   Future<void> fetchCategoryBooksIndex3(
       {int pageNumber = 0,
       int? listCategoryIndex,
