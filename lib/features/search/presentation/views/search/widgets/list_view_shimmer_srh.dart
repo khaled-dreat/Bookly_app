@@ -1,3 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../../../../../core/utils/language/app_lang_key.dart';
+import '../../../../../../core/utils/theme/app_theme.dart';
 import '../../../../../../core/widgets/costom_shimmer/cos_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +17,7 @@ class ListViewShimmerSrh extends StatelessWidget {
       highlightColor: Colors.white,
       child: ListView.separated(
         itemCount: 4,
+        padding: EdgeInsets.only(top: 100),
         separatorBuilder: (BuildContext context, int index) {
           return SizedBox(
             height: 14.r,
