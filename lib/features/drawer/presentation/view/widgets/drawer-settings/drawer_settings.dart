@@ -18,8 +18,6 @@ class DrawerSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Provider theme
-    // final ControllerTheme pTheme = Provider.of<ControllerTheme>(context);
     return Expanded(
       flex: 3,
       child: Column(
