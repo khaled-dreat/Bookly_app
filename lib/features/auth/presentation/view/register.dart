@@ -1,6 +1,9 @@
 import 'dart:developer';
 
+import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
+import 'package:clean_arch_bookly_app/features/category/presentation/categories/view/categories_view.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +14,7 @@ import '../../../../core/utils/language/app_lang_key.dart';
 import '../../../../core/widgets/loading/app_loading.dart';
 import '../../../../core/widgets/toast/app_toast.dart';
 import '../../../profile/presentation/views/widgets/custom_btn.dart';
+import '../../../splach/presentation/views/select_category/select_category_view.dart';
 import '../maneg/auth_cubit/auth_cubit.dart';
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
@@ -32,7 +36,7 @@ class _PageRegisterState extends State<PageRegister> {
   @override
   Widget build(BuildContext context) {
     // ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
-
+    AuthCubit? authCubit = context.read<AuthCubit>();
     return Scaffold(
       appBar: AuthAppBar(title: AppLangKey.register.tr()),
       body: SafeArea(
@@ -77,22 +81,18 @@ class _PageRegisterState extends State<PageRegister> {
                   CustomBtn(
                     title: AppLangKey.register.tr(),
                     onTap: () async {
-                      await context
-                          .read<AuthCubit>()
-                          .authMethod(isSignIn: false);
                       if (PageRegister.keyForm.currentState?.validate() ??
                           false) {
                         // ✅
                         log("✅");
                         PageRegister.keyForm.currentState?.save();
-
-                        BlocBuilder<AuthCubit, AuthState>(
-                            builder: (context, state) {
-                          if (state is AuthFailure) {
-                            return AppToast.toast(state.errMessage);
-                          } else if (state is AuthSuccess) {}
-                          return const AppLoading(loading: TypeLoading.send);
-                        });
+                        if (await authCubit.authMethod(isSignIn: false) !=
+                            null) {
+                          AppRoutes.goReplace(
+                              context, SelectCategoryView.nameRoute);
+                        } else {
+                          //          AppToast.toast(pAuth.errorMessage);
+                        }
                       }
                     },
                   ),

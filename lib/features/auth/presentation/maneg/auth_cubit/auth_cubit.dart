@@ -46,8 +46,6 @@ class AuthCubit extends Cubit<AuthState> {
           : await firebaseAuth.createUserWithEmailAndPassword(
               email: userAuth.email!, password: userAuth.password!);
       if (resultUser.user != null) {
-        emit(AuthLoading());
-        emit(AuthSuccess());
         return resultUser.user!;
       } else {
         emit(AuthFailure(errMessage: AppLangKey.notAccount));

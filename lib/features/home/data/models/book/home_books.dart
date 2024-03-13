@@ -1,10 +1,14 @@
 import 'dart:math';
 
+import 'package:clean_arch_bookly_app/features/home/presentation/view/home/widgets/book_rating.dart';
+
 import '../../../domain/entity/book_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
+
+Random? random;
 
 class HomeBooksModel extends BookEntity {
   String? kind;
@@ -30,7 +34,8 @@ class HomeBooksModel extends BookEntity {
           image: volumeInfo?.imageLinks?.thumbnail ?? "",
           title: volumeInfo!.title,
           autherName: volumeInfo.authors?.first ?? "No Name",
-          price: volumeInfo.pageCount!.toDouble(),
+          price: saleInfo?.listPrice?.amount ??
+              (double.parse(((getRandomNumber()))) * 20),
           rating: volumeInfo.maturityRating!,
         );
 

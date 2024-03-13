@@ -39,7 +39,7 @@ class DrawerSettings extends StatelessWidget {
           // * Category
           DrawerSettingDesign(
             icon: AppSvg.category,
-            title: "Category",
+            title: AppLangKey.categories.tr(),
             onTap: () {
               AppRoutes.go(context, BookCategoriesView.nameRoute);
             },
@@ -47,7 +47,7 @@ class DrawerSettings extends StatelessWidget {
           // * Terms
           DrawerSettingDesign(
             icon: AppSvg.terms,
-            title: AppLangKey.terms,
+            title: AppLangKey.terms.tr(),
             onTap: () {
               AppRoutes.goMaterial(
                 context,
