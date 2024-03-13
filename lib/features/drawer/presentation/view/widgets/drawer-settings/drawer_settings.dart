@@ -1,4 +1,4 @@
-import 'package:clean_arch_bookly_app/features/category/presentation/book_categorie/view/book_categories_view.dart';
+import 'package:clean_arch_bookly_app/features/category/presentation/view/book_categorie/book_categories_view.dart';
 import 'package:clean_arch_bookly_app/features/favorite/presentation/view/favorite_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
