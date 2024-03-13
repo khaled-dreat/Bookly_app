@@ -1,6 +1,4 @@
 import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
-
-import '../../../../core/utils/local_data/app_local_data_key.dart';
 import 'package:hive/hive.dart';
 
 abstract class FavoriteLocalDataSource {

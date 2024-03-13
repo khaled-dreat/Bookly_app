@@ -1,8 +1,6 @@
-import 'package:clean_arch_bookly_app/features/favorite/data/data_sources/favorite_local_data_source.dart';
 import 'package:clean_arch_bookly_app/features/favorite/data/data_sources/favorite_remote_data_source.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/repo/repo_favorite.dart';
-import 'package:clean_arch_bookly_app/features/home/domain/entity/book_entity.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../core/utils/constant/app_failure.dart';

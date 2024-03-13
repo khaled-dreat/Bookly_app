@@ -1,13 +1,11 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch_bookly_app/core/usecase/use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/entity/favorite_book_entity.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/add_favorite_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/fetch_favorite_book_use_case.dart';
 import 'package:clean_arch_bookly_app/features/favorite/domain/use_cases/remove_favorite_book_use_case.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz_unsafe.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
 import '../../../../../core/utils/constant/app_failure.dart';
@@ -21,7 +19,6 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
 
   Box<FavoriteBookEntity> haivFavoriteBooks =
       Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
-//  List<FavoriteBookEntity>? listfavoriteBooksDB;
   List<FavoriteBookEntity>? listfavoriteBooks;
   final AddFavoriteBooksUseCase addFavoriteBooksUseCase;
   final RemoveFavoriteBooksUseCase removeFavoriteBooksUseCase;
@@ -85,7 +82,6 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
     double? price,
     String rating,
   ) {
-    // TODO : Repleas Parameter to FavoriteBookEntity book
     FavoriteBookEntity book = FavoriteBookEntity(
       bookId: bookId,
       image: image,
@@ -104,5 +100,4 @@ class FavoriteBooksCubit extends Cubit<FavoriteBooksState> {
         Hive.box<FavoriteBookEntity>(AppHiveKey.favoriteBooks);
     await haivADDFavoriteBooks.add(book);
   }
-}/*
-*/
+}
