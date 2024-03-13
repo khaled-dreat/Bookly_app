@@ -1,18 +1,11 @@
 import 'dart:developer';
-
 import 'package:clean_arch_bookly_app/core/utils/routes/app_routes.dart';
-import 'package:clean_arch_bookly_app/features/category/presentation/categories/view/categories_view.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/utils/dime/app_dime.dart';
 import '../../../../core/utils/language/app_lang_key.dart';
-
-import '../../../../core/widgets/loading/app_loading.dart';
-import '../../../../core/widgets/toast/app_toast.dart';
 import '../../../profile/presentation/views/widgets/custom_btn.dart';
 import '../../../splach/presentation/views/select_category/select_category_view.dart';
 import '../maneg/auth_cubit/auth_cubit.dart';
@@ -35,7 +28,6 @@ class _PageRegisterState extends State<PageRegister> {
   bool isShow = false;
   @override
   Widget build(BuildContext context) {
-    // ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
     AuthCubit? authCubit = context.read<AuthCubit>();
     return Scaffold(
       appBar: AuthAppBar(title: AppLangKey.register.tr()),
@@ -67,15 +59,6 @@ class _PageRegisterState extends State<PageRegister> {
                   const AuthFieldPass(isConfirm: true),
                   // * Space
                   AppDime.lg.verticalSpace,
-                  // * Forgot Pass
-                  // * idea from Abdallah
-                  // Visibility(
-                  //   visible: false,
-                  //   child: AuthForgotPass(),
-                  //   maintainSize: true,
-                  //   maintainAnimation: true,
-                  //   maintainState: true,
-                  // ),
 
                   // * Button Sign in
                   CustomBtn(
@@ -90,8 +73,6 @@ class _PageRegisterState extends State<PageRegister> {
                             null) {
                           AppRoutes.goReplace(
                               context, SelectCategoryView.nameRoute);
-                        } else {
-                          //          AppToast.toast(pAuth.errorMessage);
                         }
                       }
                     },

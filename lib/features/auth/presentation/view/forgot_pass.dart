@@ -20,8 +20,6 @@ class PageForgotPass extends StatelessWidget {
   const PageForgotPass({super.key});
   @override
   Widget build(BuildContext context) {
-    //  ControllerAuth pAuth = Provider.of<ControllerAuth>(context);
-
     return Scaffold(
       appBar: AuthAppBar(title: AppLangKey.forgotPass.tr()),
       body: SafeArea(

@@ -1,19 +1,15 @@
 import 'dart:developer';
-
 import 'package:clean_arch_bookly_app/core/widgets/toast/app_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/utils/dime/app_dime.dart';
 import '../../../../core/utils/language/app_lang_key.dart';
 import '../../../../core/utils/routes/app_routes.dart';
-
 import '../../../../core/widgets/loading/app_loading.dart';
 import '../../../profile/presentation/views/widgets/custom_btn.dart';
 import '../maneg/auth_cubit/auth_cubit.dart';
-import '../maneg/wrapper_cubit/wrapper_cubit.dart';
 import 'register.dart';
 import 'widgets/auth_app_bar.dart';
 import 'widgets/auth_app_icon.dart';
