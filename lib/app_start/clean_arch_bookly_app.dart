@@ -151,7 +151,6 @@ class _BooklyState extends State<Bookly> {
           return SearchhByCubit();
         },
       ),
-
       BlocProvider(
         create: (context) {
           return AuthCubit();
@@ -192,11 +191,6 @@ class _BooklyState extends State<Bookly> {
           return SelectCategoryCubit();
         },
       ),
-      //  BlocProvider(
-      //    create: (context) {
-      //      return LangCubit();
-      //    },
-      //  )
     ];
   }
 }
