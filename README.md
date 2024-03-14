@@ -12,5 +12,6 @@ Application built using Flutter, using API provided by Google, and Cubit manage 
 - Splach
 - Webview
 
+#### Project Video:
 [![Thumbnail](https://github.com/khaled-dreat/Bookly_app/blob/main/assets/img/bookly%20app.png)](https://youtu.be/NVCX2ItlzjE?si=BlUtTZCC1S4PbLLn)
 
