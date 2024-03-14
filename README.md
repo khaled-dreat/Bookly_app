@@ -12,4 +12,4 @@ Application built using Flutter, using API provided by Google, and Cubit manage 
 - Splach
 - Webview
   
-<img src="https://github.com/khaled-dreat/Bookly_app/blob/main/assets/img/bookly%20app.png" width = "450" >
+<img src="https://github.com/khaled-dreat/Bookly_app/blob/main/assets/img/bookly%20app.png" width = "550" >
