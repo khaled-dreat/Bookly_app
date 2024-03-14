@@ -1,6 +1,6 @@
 # Bookly App
 
-Application built using Flutter, using API provided by Google, and Cubit manage state , The application uses hive to save local data, firebase to store data and Auth user.
+Application built using Flutter, using API provided by Google, and Cubit manage state , The application uses hive to save local data, firebase to store data and Auth user(clean architecture code).
 ## Features
 - Auth
 - Category
