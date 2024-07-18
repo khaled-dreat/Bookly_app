@@ -3,8 +3,6 @@
 I developed an advanced bookstore application using Flutter, relying on the MVVM pattern to manage the separation between business logic and UI. I used Cubit for case management, Firebase for user management, and Google APIs to get book data. The application is guided by clean architecture principles and applies dependency injection and control inversion techniques to improve maintainability and testing.
 
 ## Features
-
-**Features:**
 - **Log in and Register**: Manage users thanks to Firebase.
 - **Book Categories**: Browse books by category.
 - **Side menu**: Quick access to different sections.
